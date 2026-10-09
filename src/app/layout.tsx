@@ -4,6 +4,7 @@ import { Cormorant_Garamond, Jost } from "next/font/google";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { Toaster } from "@/components/ui/toast";
+import { siteConfig } from "@/config/site";
 import { getCollections } from "@/lib/catalog";
 
 import "./globals.css";
@@ -24,9 +25,12 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "AGBONS-GL — Luxury. Confidence. Couture.",
-  description:
-    "Bespoke bridal couture and ready-to-wear luxury from Benin City, Nigeria.",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} — ${siteConfig.tagline}`,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {

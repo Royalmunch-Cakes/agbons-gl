@@ -29,9 +29,9 @@ export function Footer() {
           <Image
             src={brandMedia.logoWhite.src}
             alt={brandMedia.logoWhite.alt}
-            width={200}
-            height={80}
-            className="h-14 w-auto"
+            width={180}
+            height={180}
+            className="-my-4 -ml-4 size-32"
           />
           <p className="font-heading text-2xl italic">{siteConfig.tagline}</p>
           <p className="max-w-xs text-sm leading-relaxed text-primary-foreground/70">
