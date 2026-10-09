@@ -6,12 +6,14 @@ import { useActionState } from "react";
 import { submitConsultation } from "@/app/actions/forms";
 import {
   ConsentField,
+  DatePickerField,
   FormStatus,
   Honeypot,
   SelectField,
   SubmitButton,
   TextField,
   fieldProps,
+  withAttempt,
 } from "@/components/forms/form-kit";
 import { Button } from "@/components/ui/button";
 import {
@@ -40,12 +42,12 @@ export function ConsultationForm({
   defaultCollection?: string;
 }) {
   const [state, action, pending] = useActionState(
-    async (prev: Parameters<typeof submitConsultation>[0], data: FormData) => {
+    withAttempt(async (prev: Parameters<typeof submitConsultation>[0], data: FormData) => {
       const next = await submitConsultation(prev, data);
       if (next.status === "success")
         trackEvent("generate_lead", { form: "consultation" });
       return next;
-    },
+    }),
     idleState,
   );
 
@@ -81,13 +83,13 @@ export function ConsultationForm({
   );
 
   return (
-    <form action={action} className="relative" noValidate>
+    <form key={state.attempt} action={action} className="relative" noValidate>
       <Honeypot />
       <FieldGroup className="gap-10">
         <FieldSet>
           <FieldLegend className="font-heading text-2xl">About you</FieldLegend>
           <div className="grid gap-6 sm:grid-cols-2">
-            <TextField state={state} name="name" label="Full name" autoComplete="name" required />
+            <TextField state={state} name="name" label="Full name" autoComplete="name" allow="name" required />
             <TextField state={state} name="email" label="Email" type="email" autoComplete="email" required />
             <TextField
               state={state}
@@ -95,6 +97,8 @@ export function ConsultationForm({
               label="Phone / WhatsApp"
               type="tel"
               autoComplete="tel"
+              placeholder="+234 705 000 0000"
+              allow="phone"
               required
             />
             <TextField
@@ -103,6 +107,7 @@ export function ConsultationForm({
               label="City & country"
               autoComplete="address-level2"
               placeholder="e.g. Lagos, Nigeria"
+              allow="place"
               required
             />
           </div>
@@ -119,7 +124,7 @@ export function ConsultationForm({
               options={consultationLabels.eventType}
               required
             />
-            <TextField state={state} name="eventDate" label="Event date" type="date" required />
+            <DatePickerField state={state} name="eventDate" label="Event date" />
             <SelectField
               state={state}
               name="collection"
@@ -171,7 +176,7 @@ export function ConsultationForm({
                 state={state}
                 name={m}
                 label={`${m[0].toUpperCase()}${m.slice(1)} (cm)`}
-                inputMode="decimal"
+                allow="measurement"
               />
             ))}
           </div>

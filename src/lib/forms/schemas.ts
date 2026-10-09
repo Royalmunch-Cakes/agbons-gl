@@ -1,17 +1,48 @@
 import { z } from "zod";
 
+import {
+  MEASUREMENT_PATTERN,
+  NAME_PATTERN,
+  PHONE_PATTERN,
+  PLACE_PATTERN,
+} from "@/lib/forms/input-rules";
+
 /** Shared validation for every public form (TRD §8 forms). */
 
-const name = z.string().trim().min(2, "Please enter your name.").max(120);
+const name = z
+  .string()
+  .trim()
+  .min(2, "Please enter your name.")
+  .max(120)
+  .regex(NAME_PATTERN, "Names can only contain letters, spaces, hyphens and apostrophes.");
 const email = z.email("Please enter a valid email address.").max(200);
 const phone = z
   .string()
   .trim()
   .min(7, "Please enter a phone or WhatsApp number.")
   .max(30)
-  .regex(/^[+\d][\d\s()-]+$/, "Please enter a valid phone number.");
+  .regex(
+    PHONE_PATTERN,
+    "Phone numbers can only contain digits, spaces, brackets, dashes and a leading +.",
+  )
+  .refine((v) => {
+    const digits = v.replace(/\D/g, "").length;
+    return digits >= 7 && digits <= 15;
+  }, "Please enter a phone number with 7–15 digits.");
 const optionalText = (max: number) =>
   z.string().trim().max(max).optional().or(z.literal("").transform(() => undefined));
+/** Optional measurement in cm, digits with one optional decimal place, within a sane range. */
+const measurement = (min: number, max: number) =>
+  z
+    .string()
+    .trim()
+    .optional()
+    .transform((v) => v || undefined)
+    .refine((v) => v === undefined || MEASUREMENT_PATTERN.test(v), "Numbers only, e.g. 92 or 92.5.")
+    .refine(
+      (v) => v === undefined || (Number(v) >= min && Number(v) <= max),
+      `Please enter a value between ${min} and ${max} cm.`,
+    );
 const consent = z.literal("on", {
   error: "Please agree to be contacted about your enquiry.",
 });
@@ -39,11 +70,21 @@ export const consultationSchema = z.object({
   name,
   email,
   phone,
-  location: z.string().trim().min(2, "Please tell us where you are based.").max(120),
+  location: z
+    .string()
+    .trim()
+    .min(2, "Please tell us where you are based.")
+    .max(120)
+    .regex(PLACE_PATTERN, "Please use letters, spaces and commas only, e.g. Lagos, Nigeria."),
   eventType: z.enum(["white-wedding", "traditional", "reception", "other"], {
     error: "Please choose the occasion.",
   }),
-  eventDate: z.iso.date("Please choose your event date."),
+  eventDate: z.iso
+    .date("Please choose your event date.")
+    .refine(
+      (d) => d >= new Date().toISOString().slice(0, 10),
+      "Please choose a date in the future.",
+    ),
   collection: optionalText(80),
   budget: z.enum(["under-2k", "2k-5k", "5k-10k", "10k-plus", "unsure"], {
     error: "Please choose a budget range.",
@@ -51,17 +92,22 @@ export const consultationSchema = z.object({
   fitting: z.enum(["studio", "virtual", "own-measurements"], {
     error: "Please choose how you'd like to be measured.",
   }),
-  bust: optionalText(10),
-  waist: optionalText(10),
-  hips: optionalText(10),
-  height: optionalText(10),
+  bust: measurement(50, 200),
+  waist: measurement(40, 200),
+  hips: measurement(50, 220),
+  height: measurement(100, 230),
   vision: optionalText(4000),
   consent,
 });
 
 export type FieldErrors = Record<string, string[] | undefined>;
 
-export type FormState =
+/**
+ * `attempt` increments on every submission; forms use it as a React key so
+ * all controls (incl. radios/checkboxes) remount with the submitted values
+ * after React's automatic post-action form reset.
+ */
+export type FormState = { attempt?: number } & (
   | { status: "idle" }
   | { status: "success"; message: string; whatsappUrl?: string }
   | {
@@ -69,7 +115,8 @@ export type FormState =
       message: string;
       fieldErrors?: FieldErrors;
       values?: Record<string, string>;
-    };
+    }
+);
 
 export const idleState: FormState = { status: "idle" };
 

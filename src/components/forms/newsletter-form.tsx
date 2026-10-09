@@ -8,6 +8,7 @@ import {
   Honeypot,
   SubmitButton,
   fieldProps,
+  withAttempt,
 } from "@/components/forms/form-kit";
 import { Container, Section } from "@/components/site/section";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
@@ -21,11 +22,11 @@ import { idleState } from "@/lib/forms/schemas";
  */
 export function NewsletterForm() {
   const [state, action, pending] = useActionState(
-    async (prev: Parameters<typeof subscribeNewsletter>[0], data: FormData) => {
+    withAttempt(async (prev: Parameters<typeof subscribeNewsletter>[0], data: FormData) => {
       const next = await subscribeNewsletter(prev, data);
       if (next.status === "success") trackEvent("sign_up", { method: "newsletter" });
       return next;
-    },
+    }),
     idleState,
   );
   const email = fieldProps(state, "email");
@@ -33,7 +34,7 @@ export function NewsletterForm() {
   if (state.status === "success") return <FormStatus state={state} />;
 
   return (
-    <form action={action} className="relative flex w-full flex-col gap-3" noValidate>
+    <form key={state.attempt} action={action} className="relative flex w-full flex-col gap-3" noValidate>
       <Honeypot />
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start">
         <Field data-invalid={email.invalid || undefined} className="flex-1">

@@ -1,9 +1,12 @@
 "use client";
 
-import { CircleAlertIcon, CircleCheckIcon } from "lucide-react";
+import { format, parseISO } from "date-fns";
+import { CalendarIcon, CircleAlertIcon, CircleCheckIcon } from "lucide-react";
+import { useState } from "react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Field,
@@ -12,6 +15,11 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import {
   Select,
   SelectContent,
@@ -22,7 +30,9 @@ import {
 } from "@/components/ui/select";
 import { Spinner } from "@/components/ui/spinner";
 import { Textarea } from "@/components/ui/textarea";
+import { inputRules, type InputRule } from "@/lib/forms/input-rules";
 import type { FormState } from "@/lib/forms/schemas";
+import { cn } from "@/lib/utils";
 
 /** Comfortable mobile tap target for every control (44px). */
 export const controlClass = "h-11 w-full bg-card px-3 text-base md:text-sm";
@@ -131,6 +141,7 @@ export function TextField({
   label,
   description,
   multiline,
+  allow,
   className,
   ...inputProps
 }: {
@@ -139,9 +150,12 @@ export function TextField({
   label: string;
   description?: string;
   multiline?: boolean;
+  /** Restricts typed/pasted characters (see lib/forms/input-rules.ts). */
+  allow?: InputRule;
   className?: string;
 } & Omit<React.ComponentProps<"input">, "name" | "defaultValue" | "className">) {
   const f = fieldProps(state, name);
+  const rule = allow ? inputRules[allow] : undefined;
   const common = {
     id: name,
     name,
@@ -156,12 +170,38 @@ export function TextField({
       {multiline ? (
         <Textarea {...common} rows={5} className="min-h-32 bg-card px-3 text-base md:text-sm" />
       ) : (
-        <Input {...inputProps} {...common} className={controlClass} />
+        <Input
+          {...inputProps}
+          {...common}
+          inputMode={rule?.inputMode ?? inputProps.inputMode}
+          autoCapitalize={rule?.autoCapitalize}
+          maxLength={rule?.maxLength ?? inputProps.maxLength}
+          onInput={
+            rule
+              ? (e) => {
+                  const el = e.currentTarget;
+                  const clean = rule.sanitize(el.value);
+                  if (clean !== el.value) el.value = clean;
+                }
+              : undefined
+          }
+          className={controlClass}
+        />
       )}
       {description && <FieldDescription>{description}</FieldDescription>}
       <FieldError errors={f.errors} />
     </Field>
   );
+}
+
+/** Wraps a server action so each result carries an incremented `attempt`. */
+export function withAttempt<T extends FormState>(
+  action: (prev: T, data: FormData) => Promise<T>,
+) {
+  return async (prev: T, data: FormData): Promise<T> => ({
+    ...(await action(prev, data)),
+    attempt: (prev.attempt ?? 0) + 1,
+  });
 }
 
 export function ConsentField({ state }: { state: FormState }) {
@@ -171,6 +211,7 @@ export function ConsentField({ state }: { state: FormState }) {
       <Checkbox
         id="consent"
         name="consent"
+        defaultChecked={f.defaultValue === "on"}
         required
         aria-invalid={f.invalid || undefined}
       />
@@ -181,6 +222,79 @@ export function ConsentField({ state }: { state: FormState }) {
         </FieldLabel>
         <FieldError errors={f.errors} />
       </div>
+    </Field>
+  );
+}
+
+/**
+ * Custom date picker (shadcn Calendar in a Popover) bound to a hidden
+ * `yyyy-MM-dd` input. Past dates are disabled.
+ */
+export function DatePickerField({
+  state,
+  name,
+  label,
+  description,
+  placeholder = "Choose a date",
+}: {
+  state: FormState;
+  name: string;
+  label: string;
+  description?: string;
+  placeholder?: string;
+}) {
+  const f = fieldProps(state, name);
+  const [open, setOpen] = useState(false);
+  const [date, setDate] = useState<Date | undefined>(() => {
+    const d = f.defaultValue ? parseISO(f.defaultValue) : undefined;
+    return d && !Number.isNaN(d.getTime()) ? d : undefined;
+  });
+  const [today] = useState(() => {
+    const t = new Date();
+    t.setHours(0, 0, 0, 0);
+    return t;
+  });
+
+  return (
+    <Field data-invalid={f.invalid || undefined}>
+      <FieldLabel htmlFor={name}>{label}</FieldLabel>
+      <input type="hidden" name={name} value={date ? format(date, "yyyy-MM-dd") : ""} />
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger
+          render={
+            <Button
+              id={name}
+              variant="outline"
+              aria-invalid={f.invalid || undefined}
+              className={cn(
+                controlClass,
+                "justify-start font-normal",
+                !date && "text-muted-foreground",
+              )}
+            />
+          }
+        >
+          <CalendarIcon data-icon="inline-start" />
+          {date ? format(date, "EEEE, d MMMM yyyy") : placeholder}
+        </PopoverTrigger>
+        <PopoverContent className="w-auto p-0" align="start">
+          <Calendar
+            mode="single"
+            selected={date}
+            defaultMonth={date ?? today}
+            captionLayout="dropdown"
+            startMonth={today}
+            endMonth={new Date(today.getFullYear() + 3, 11)}
+            disabled={{ before: today }}
+            onSelect={(d) => {
+              setDate(d);
+              setOpen(false);
+            }}
+          />
+        </PopoverContent>
+      </Popover>
+      {description && <FieldDescription>{description}</FieldDescription>}
+      <FieldError errors={f.errors} />
     </Field>
   );
 }

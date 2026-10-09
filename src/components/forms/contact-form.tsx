@@ -10,6 +10,7 @@ import {
   SelectField,
   SubmitButton,
   TextField,
+  withAttempt,
 } from "@/components/forms/form-kit";
 import { FieldGroup } from "@/components/ui/field";
 import { trackEvent } from "@/lib/analytics";
@@ -18,22 +19,29 @@ import { consultationLabels, idleState } from "@/lib/forms/schemas";
 /** Contact form with a real backend (fixes audit §5.9 — no form existed). */
 export function ContactForm() {
   const [state, action, pending] = useActionState(
-    async (prev: Parameters<typeof sendContact>[0], data: FormData) => {
+    withAttempt(async (prev: Parameters<typeof sendContact>[0], data: FormData) => {
       const next = await sendContact(prev, data);
       if (next.status === "success") trackEvent("contact", { method: "form" });
       return next;
-    },
+    }),
     idleState,
   );
 
   if (state.status === "success") return <FormStatus state={state} />;
 
   return (
-    <form action={action} className="relative" noValidate>
+    <form key={state.attempt} action={action} className="relative" noValidate>
       <Honeypot />
       <FieldGroup>
         <div className="grid gap-6 sm:grid-cols-2">
-          <TextField state={state} name="name" label="Full name" autoComplete="name" required />
+          <TextField
+            state={state}
+            name="name"
+            label="Full name"
+            autoComplete="name"
+            allow="name"
+            required
+          />
           <TextField
             state={state}
             name="email"
@@ -48,6 +56,7 @@ export function ContactForm() {
             label="Phone / WhatsApp (optional)"
             type="tel"
             autoComplete="tel"
+            allow="phone"
           />
           <SelectField
             state={state}
