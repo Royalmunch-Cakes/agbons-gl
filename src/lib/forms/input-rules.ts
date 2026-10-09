@@ -23,24 +23,25 @@ export const PHONE_PATTERN = /^\+?[\d\s()-]+$/;
 export const MEASUREMENT_PATTERN = /^\d{1,3}(\.\d)?$/;
 
 /** Collapses doubled spaces and spaces before commas left by stripped characters. */
-const tidy = (v: string) => v.replace(/s+,/g, ",").replace(/s{2,}/g, " ");
+const tidy = (v: string) => v.replace(/\s+,/g, ",").replace(/\s{2,}/g, " ");
 
 export const inputRules: Record<InputRule, Rule> = {
   name: {
-    sanitize: (v) => v.replace(/[^\p{L}\s'’.-]/gu, ""),
+    sanitize: (v) => tidy(v.replace(/[^\p{L}\s'’.-]/gu, "")),
     autoCapitalize: "words",
     maxLength: 120,
   },
   place: {
-    sanitize: (v) => v.replace(/[^\p{L}\s'’.,-]/gu, ""),
+    sanitize: (v) => tidy(v.replace(/[^\p{L}\s'’.,-]/gu, "")),
     autoCapitalize: "words",
     maxLength: 120,
   },
   phone: {
     // Keep a single leading "+" and only digits, spaces, brackets, dashes.
     sanitize: (v) => {
-      const plus = v.trimStart().startsWith("+") ? "+" : "";
-      return plus + v.replace(/[^\d\s()-]/g, "").trimStart();
+      const kept = v.replace(/[^\d\s()+-]/g, "").trimStart();
+      const plus = kept.startsWith("+") ? "+" : "";
+      return plus + kept.replace(/\+/g, "").trimStart();
     },
     inputMode: "tel",
     maxLength: 20,
