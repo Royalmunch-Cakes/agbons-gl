@@ -5,6 +5,7 @@
  *   src/app/icon.png        512×512  (<link rel="icon">)
  *   src/app/apple-icon.png  180×180  (iOS home screen, ivory background)
  *   src/app/favicon.ico     16/32/48 (legacy /favicon.ico requests)
+ *   src/app/opengraph-image.jpg  1200×630 default social share image
  *
  * Usage: node scripts/generate-icons.mjs
  */
@@ -23,10 +24,15 @@ async function square(size, { pad = 0.08, background = IVORY } = {}) {
   const inner = Math.round(size * (1 - pad * 2));
   const art = await sharp(SRC)
     .trim()
-    .resize(inner, inner, { fit: "contain", background: { ...background, alpha: 0 } })
+    .resize(inner, inner, {
+      fit: "contain",
+      background: { ...background, alpha: 0 },
+    })
     .png()
     .toBuffer();
-  return sharp({ create: { width: size, height: size, channels: 4, background } })
+  return sharp({
+    create: { width: size, height: size, channels: 4, background },
+  })
     .composite([{ input: art, gravity: "center" }])
     .png()
     .toBuffer();
@@ -54,14 +60,32 @@ function toIco(images) {
 }
 
 if (!fs.existsSync(SRC)) {
-  console.error(`Missing ${path.relative(ROOT, SRC)} — run: npm run media:pull -- --insecure`);
+  console.error(
+    `Missing ${path.relative(ROOT, SRC)} — run: npm run media:pull -- --insecure`,
+  );
   process.exit(1);
 }
 
 fs.writeFileSync(path.join(APP, "icon.png"), await square(512, { pad: 0.06 }));
-fs.writeFileSync(path.join(APP, "apple-icon.png"), await square(180, { pad: 0.12 }));
+fs.writeFileSync(
+  path.join(APP, "apple-icon.png"),
+  await square(180, { pad: 0.12 }),
+);
 const ico = await Promise.all(
-  [16, 32, 48].map(async (size) => ({ size, data: await square(size, { pad: 0.02 }) })),
+  [16, 32, 48].map(async (size) => ({
+    size,
+    data: await square(size, { pad: 0.02 }),
+  })),
 );
 fs.writeFileSync(path.join(APP, "favicon.ico"), toIco(ico));
-console.log("Wrote src/app/icon.png, apple-icon.png, favicon.ico");
+await sharp(path.join(ROOT, "public/media/site/home-hero.png"))
+  .resize(1200, 630, { fit: "cover", position: "centre" })
+  .jpeg({ quality: 82, mozjpeg: true })
+  .toFile(path.join(APP, "opengraph-image.jpg"));
+fs.writeFileSync(
+  path.join(APP, "opengraph-image.alt.txt"),
+  "AGBONS-GL — five couture gowns from the new collection",
+);
+console.log(
+  "Wrote src/app/icon.png, apple-icon.png, favicon.ico, opengraph-image.jpg",
+);
