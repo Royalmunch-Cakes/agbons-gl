@@ -29,6 +29,9 @@
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-ink: var(--brand-ink);
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -49,7 +52,7 @@
 }
 
 :root {
-  /* AGBONS-GL brand: ivory paper, deep ink, bronze-gold accent (audit §1). */
+  /* AGBONS-GL brand: ivory paper, deep ink, logo orange-gold accent (audit §1). */
   --background: oklch(0.98 0.007 80);
   --foreground: oklch(0.2 0.008 60);
   --card: oklch(0.995 0.003 80);
@@ -62,13 +65,17 @@
   --secondary-foreground: oklch(0.2 0.008 60);
   --muted: oklch(0.94 0.014 80);
   --muted-foreground: oklch(0.5 0.015 60);
-  --accent: oklch(0.6 0.08 75);
-  --accent-foreground: oklch(0.99 0.003 80);
+  --accent: oklch(0.94 0.014 80);
+  --accent-foreground: oklch(0.2 0.008 60);
+  /* Logo orange-gold, plus a darker tone for small text on ivory (WCAG AA). */
+  --brand: oklch(0.72 0.15 62);
+  --brand-foreground: oklch(0.99 0.003 80);
+  --brand-ink: oklch(0.5 0.11 55);
   --destructive: oklch(0.5 0.15 30);
   --border: oklch(0.87 0.02 80);
   --input: oklch(0.87 0.02 80);
-  --ring: oklch(0.6 0.08 75);
-  --chart-1: oklch(0.6 0.08 75);
+  --ring: oklch(0.72 0.15 62);
+  --chart-1: oklch(0.72 0.15 62);
   --chart-2: oklch(0.5 0.015 60);
   --chart-3: oklch(0.42 0.05 70);
   --chart-4: oklch(0.75 0.05 80);
@@ -81,7 +88,7 @@
   --sidebar-accent: oklch(0.94 0.014 80);
   --sidebar-accent-foreground: oklch(0.2 0.008 60);
   --sidebar-border: oklch(0.87 0.02 80);
-  --sidebar-ring: oklch(0.6 0.08 75);
+  --sidebar-ring: oklch(0.72 0.15 62);
 }
 
 .dark {
@@ -139,14 +146,14 @@
     scroll-behavior: smooth;
   }
   ::selection {
-    @apply bg-accent text-accent-foreground;
+    @apply bg-brand text-brand-foreground;
   }
 }
 
 @layer components {
   /* Small uppercase kicker above section headings. */
   .eyebrow {
-    @apply text-[0.7rem] font-medium tracking-[0.3em] text-accent uppercase;
+    @apply text-[0.7rem] font-medium tracking-[0.3em] text-brand-ink uppercase;
   }
   /* Long-form copy (legal, journal, about). */
   .prose-brand {

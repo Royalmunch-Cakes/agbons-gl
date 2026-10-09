@@ -82,7 +82,7 @@ function sortProducts(list: Product[], sort: SortKey): Product[] {
   const sorted = [...list];
   switch (sort) {
     case "newest":
-      return sorted.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+      return sorted.sort((a, b) => b.sortOrder - a.sortOrder);
     case "price-asc":
       return sorted.sort((a, b) => a.priceUsd - b.priceUsd);
     case "price-desc":
@@ -91,7 +91,7 @@ function sortProducts(list: Product[], sort: SortKey): Product[] {
       return sorted.sort(
         (a, b) =>
           Number(!!b.featured) - Number(!!a.featured) ||
-          b.publishedAt.localeCompare(a.publishedAt),
+          b.sortOrder - a.sortOrder,
       );
   }
 }

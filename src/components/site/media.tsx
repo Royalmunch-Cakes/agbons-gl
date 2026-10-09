@@ -46,7 +46,7 @@ export function Media({
           aria-label={asset?.alt ?? "Image coming soon"}
           className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-[radial-gradient(ellipse_at_top,var(--color-card),var(--color-secondary)_60%,var(--color-border))] p-6 text-center"
         >
-          <span className="font-heading text-4xl text-accent italic">AG</span>
+          <span className="font-heading text-4xl text-brand-ink italic">AG</span>
           {asset?.alt && (
             <span className="max-w-[16rem] text-[0.65rem] tracking-[0.2em] text-muted-foreground uppercase">
               {asset.alt}

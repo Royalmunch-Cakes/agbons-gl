@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "import:catalog": "node scripts/import-woocommerce.mjs",
+    "media:pull": "node scripts/pull-site-media.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

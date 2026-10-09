@@ -1,0 +1,1100 @@
+[
+  {
+    "slug": "crystal-drop-bridal-collection",
+    "sku": "AGB-CDC-32",
+    "name": "Crystal Drop Bridal Collections",
+    "line": "bridal-couture",
+    "collections": [
+      "crystal-drop"
+    ],
+    "priceUsd": 5000,
+    "images": [
+      {
+        "src": "/media/products/crystal-drop-bridal-collection-1.jpg",
+        "alt": "Crystal Drop Bridal Collections"
+      }
+    ],
+    "shortDescription": "Crystal Drop Bridal Collections — commissioned couture, made to your measurements.",
+    "description": "",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": true,
+    "featured": false,
+    "sortOrder": 1051,
+    "sourceUrl": "https://agbons-gl.com/product/crystal-drop-bridal-collection/"
+  },
+  {
+    "slug": "haute-collection",
+    "sku": "AGB-HAUTE-045",
+    "name": "Haute Couture Bridal Collection",
+    "line": "bridal-couture",
+    "collections": [
+      "haute-couture"
+    ],
+    "priceUsd": 5000,
+    "images": [
+      {
+        "src": "/media/products/haute-collection-1.jpg",
+        "alt": "Haute Couture Bridal Collection"
+      }
+    ],
+    "shortDescription": "Haute Couture Bridal Collection — commissioned couture, made to your measurements.",
+    "description": "",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": true,
+    "featured": false,
+    "sortOrder": 1027,
+    "sourceUrl": "https://agbons-gl.com/product/haute-collection/"
+  },
+  {
+    "slug": "adoreme-set",
+    "sku": "AGB-SPS-042",
+    "name": "Adoreme Set",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 1500,
+    "images": [
+      {
+        "src": "/media/products/adoreme-set-1.jpg",
+        "alt": "Adoreme Set"
+      }
+    ],
+    "shortDescription": "Adoreme Set — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Adoreme Set embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 941,
+    "sourceUrl": "https://agbons-gl.com/product/adoreme-set/"
+  },
+  {
+    "slug": "boss-affair",
+    "sku": "AGB-RAC-041",
+    "name": "Boss Affair",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 1800,
+    "images": [
+      {
+        "src": "/media/products/boss-affair-1.jpg",
+        "alt": "Boss Affair"
+      }
+    ],
+    "shortDescription": "Boss Affair — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Boss Affair embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 940,
+    "sourceUrl": "https://agbons-gl.com/product/boss-affair/"
+  },
+  {
+    "slug": "chic-set-2",
+    "sku": "AGB-CHIC-040",
+    "name": "Chic Set",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 1200,
+    "images": [
+      {
+        "src": "/media/products/chic-set-2-1.jpg",
+        "alt": "Chic Set"
+      }
+    ],
+    "shortDescription": "Chic Set — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Chic Set embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 939,
+    "sourceUrl": "https://agbons-gl.com/product/chic-set-2/"
+  },
+  {
+    "slug": "velvet-max",
+    "sku": "AGB-CDC-039",
+    "name": "Velvet Max",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 1000,
+    "images": [
+      {
+        "src": "/media/products/velvet-max-1.jpg",
+        "alt": "Velvet Max — view 1"
+      },
+      {
+        "src": "/media/products/velvet-max-2.jpg",
+        "alt": "Velvet Max — view 2"
+      }
+    ],
+    "shortDescription": "Velvet Max — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Velvet Max embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 938,
+    "sourceUrl": "https://agbons-gl.com/product/velvet-max/"
+  },
+  {
+    "slug": "axo-set",
+    "sku": "AGB-QIC-038",
+    "name": "Axo Set",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 1150,
+    "images": [
+      {
+        "src": "/media/products/axo-set-1.jpg",
+        "alt": "Axo Set — view 1"
+      },
+      {
+        "src": "/media/products/axo-set-2.jpg",
+        "alt": "Axo Set — view 2"
+      }
+    ],
+    "shortDescription": "Axo Set — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Axo Set embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 937,
+    "sourceUrl": "https://agbons-gl.com/product/axo-set/"
+  },
+  {
+    "slug": "platinum-haze-tunic-dress",
+    "sku": "AGB-HCC-037",
+    "name": "Platinum Haze Tunic Dress",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 2300,
+    "images": [
+      {
+        "src": "/media/products/platinum-haze-tunic-dress-1.webp",
+        "alt": "Platinum Haze Tunic Dress"
+      }
+    ],
+    "shortDescription": "Platinum Haze Tunic Dress — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Platinum Haze Tunic Dress embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": true,
+    "sortOrder": 936,
+    "sourceUrl": "https://agbons-gl.com/product/platinum-haze-tunic-dress/"
+  },
+  {
+    "slug": "azure-monarch-blouse-skirt",
+    "sku": "AGB-SPS-036",
+    "name": "Azure Monarch Blouse Skirt",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 1800,
+    "images": [
+      {
+        "src": "/media/products/azure-monarch-blouse-skirt-1.jpg",
+        "alt": "Azure Monarch Blouse Skirt"
+      }
+    ],
+    "shortDescription": "Azure Monarch Blouse Skirt — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Azure Monarch Blouse Skirt embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 935,
+    "sourceUrl": "https://agbons-gl.com/product/azure-monarch-blouse-skirt/"
+  },
+  {
+    "slug": "rose-ember-cape-set",
+    "sku": "AGB-RAC-035",
+    "name": "Rosé Ember Cape Set",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 2650,
+    "images": [
+      {
+        "src": "/media/products/rose-ember-cape-set-1.jpg",
+        "alt": "Rosé Ember Cape Set — view 1"
+      },
+      {
+        "src": "/media/products/rose-ember-cape-set-2.jpg",
+        "alt": "Rosé Ember Cape Set — view 2"
+      },
+      {
+        "src": "/media/products/rose-ember-cape-set-3.jpg",
+        "alt": "Rosé Ember Cape Set — view 3"
+      }
+    ],
+    "shortDescription": "Rosé Ember Cape Set — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Rosé Ember Cape Set embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 934,
+    "sourceUrl": "https://agbons-gl.com/product/rose-ember-cape-set/"
+  },
+  {
+    "slug": "silver-pulse-pantsuit",
+    "sku": "AGB-IAC-034",
+    "name": "Silver Pulse Pantsuit",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 2400,
+    "images": [
+      {
+        "src": "/media/products/silver-pulse-pantsuit-1.webp",
+        "alt": "Silver Pulse Pantsuit"
+      }
+    ],
+    "shortDescription": "Silver Pulse Pantsuit — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Silver Pulse Pantsuit embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 933,
+    "sourceUrl": "https://agbons-gl.com/product/silver-pulse-pantsuit/"
+  },
+  {
+    "slug": "onyx-frost-tailored-dress",
+    "sku": "AGB-CDC-033",
+    "name": "Onyx Frost Tailored Dress",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 2100,
+    "images": [
+      {
+        "src": "/media/products/onyx-frost-tailored-dress-1.jpg",
+        "alt": "Onyx Frost Tailored Dress"
+      }
+    ],
+    "shortDescription": "Onyx Frost Tailored Dress — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Onyx Frost Tailored Dress embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": true,
+    "sortOrder": 932,
+    "sourceUrl": "https://agbons-gl.com/product/onyx-frost-tailored-dress/"
+  },
+  {
+    "slug": "dusk-aura-wrap-dress",
+    "sku": "AGB-QIC-032",
+    "name": "Dusk Aura Wrap Dress",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 1600,
+    "images": [
+      {
+        "src": "/media/products/dusk-aura-wrap-dress-1.jpg",
+        "alt": "Dusk Aura Wrap Dress"
+      }
+    ],
+    "shortDescription": "Dusk Aura Wrap Dress — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Dusk Aura Wrap Dress embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 931,
+    "sourceUrl": "https://agbons-gl.com/product/dusk-aura-wrap-dress/"
+  },
+  {
+    "slug": "emberlace-slit-gown",
+    "sku": "AGB-HCC-031",
+    "name": "Emberlace Slit Gown",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 2700,
+    "images": [
+      {
+        "src": "/media/products/emberlace-slit-gown-1.jpg",
+        "alt": "Emberlace Slit Gown"
+      }
+    ],
+    "shortDescription": "Emberlace Slit Gown — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Emberlace Slit Gown embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 930,
+    "sourceUrl": "https://agbons-gl.com/product/emberlace-slit-gown/"
+  },
+  {
+    "slug": "golden-thread-coat-dress",
+    "sku": "AGB-SPS-030",
+    "name": "Golden Thread Coat Dress",
+    "line": "bridal-couture",
+    "collections": [
+      "stone-petal-sparkle"
+    ],
+    "priceUsd": 2500,
+    "images": [
+      {
+        "src": "/media/products/golden-thread-coat-dress-1.jpg",
+        "alt": "Golden Thread Coat Dress — view 1"
+      },
+      {
+        "src": "/media/products/golden-thread-coat-dress-2.jpg",
+        "alt": "Golden Thread Coat Dress — view 2"
+      },
+      {
+        "src": "/media/products/golden-thread-coat-dress-3.jpg",
+        "alt": "Golden Thread Coat Dress — view 3"
+      }
+    ],
+    "shortDescription": "Golden Thread Coat Dress — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Golden Thread Coat Dress embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 929,
+    "sourceUrl": "https://agbons-gl.com/product/golden-thread-coat-dress/"
+  },
+  {
+    "slug": "velvet-rune-cocktail-dress",
+    "sku": "AGB-RAC-029",
+    "name": "Velvet Rune Cocktail Dress",
+    "line": "bridal-couture",
+    "collections": [
+      "royal-ancestors"
+    ],
+    "priceUsd": 2000,
+    "images": [
+      {
+        "src": "/media/products/velvet-rune-cocktail-dress-1.jpg",
+        "alt": "Velvet Rune Cocktail Dress — view 1"
+      },
+      {
+        "src": "/media/products/velvet-rune-cocktail-dress-2.jpg",
+        "alt": "Velvet Rune Cocktail Dress — view 2"
+      },
+      {
+        "src": "/media/products/velvet-rune-cocktail-dress-3.jpg",
+        "alt": "Velvet Rune Cocktail Dress — view 3"
+      }
+    ],
+    "shortDescription": "Velvet Rune Cocktail Dress — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Velvet Rune Cocktail Dress embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 928,
+    "sourceUrl": "https://agbons-gl.com/product/velvet-rune-cocktail-dress/"
+  },
+  {
+    "slug": "graphite-bloom-midi-dress",
+    "sku": "AGB-IAC-028",
+    "name": "Graphite Bloom Midi Dress",
+    "line": "bridal-couture",
+    "collections": [
+      "ice-crystal"
+    ],
+    "priceUsd": 1900,
+    "images": [
+      {
+        "src": "/media/products/graphite-bloom-midi-dress-1.jpg",
+        "alt": "agbonsgl"
+      }
+    ],
+    "shortDescription": "Graphite Bloom Midi Dress — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Graphite Bloom Midi Dress embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 927,
+    "sourceUrl": "https://agbons-gl.com/product/graphite-bloom-midi-dress/"
+  },
+  {
+    "slug": "pearlline-draped-gown",
+    "sku": "AGB-CDC-027",
+    "name": "Pearlline Draped Gown",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 2600,
+    "images": [
+      {
+        "src": "/media/products/pearlline-draped-gown-1.jpg",
+        "alt": "Pearlline Draped Gown — view 1"
+      },
+      {
+        "src": "/media/products/pearlline-draped-gown-2.jpg",
+        "alt": "Pearlline Draped Gown — view 2"
+      },
+      {
+        "src": "/media/products/pearlline-draped-gown-3.jpg",
+        "alt": "Pearlline Draped Gown — view 3"
+      }
+    ],
+    "shortDescription": "Pearlline Draped Gown — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Pearlline Draped Gown embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 926,
+    "sourceUrl": "https://agbons-gl.com/product/pearlline-draped-gown/"
+  },
+  {
+    "slug": "opal-mirage-suit-set",
+    "sku": "AGB-QIC-026",
+    "name": "Opal Mirage Suit Set",
+    "line": "bridal-couture",
+    "collections": [
+      "queen-idia"
+    ],
+    "priceUsd": 2350,
+    "images": [
+      {
+        "src": "/media/products/opal-mirage-suit-set-1.jpg",
+        "alt": "Opal Mirage Suit Set"
+      }
+    ],
+    "shortDescription": "Opal Mirage Suit Set — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Opal Mirage Suit Set embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 925,
+    "sourceUrl": "https://agbons-gl.com/product/opal-mirage-suit-set/"
+  },
+  {
+    "slug": "crimson-halo-shift-dress",
+    "sku": "AGB-HCC-025",
+    "name": "Crimson Halo Shift Dress",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 1750,
+    "images": [
+      {
+        "src": "/media/products/crimson-halo-shift-dress-1.jpg",
+        "alt": "Crimson Halo Shift Dress — view 1"
+      },
+      {
+        "src": "/media/products/crimson-halo-shift-dress-2.jpg",
+        "alt": "Crimson Halo Shift Dress — view 2"
+      }
+    ],
+    "shortDescription": "Crimson Halo Shift Dress — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Crimson Halo Shift Dress embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 924,
+    "sourceUrl": "https://agbons-gl.com/product/crimson-halo-shift-dress/"
+  },
+  {
+    "slug": "sapphire-veil-evening-gown",
+    "sku": "AGB-SPS-024",
+    "name": "Sapphire Veil Evening Gown",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 2800,
+    "images": [
+      {
+        "src": "/media/products/sapphire-veil-evening-gown-1.jpg",
+        "alt": "Sapphire Veil Evening Gown — view 1"
+      },
+      {
+        "src": "/media/products/sapphire-veil-evening-gown-2.jpg",
+        "alt": "Sapphire Veil Evening Gown — view 2"
+      },
+      {
+        "src": "/media/products/sapphire-veil-evening-gown-3.jpg",
+        "alt": "Sapphire Veil Evening Gown — view 3"
+      }
+    ],
+    "shortDescription": "Sapphire Veil Evening Gown — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Sapphire Veil Evening Gown embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": false,
+    "stockQuantity": 0,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 923,
+    "sourceUrl": "https://agbons-gl.com/product/sapphire-veil-evening-gown/"
+  },
+  {
+    "slug": "blush-equinox-maxi-dress",
+    "sku": "AGB-RAC-023",
+    "name": "Blush Equinox Maxi Dress",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 2200,
+    "images": [
+      {
+        "src": "/media/products/blush-equinox-maxi-dress-1.jpg",
+        "alt": "Blush Equinox Maxi Dress — view 1"
+      },
+      {
+        "src": "/media/products/blush-equinox-maxi-dress-2.jpg",
+        "alt": "Blush Equinox Maxi Dress — view 2"
+      },
+      {
+        "src": "/media/products/blush-equinox-maxi-dress-3.jpg",
+        "alt": "Blush Equinox Maxi Dress — view 3"
+      }
+    ],
+    "shortDescription": "Blush Equinox Maxi Dress — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Blush Equinox Maxi Dress embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": true,
+    "sortOrder": 922,
+    "sourceUrl": "https://agbons-gl.com/product/blush-equinox-maxi-dress/"
+  },
+  {
+    "slug": "champagne-blade-dress",
+    "sku": "AGB-IAC-022",
+    "name": "Champagne Blade Dress",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 1950,
+    "images": [
+      {
+        "src": "/media/products/champagne-blade-dress-1.jpg",
+        "alt": "Champagne Blade Dress"
+      }
+    ],
+    "shortDescription": "Champagne Blade Dress — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Champagne Blade Dress embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 921,
+    "sourceUrl": "https://agbons-gl.com/product/champagne-blade-dress/"
+  },
+  {
+    "slug": "noir-whisper-dress",
+    "sku": "AGB-CDC-021",
+    "name": "Noir Whisper Dress",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 1800,
+    "images": [
+      {
+        "src": "/media/products/noir-whisper-dress-1.jpg",
+        "alt": "Noir Whisper Dress"
+      }
+    ],
+    "shortDescription": "Noir Whisper Dress — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Noir Whisper Dress embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 920,
+    "sourceUrl": "https://agbons-gl.com/product/noir-whisper-dress/"
+  },
+  {
+    "slug": "royal-ember-gown",
+    "sku": "AGB-QIC-020",
+    "name": "Royal Ember Gown",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 2450,
+    "images": [
+      {
+        "src": "/media/products/royal-ember-gown-1.webp",
+        "alt": "Royal Ember Gown"
+      }
+    ],
+    "shortDescription": "Royal Ember Gown — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Royal Ember Gown embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "stockQuantity": 1,
+    "madeToOrder": false,
+    "featured": true,
+    "sortOrder": 919,
+    "sourceUrl": "https://agbons-gl.com/product/royal-ember-gown/"
+  },
+  {
+    "slug": "ivory-cascade-cape-dress",
+    "sku": "AGB-HCC-019",
+    "name": "Ivory Cascade Cape Dress",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 2150,
+    "images": [
+      {
+        "src": "/media/products/ivory-cascade-cape-dress-1.jpg",
+        "alt": "Ivory Cascade Cape Dress"
+      }
+    ],
+    "shortDescription": "Ivory Cascade Cape Dress — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Ivory Cascade Cape Dress embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 918,
+    "sourceUrl": "https://agbons-gl.com/product/ivory-cascade-cape-dress/"
+  },
+  {
+    "slug": "summer-icon-dress",
+    "sku": "AGB-RAC-017",
+    "name": "Summer Icon Dress",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 800,
+    "images": [
+      {
+        "src": "/media/products/summer-icon-dress-1.jpg",
+        "alt": "Summer Icon Dress"
+      }
+    ],
+    "shortDescription": "Summer Icon Dress — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Summer Icon Dress embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": true,
+    "sortOrder": 917,
+    "sourceUrl": "https://agbons-gl.com/product/summer-icon-dress/"
+  },
+  {
+    "slug": "exclusive-diva",
+    "sku": "AGB-IAC-016",
+    "name": "Exclusive Diva",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 2000,
+    "images": [
+      {
+        "src": "/media/products/exclusive-diva-1.jpg",
+        "alt": "Exclusive Diva"
+      }
+    ],
+    "shortDescription": "Exclusive Diva — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Exclusive Diva embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 916,
+    "sourceUrl": "https://agbons-gl.com/product/exclusive-diva/"
+  },
+  {
+    "slug": "millennium-dress",
+    "sku": "AGB-CDC-015",
+    "name": "Millennium Dress",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 1500,
+    "images": [
+      {
+        "src": "/media/products/millennium-dress-1.jpg",
+        "alt": "Millennium Dress"
+      }
+    ],
+    "shortDescription": "Millennium Dress — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Millennium Dress embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 915,
+    "sourceUrl": "https://agbons-gl.com/product/millennium-dress/"
+  },
+  {
+    "slug": "mimi-asake",
+    "sku": "AGB-HCC-013",
+    "name": "Mimi Asake",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 1000,
+    "images": [
+      {
+        "src": "/media/products/mimi-asake-1.jpg",
+        "alt": "Mimi Asake — view 1"
+      },
+      {
+        "src": "/media/products/mimi-asake-2.jpg",
+        "alt": "Mimi Asake — view 2"
+      }
+    ],
+    "shortDescription": "Mimi Asake — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Mimi Asake embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 914,
+    "sourceUrl": "https://agbons-gl.com/product/mimi-asake/"
+  },
+  {
+    "slug": "monica-drape",
+    "sku": "AGB-SPS-012",
+    "name": "Monica Drape",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 2000,
+    "images": [
+      {
+        "src": "/media/products/monica-drape-1.jpg",
+        "alt": "Monica Drape"
+      }
+    ],
+    "shortDescription": "Monica Drape — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Monica Drape embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 913,
+    "sourceUrl": "https://agbons-gl.com/product/monica-drape/"
+  },
+  {
+    "slug": "terra",
+    "sku": "AGB-RAC-011",
+    "name": "Terra",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 850,
+    "images": [
+      {
+        "src": "/media/products/terra-1.jpg",
+        "alt": "Terra"
+      }
+    ],
+    "shortDescription": "Terra — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Terra embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": true,
+    "sortOrder": 912,
+    "sourceUrl": "https://agbons-gl.com/product/terra/"
+  },
+  {
+    "slug": "aqua",
+    "sku": "AGB-IAC-010",
+    "name": "Aqua",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 1500,
+    "images": [
+      {
+        "src": "/media/products/aqua-1.jpg",
+        "alt": "Aqua"
+      }
+    ],
+    "shortDescription": "Aqua — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Aqua embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 911,
+    "sourceUrl": "https://agbons-gl.com/product/aqua/"
+  },
+  {
+    "slug": "mini-snow-dress",
+    "sku": "AGB-CDC-009",
+    "name": "Mini Snow Dress",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 950,
+    "images": [
+      {
+        "src": "/media/products/mini-snow-dress-1.jpg",
+        "alt": "Mini Snow Dress"
+      }
+    ],
+    "shortDescription": "Mini Snow Dress — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Mini Snow Dress embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 910,
+    "sourceUrl": "https://agbons-gl.com/product/mini-snow-dress/"
+  },
+  {
+    "slug": "purple-varient",
+    "sku": "AGB-QIC-008",
+    "name": "Purple Varient",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 800,
+    "images": [
+      {
+        "src": "/media/products/purple-varient-1.jpg",
+        "alt": "Purple Varient"
+      }
+    ],
+    "shortDescription": "Purple Varient — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Purple Varient embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 909,
+    "sourceUrl": "https://agbons-gl.com/product/purple-varient/"
+  },
+  {
+    "slug": "janetin-gigs",
+    "sku": "AGB-HCC-007",
+    "name": "Janetin Gigs",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 500,
+    "images": [
+      {
+        "src": "/media/products/janetin-gigs-1.jpg",
+        "alt": "Janetin Gigs"
+      }
+    ],
+    "shortDescription": "Janetin Gigs — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Janetin Gigs embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 908,
+    "sourceUrl": "https://agbons-gl.com/product/janetin-gigs/"
+  },
+  {
+    "slug": "amazon-bliz",
+    "sku": "AGB-SPS-006",
+    "name": "Amazon Bliz",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 1000,
+    "images": [
+      {
+        "src": "/media/products/amazon-bliz-1.jpg",
+        "alt": "Amazon Bliz"
+      }
+    ],
+    "shortDescription": "Amazon Bliz — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Amazon Bliz embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 907,
+    "sourceUrl": "https://agbons-gl.com/product/amazon-bliz/"
+  },
+  {
+    "slug": "viva-drape",
+    "sku": "AGB-RAC-005",
+    "name": "Viva Drape",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 800,
+    "images": [
+      {
+        "src": "/media/products/viva-drape-1.jpg",
+        "alt": "Viva Drape — view 1"
+      },
+      {
+        "src": "/media/products/viva-drape-2.jpg",
+        "alt": "Viva Drape — view 2"
+      },
+      {
+        "src": "/media/products/viva-drape-3.jpg",
+        "alt": "Viva Drape — view 3"
+      }
+    ],
+    "shortDescription": "Viva Drape — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Viva Drape embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 906,
+    "sourceUrl": "https://agbons-gl.com/product/viva-drape/"
+  },
+  {
+    "slug": "she-look-set",
+    "sku": "AGB-IAC-004",
+    "name": "She Look Set",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 1500,
+    "images": [
+      {
+        "src": "/media/products/she-look-set-1.jpg",
+        "alt": "She Look Set"
+      }
+    ],
+    "shortDescription": "She Look Set — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The She Look Set embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 905,
+    "sourceUrl": "https://agbons-gl.com/product/she-look-set/"
+  },
+  {
+    "slug": "corporate-chic",
+    "sku": "AGB-CDC-003",
+    "name": "Corporate Chic",
+    "line": "bridal-couture",
+    "collections": [
+      "2024"
+    ],
+    "priceUsd": 1800,
+    "images": [
+      {
+        "src": "/media/products/corporate-chic-1.jpg",
+        "alt": "Corporate Chic"
+      }
+    ],
+    "shortDescription": "Corporate Chic — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Corporate Chic embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 904,
+    "sourceUrl": "https://agbons-gl.com/product/corporate-chic/"
+  },
+  {
+    "slug": "boss-set",
+    "sku": "AGB-QIC-002",
+    "name": "Boss Set",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 1200,
+    "images": [
+      {
+        "src": "/media/products/boss-set-1.webp",
+        "alt": "agbonsgl"
+      }
+    ],
+    "shortDescription": "Boss Set — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Boss Set embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 903,
+    "sourceUrl": "https://agbons-gl.com/product/boss-set/"
+  },
+  {
+    "slug": "chic-set",
+    "sku": "AGB-HCC-001",
+    "name": "Chic Set",
+    "line": "bridal-couture",
+    "collections": [
+      "2023"
+    ],
+    "priceUsd": 1150,
+    "images": [
+      {
+        "src": "/media/products/chic-set-1.jpg",
+        "alt": "Chic Set"
+      }
+    ],
+    "shortDescription": "Chic Set — a refined expression of elegance and artistry, crafted with the precision and grace that define modern couture.",
+    "description": "The Chic Set embodies timeless sophistication through its exquisite detailing and flawless craftsmanship. Designed to capture light, movement, and emotion, each piece reflects the meticulous vision of Agbons-GL. Every curve, seam, and texture harmonizes to tell a story of power, beauty, and heritage — made for the woman who commands attention effortlessly.",
+    "details": {},
+    "inStock": true,
+    "madeToOrder": false,
+    "featured": false,
+    "sortOrder": 902,
+    "sourceUrl": "https://agbons-gl.com/product/chic-set/"
+  }
+]

@@ -25,6 +25,11 @@ export type ProductLine = {
 
 export type CollectionKind = "signature" | "season";
 
+export type StorySection = {
+  heading: string;
+  paragraphs: string[];
+};
+
 export type Collection = {
   slug: string;
   name: string;
@@ -35,6 +40,10 @@ export type Collection = {
   tagline: string;
   description: string;
   hero: MediaAsset;
+  /** Editorial story shown on the collection page (migrated from WordPress). */
+  story?: StorySection[];
+  /** Commission price for a bespoke piece from this collection. */
+  fromPriceUsd?: number;
   /** Old WordPress path, kept for 301 redirects (see next.config.ts). */
   legacyPath?: string;
 };
@@ -60,13 +69,16 @@ export type Product = {
   shortDescription: string;
   description: string;
   details: ProductDetails;
-  /** Units available for immediate purchase. 0 with `madeToOrder` = commission only. */
-  stock: number;
-  /** Bespoke piece made to the client's measurements (audit §4, §5.11). */
+  inStock: boolean;
+  /** Tracked quantity, when WooCommerce managed stock for the product. */
+  stockQuantity?: number;
+  /** Commissioned bespoke piece made to the client's measurements (audit §4, §5.11). */
   madeToOrder: boolean;
   featured?: boolean;
-  /** ISO date, used for "newest" sorting. */
-  publishedAt: string;
+  /** Higher = newer. Used for "newest" sorting. */
+  sortOrder: number;
+  /** Original WordPress URL, for migration traceability. */
+  sourceUrl?: string;
 };
 
 export type Testimonial = {
