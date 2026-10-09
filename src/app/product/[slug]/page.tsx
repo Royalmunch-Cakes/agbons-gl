@@ -244,7 +244,7 @@ export default async function ProductPage(props: PageProps<"/product/[slug]">) {
         <Section className="border-t">
           <Container className="flex flex-col gap-12">
             <SectionHeading eyebrow="You may also love" title="Related Pieces" />
-            <ProductGrid products={related} />
+            <ProductGrid products={related} adaptive />
           </Container>
         </Section>
       )}

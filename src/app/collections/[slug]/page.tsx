@@ -145,7 +145,7 @@ export default async function CollectionPage(props: PageProps<"/collections/[slu
             title="Pieces in this collection"
           />
           {products.length ? (
-            <ProductGrid products={products} />
+            <ProductGrid products={products} adaptive />
           ) : (
             <Empty>
               <EmptyHeader>

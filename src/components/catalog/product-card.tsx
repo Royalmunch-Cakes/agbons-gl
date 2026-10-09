@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Price } from "@/components/commerce/price";
 import { WishlistButton } from "@/components/commerce/wishlist-button";
+import { ProductSpotlight } from "@/components/catalog/product-spotlight";
 import { QuickView } from "@/components/catalog/quick-view";
 import { Media } from "@/components/site/media";
 import { Badge } from "@/components/ui/badge";
@@ -66,13 +67,38 @@ export async function ProductCard({
             {product.name}
           </Link>
         </h3>
-        <Price usd={product.priceUsd} className="text-sm text-muted-foreground" />
+        <Price
+          usd={product.priceUsd}
+          className="text-sm text-muted-foreground"
+        />
       </div>
     </article>
   );
 }
 
-export function ProductGrid({ products }: { products: Product[] }) {
+/**
+ * Product listing. `adaptive` avoids a lone card beside empty columns on
+ * sparse collections: 1 piece → spotlight, 2 → two large cards, 3+ → grid.
+ */
+export function ProductGrid({
+  products,
+  adaptive = false,
+}: {
+  products: Product[];
+  adaptive?: boolean;
+}) {
+  if (adaptive && products.length === 1) {
+    return <ProductSpotlight product={products[0]} />;
+  }
+  if (adaptive && products.length === 2) {
+    return (
+      <div className="mx-auto grid w-full max-w-4xl gap-x-6 gap-y-10 sm:grid-cols-2 lg:gap-x-10">
+        {products.map((p) => (
+          <ProductCard key={p.slug} product={p} priority />
+        ))}
+      </div>
+    );
+  }
   return (
     <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-3">
       {products.map((p, i) => (
