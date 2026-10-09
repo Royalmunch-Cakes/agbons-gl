@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Jost } from "next/font/google";
 
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
+import { ScrollToTop } from "@/components/site/scroll-to-top";
 import { Toaster } from "@/components/ui/toast";
 import { siteConfig } from "@/config/site";
 import { getCollections } from "@/lib/catalog";
@@ -54,10 +55,11 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
             Skip to content
           </a>
           <Header collections={collections} />
-          <main id="main" className="flex-1">
+          <main id="main" tabIndex={-1} className="flex-1 outline-none">
             {children}
           </main>
           <Footer />
+          <ScrollToTop />
         </Toaster>
       </body>
     </html>

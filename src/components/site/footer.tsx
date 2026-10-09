@@ -24,7 +24,7 @@ async function CopyrightYear() {
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
-      <Container className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
+      <Container className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_2fr_1.3fr]">
         <div className="flex flex-col items-start gap-5">
           <Image
             src={brandMedia.logoWhite.src}
@@ -47,25 +47,28 @@ export function Footer() {
           </WhatsAppButton>
         </div>
 
-        {footerNav.map((column) => (
-          <nav key={column.title} aria-label={column.title}>
-            <p className="mb-4 text-xs font-medium tracking-[0.25em] text-primary-foreground/60 uppercase">
-              {column.title}
-            </p>
-            <ul className="flex flex-col gap-2.5 text-sm">
-              {column.items.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-primary-foreground/85 transition-colors hover:text-brand"
-                  >
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        ))}
+        {/* Explore + Customer Care sit side by side, including on mobile. */}
+        <div className="grid grid-cols-2 gap-8">
+          {footerNav.map((column) => (
+            <nav key={column.title} aria-label={column.title}>
+              <p className="mb-4 text-xs font-medium tracking-[0.25em] text-primary-foreground/60 uppercase">
+                {column.title}
+              </p>
+              <ul className="flex flex-col gap-2.5 text-sm">
+                {column.items.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="text-primary-foreground/85 transition-colors hover:text-brand"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+        </div>
 
         <div>
           <p className="mb-4 text-xs font-medium tracking-[0.25em] text-primary-foreground/60 uppercase">

@@ -52,6 +52,9 @@ function Button({
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
+      // Rendered as a link (nativeButton={false} + render={<a>/<Link>}): keep
+      // link semantics instead of Base UI's default role="button".
+      role={props.nativeButton === false ? (props.role ?? "link") : props.role}
     />
   )
 }
