@@ -22,6 +22,9 @@ export const PHONE_PATTERN = /^\+?[\d\s()-]+$/;
 /** Up to 3 digits with an optional single decimal place. */
 export const MEASUREMENT_PATTERN = /^\d{1,3}(\.\d)?$/;
 
+/** Collapses doubled spaces and spaces before commas left by stripped characters. */
+const tidy = (v: string) => v.replace(/s+,/g, ",").replace(/s{2,}/g, " ");
+
 export const inputRules: Record<InputRule, Rule> = {
   name: {
     sanitize: (v) => v.replace(/[^\p{L}\s'’.-]/gu, ""),
