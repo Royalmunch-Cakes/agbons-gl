@@ -31,7 +31,7 @@ export function Footer() {
             alt={brandMedia.logoWhite.alt}
             width={180}
             height={180}
-            className="-my-4 -ml-4 size-32"
+            className="-my-4 size-32"
           />
           <p className="font-heading text-2xl italic">{siteConfig.tagline}</p>
           <p className="max-w-xs text-sm leading-relaxed text-primary-foreground/70">
