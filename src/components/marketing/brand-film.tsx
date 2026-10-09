@@ -4,9 +4,8 @@ import path from "node:path";
 import { Media } from "@/components/site/media";
 
 /**
- * Self-hosted brand film (audit §3.1 item 9, §3.2 item 4). Videos are
- * gitignored; when the file has not been pulled (`npm run media:pull`),
- * the poster image renders instead.
+ * Self-hosted brand film (audit §3.1 item 9, §3.2 item 4). If the file is
+ * missing, the poster image renders instead.
  */
 export function BrandFilm({
   src,

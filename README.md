@@ -23,11 +23,11 @@ taken for open PRD questions are in [docs/decisions.md](docs/decisions.md).
 ```bash
 npm install
 cp .env.example .env          # then fill in real values (see below)
-npm run media:pull -- --insecure   # fetch brand films (gitignored, ~25 MB)
 npm run dev                   # http://localhost:3000
 ```
 
-Production build: `npm run build && npm start`.
+Production build: `npm run build && npm start`. Deployment: see
+[docs/deploy-netlify.md](docs/deploy-netlify.md) (Netlify + DNS cutover).
 
 ### Scripts
 
@@ -36,7 +36,7 @@ Production build: `npm run build && npm start`.
 | `npm run dev` / `build` / `start` | Next.js |
 | `npm run lint` | ESLint |
 | `npm run import:catalog -- --insecure` | Re-import all products + images from the live WooCommerce Store API into `src/content/products.json` and `public/media/products/` |
-| `npm run media:pull -- --insecure` | Download site imagery and the two brand films listed in `scripts/site-media.json` |
+| `npm run media:pull -- --insecure` | Re-download site imagery and brand films listed in `scripts/site-media.json` (already committed) |
 | `npm run icons` | Regenerate favicon, app icons and the default Open Graph image |
 
 `--insecure` is needed only because the current WordPress host serves an
@@ -78,7 +78,7 @@ src/
   content/             products.json, collections, site media, FAQs, journal, policies
   lib/                 catalog queries, store, WhatsApp, currency, analytics, forms
 scripts/               WooCommerce import, media pull, icon generation
-public/media/          migrated imagery (videos gitignored)
+public/media/          migrated imagery and brand films
 ```
 
 ## Routes

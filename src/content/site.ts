@@ -23,7 +23,7 @@ export const pageMedia = {
   bridalHero: { src: "/media/site/bridal-hero.jpg", alt: "Bride in an AGBONS-GL couture gown" },
 } satisfies Record<string, MediaAsset>;
 
-/** Self-hosted brand films (audit §6: 2 MP4s). Gitignored — see README. */
+/** Self-hosted brand films (audit §6: 2 MP4s). */
 export const videos = {
   brandFilm: { src: "/media/video/brand-film.mp4", poster: pageMedia.homeHero.src },
   ourStory: { src: "/media/video/our-story.mp4", poster: pageMedia.aboutHero.src },

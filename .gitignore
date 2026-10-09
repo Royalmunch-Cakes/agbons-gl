@@ -43,5 +43,3 @@ next-env.d.ts
 # allow committed env template
 !.env.example
 
-# large brand films — fetch with `npm run media:pull -- --insecure`
-/public/media/video/
