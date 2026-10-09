@@ -205,7 +205,7 @@ function WishlistLink() {
       variant="ghost"
       size="icon-lg"
       className="relative"
-      aria-label={`Wishlist (${count} items)`}
+      aria-label={`Wishlist (${count} ${count === 1 ? "item" : "items"})`}
       nativeButton={false}
       render={<Link href="/wishlist" />}
     >
@@ -222,7 +222,7 @@ function BagLink() {
       variant="ghost"
       size="icon-lg"
       className="relative"
-      aria-label={`Shopping bag (${count} items)`}
+      aria-label={`Shopping bag (${count} ${count === 1 ? "item" : "items"})`}
       nativeButton={false}
       render={<Link href="/bag" />}
     >
