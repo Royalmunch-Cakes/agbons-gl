@@ -1,7 +1,7 @@
 import "server-only";
 
 import { productLines } from "@/content/collections";
-import { getContent } from "@/lib/content";
+import { getContent, getContentForEdit } from "@/lib/content";
 import type { Collection, Product, ProductLine } from "@/lib/types";
 
 /**
@@ -34,8 +34,16 @@ export async function getProducts(): Promise<Product[]> {
   return loadProducts();
 }
 
+/**
+ * Find a product. A miss in the cached list is re-checked against the store,
+ * so a product created moments ago resolves on its very first visit instead
+ * of rendering a stale 404. Only would-be 404s pay for the extra read.
+ */
 export async function getProduct(slug: string): Promise<Product | undefined> {
-  return (await loadProducts()).find((p) => p.slug === slug);
+  return (
+    (await loadProducts()).find((p) => p.slug === slug) ??
+    (await getContentForEdit("products")).find((p) => p.slug === slug)
+  );
 }
 
 export async function getFeaturedProducts(limit = 6): Promise<Product[]> {
@@ -59,16 +67,24 @@ export async function getCollections(): Promise<Collection[]> {
 export async function getCollection(
   slug: string,
 ): Promise<Collection | undefined> {
-  return (await loadCollections()).find((c) => c.slug === slug);
+  return (
+    (await loadCollections()).find((c) => c.slug === slug) ??
+    (await getContentForEdit("collections")).find((c) => c.slug === slug)
+  );
 }
 
-export async function getProductsInCollection(slug: string): Promise<Product[]> {
+export async function getProductsInCollection(
+  slug: string,
+): Promise<Product[]> {
   return (await loadProducts()).filter((p) => p.collections.includes(slug));
 }
 
 /** Facet counts for the shop filter (audit §3.4 "category checkboxes with counts"). */
 export async function getFacetCounts() {
-  const [products, collections] = await Promise.all([loadProducts(), loadCollections()]);
+  const [products, collections] = await Promise.all([
+    loadProducts(),
+    loadCollections(),
+  ]);
   const count = (pred: (p: Product) => boolean) => products.filter(pred).length;
   return {
     lines: productLines.map((l) => ({

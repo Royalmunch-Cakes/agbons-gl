@@ -1,6 +1,6 @@
 "use server";
 
-import { updateTag } from "next/cache";
+import { revalidatePath, updateTag } from "next/cache";
 import { z } from "zod";
 
 import { checkUnique, documentSchemas } from "@/lib/admin/schemas";
@@ -13,6 +13,15 @@ import {
 import { requireAdmin } from "@/lib/server/admin-auth";
 import { blobs } from "@/lib/server/blob-store";
 import type { MediaAsset } from "@/lib/types";
+
+/**
+ * Tags expire the cached data; revalidating the root layout also makes
+ * dynamic [slug] pages re-render on their next visit instead of serving
+ * one stale render (read-your-own-writes for editors).
+ */
+function refreshSite() {
+  revalidatePath("/", "layout");
+}
 
 export type ActionResult = { ok: true } | { ok: false; error: string };
 
@@ -46,6 +55,7 @@ export async function saveDocument<K extends ContentKey>(
     return { ok: false, error: "Saving failed. Please try again." };
   }
   updateTag(contentTag(key));
+  refreshSite();
   return { ok: true };
 }
 

@@ -17,7 +17,15 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { getCollection } from "@/lib/catalog";
-import { getContent } from "@/lib/content";
+import { getContent, getContentForEdit } from "@/lib/content";
+
+/** Cached lookup with a store re-check for just-published posts. */
+async function findPost(slug: string) {
+  return (
+    (await getContent("journal")).find((p) => p.slug === slug) ??
+    (await getContentForEdit("journal")).find((p) => p.slug === slug)
+  );
+}
 
 export async function generateStaticParams() {
   return (await getContent("journal")).map((p) => ({ slug: p.slug }));
@@ -27,7 +35,7 @@ export async function generateMetadata(
   props: PageProps<"/journal/[slug]">,
 ): Promise<Metadata> {
   const { slug } = await props.params;
-  const post = (await getContent("journal")).find((p) => p.slug === slug);
+  const post = await findPost(slug);
   if (!post) return {};
   return {
     title: post.title,
@@ -56,7 +64,7 @@ async function JournalPostView({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = (await getContent("journal")).find((p) => p.slug === slug);
+  const post = await findPost(slug);
   if (!post) notFound();
   const collection = post.relatedCollection
     ? await getCollection(post.relatedCollection)

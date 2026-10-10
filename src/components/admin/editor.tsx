@@ -13,9 +13,9 @@ import { toast } from "@/components/ui/toast";
  * State for editing one content document: local draft, dirty tracking,
  * save via a server action, and a leave-page warning while unsaved.
  */
-export function useDocEditor<T>(
+export function useDocEditor<T, R extends ActionResult = ActionResult>(
   initial: T,
-  save: (value: T) => Promise<ActionResult>,
+  save: (value: T) => Promise<R>,
 ) {
   const [saved, setSaved] = useState(initial);
   const [draft, setDraft] = useState(initial);
@@ -36,7 +36,7 @@ export function useDocEditor<T>(
   }, []);
 
   const submit = useCallback(
-    (value: T = draft, onSuccess?: () => void) => {
+    (value: T = draft, onSuccess?: (result: R) => void) => {
       startTransition(async () => {
         const result = await save(value);
         if (result.ok) {
@@ -47,7 +47,7 @@ export function useDocEditor<T>(
             description: "The website has been updated.",
             type: "success",
           });
-          onSuccess?.();
+          onSuccess?.(result);
         } else {
           toast.add({
             title: "Not saved",
