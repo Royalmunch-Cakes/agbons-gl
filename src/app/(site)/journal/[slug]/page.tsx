@@ -107,8 +107,9 @@ async function JournalPostView({
         <Media
           asset={post.image}
           priority
-          sizes="(min-width: 768px) 768px, 100vw"
-          aspect="aspect-[4/3]"
+          sizes="(min-width: 768px) 448px, 100vw"
+          aspect="aspect-[4/5]"
+          className="mx-auto w-full max-w-md"
         />
         <article className="prose-brand">
           {post.body.map((s) => (

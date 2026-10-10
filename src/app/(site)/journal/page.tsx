@@ -36,7 +36,7 @@ export default async function JournalPage() {
                 asset={lead.image}
                 priority
                 sizes="(min-width: 768px) 50vw, 100vw"
-                aspect="aspect-[4/3]"
+                aspect="aspect-[4/5]"
               />
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-3">
@@ -66,7 +66,7 @@ export default async function JournalPage() {
                   <Media
                     asset={post.image}
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    aspect="aspect-[4/3]"
+                    aspect="aspect-[4/5]"
                   />
                   <div className="flex items-center gap-3">
                     <Badge variant="outline" className="capitalize">
