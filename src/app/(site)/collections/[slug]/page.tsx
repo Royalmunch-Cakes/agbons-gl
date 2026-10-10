@@ -2,12 +2,14 @@ import { ShirtIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
 import { ProductGrid } from "@/components/catalog/product-card";
 import { Price } from "@/components/commerce/price";
 import { WhatsAppButton } from "@/components/commerce/whatsapp-button";
 import { NewsletterSection } from "@/components/forms/newsletter-form";
 import { Media } from "@/components/site/media";
+import { PageSkeleton } from "@/components/site/page-skeleton";
 import { Container, Section, SectionHeading } from "@/components/site/section";
 import {
   Breadcrumb,
@@ -26,7 +28,11 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "@/components/ui/empty";
-import { getCollection, getCollections, getProductsInCollection } from "@/lib/catalog";
+import {
+  getCollection,
+  getCollections,
+  getProductsInCollection,
+} from "@/lib/catalog";
 import { siteConfig } from "@/config/site";
 
 export async function generateStaticParams() {
@@ -51,8 +57,24 @@ export async function generateMetadata(
  * Collection page — one dynamic, data-driven template instead of six
  * one-off Elementor pages (audit §7 suggested IA, TRD §8).
  */
-export default async function CollectionPage(props: PageProps<"/collections/[slug]">) {
-  const { slug } = await props.params;
+export default function CollectionPage(
+  props: PageProps<"/collections/[slug]">,
+) {
+  // Params are read inside Suspense so the route can be re-rendered on
+  // demand (admin edits, new slugs) under Cache Components.
+  return (
+    <Suspense fallback={<PageSkeleton />}>
+      <CollectionView params={props.params} />
+    </Suspense>
+  );
+}
+
+async function CollectionView({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const collection = await getCollection(slug);
   if (!collection) notFound();
   const products = await getProductsInCollection(slug);
@@ -88,7 +110,9 @@ export default async function CollectionPage(props: PageProps<"/collections/[slu
           </Breadcrumb>
           <p className="eyebrow">
             {collection.year ? `${collection.year} · ` : ""}
-            {collection.kind === "signature" ? "Signature collection" : "Season"}
+            {collection.kind === "signature"
+              ? "Signature collection"
+              : "Season"}
           </p>
           <h1 className="text-5xl leading-[1.05] text-balance md:text-6xl">
             {collection.name}
@@ -102,12 +126,16 @@ export default async function CollectionPage(props: PageProps<"/collections/[slu
           {collection.fromPriceUsd && (
             <p className="text-sm">
               Commission from{" "}
-              <Price usd={collection.fromPriceUsd} className="font-medium" /> per
-              piece, made to your measurements.
+              <Price usd={collection.fromPriceUsd} className="font-medium" />{" "}
+              per piece, made to your measurements.
             </p>
           )}
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Button size="xl" nativeButton={false} render={<Link href={consultHref} />}>
+            <Button
+              size="xl"
+              nativeButton={false}
+              render={<Link href={consultHref} />}
+            >
               Commission a piece
             </Button>
             <WhatsAppButton
@@ -128,7 +156,10 @@ export default async function CollectionPage(props: PageProps<"/collections/[slu
               <div key={s.heading} className="flex flex-col gap-3">
                 <h2 className="text-3xl md:text-4xl">{s.heading}</h2>
                 {s.paragraphs.map((p) => (
-                  <p key={p.slice(0, 32)} className="leading-relaxed text-muted-foreground">
+                  <p
+                    key={p.slice(0, 32)}
+                    className="leading-relaxed text-muted-foreground"
+                  >
                     {p}
                   </p>
                 ))}
@@ -159,7 +190,10 @@ export default async function CollectionPage(props: PageProps<"/collections/[slu
                 </EmptyDescription>
               </EmptyHeader>
               <EmptyContent>
-                <Button nativeButton={false} render={<Link href={consultHref} />}>
+                <Button
+                  nativeButton={false}
+                  render={<Link href={consultHref} />}
+                >
                   Book a consultation
                 </Button>
               </EmptyContent>

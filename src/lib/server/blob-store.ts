@@ -32,8 +32,10 @@ export interface BlobBackend {
 class NetlifyBackend implements BlobBackend {
   constructor(private store: Store) {}
   async getJSON<T>(key: string) {
-    return ((await this.store.get(key, { type: "json", consistency: "strong" })) ??
-      null) as T | null;
+    return ((await this.store.get(key, {
+      type: "json",
+      consistency: "strong",
+    })) ?? null) as T | null;
   }
   async setJSON(key: string, value: unknown) {
     await this.store.setJSON(key, value);
@@ -80,7 +82,10 @@ class FileBackend implements BlobBackend {
         fs.readFile(this.file(key)),
         fs.readFile(`${this.file(key)}.meta.json`, "utf8"),
       ]);
-      const data = buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+      const data = buf.buffer.slice(
+        buf.byteOffset,
+        buf.byteOffset + buf.byteLength,
+      );
       return { data: data as ArrayBuffer, meta: JSON.parse(meta) as Meta };
     } catch {
       return null;

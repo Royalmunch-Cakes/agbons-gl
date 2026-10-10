@@ -37,7 +37,8 @@ export async function deliverSubmission(s: Submission): Promise<void> {
           text: lines.join("\n"),
         }),
       }).then(async (res) => {
-        if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
+        if (!res.ok)
+          throw new Error(`Resend ${res.status}: ${await res.text()}`);
       }),
     );
   }

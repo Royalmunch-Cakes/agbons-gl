@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
 import { Media } from "@/components/site/media";
+import { PageSkeleton } from "@/components/site/page-skeleton";
 import { Container, Section } from "@/components/site/section";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -38,10 +40,22 @@ export async function generateMetadata(
   };
 }
 
-export default async function JournalPostPage(
-  props: PageProps<"/journal/[slug]">,
-) {
-  const { slug } = await props.params;
+export default function JournalPostPage(props: PageProps<"/journal/[slug]">) {
+  // Params are read inside Suspense so the route can be re-rendered on
+  // demand (admin edits, new slugs) under Cache Components.
+  return (
+    <Suspense fallback={<PageSkeleton />}>
+      <JournalPostView params={props.params} />
+    </Suspense>
+  );
+}
+
+async function JournalPostView({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const post = (await getContent("journal")).find((p) => p.slug === slug);
   if (!post) notFound();
   const collection = post.relatedCollection
