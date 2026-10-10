@@ -1,6 +1,6 @@
 import { siteConfig } from "@/config/site";
 import { formatMoney } from "@/lib/currency";
-import type { CurrencyCode, Product } from "@/lib/types";
+import type { Product } from "@/lib/types";
 
 /**
  * WhatsApp deep links (audit §1 primary conversion channel; TRD §8 "replicate
@@ -9,10 +9,7 @@ import type { CurrencyCode, Product } from "@/lib/types";
  */
 
 export type WhatsAppIntent =
-  | "consultation"
-  | "product-order"
-  | "cart-order"
-  | "enquiry";
+  "consultation" | "product-order" | "cart-order" | "enquiry";
 
 /** `number` is the admin-managed WhatsApp number (see SiteSettings). */
 export function whatsappUrl(
@@ -28,15 +25,13 @@ export function productUrl(slug: string): string {
 
 export function productOrderMessage(
   product: Pick<Product, "name" | "sku" | "priceUsd" | "slug">,
-  currency: CurrencyCode = "USD",
   quantity = 1,
-  rate?: number,
 ): string {
   return [
     `Hello ${siteConfig.name}, I would like to order:`,
     "",
     `• ${product.name} (${product.sku})`,
-    `  Qty: ${quantity} · Price: ${formatMoney(product.priceUsd, currency, rate)}`,
+    `  Qty: ${quantity} · Price: ${formatMoney(product.priceUsd)}`,
     `  ${productUrl(product.slug)}`,
     "",
     "Please let me know the next steps.",
@@ -66,20 +61,18 @@ export type OrderLine = {
 
 export function cartOrderMessage(
   lines: OrderLine[],
-  currency: CurrencyCode,
   customer?: { name?: string; note?: string },
-  rate?: number,
 ): string {
   const total = lines.reduce((sum, l) => sum + l.priceUsd * l.quantity, 0);
   return [
     `Hello ${siteConfig.name}, I would like to place an order:`,
     "",
     ...lines.flatMap((l) => [
-      `• ${l.name} (${l.sku}) × ${l.quantity} — ${formatMoney(l.priceUsd * l.quantity, currency, rate)}`,
+      `• ${l.name} (${l.sku}) × ${l.quantity} — ${formatMoney(l.priceUsd * l.quantity)}`,
       `  ${productUrl(l.slug)}`,
     ]),
     "",
-    `Order total: ${formatMoney(total, currency, rate)}`,
+    `Order total: ${formatMoney(total)}`,
     ...(customer?.name ? ["", `Name: ${customer.name}`] : []),
     ...(customer?.note ? [`Note: ${customer.note}`] : []),
   ].join("\n");

@@ -28,7 +28,6 @@ build time; trigger a new deploy after changing them.
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | `2347056814352` |
 | `NEXT_PUBLIC_CONTACT_EMAIL`, `NEXT_PUBLIC_CONTACT_PHONE` | as today |
 | `NEXT_PUBLIC_INSTAGRAM_URL`, `…_FACEBOOK_URL`, `…_TIKTOK_URL` | confirmed profile URLs |
-| `NEXT_PUBLIC_USD_TO_NGN_RATE` | current rate |
 | `RESEND_API_KEY`, `FORMS_NOTIFY_EMAIL`, `FORMS_FROM_EMAIL` and/or `FORMS_WEBHOOK_URL` | **required** — without them form submissions are only logged |
 | `NEWSLETTER_PROVIDER=mailchimp` + `MAILCHIMP_*` | **required** to collect sign-ups |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID`, `NEXT_PUBLIC_META_PIXEL_ID` | optional |

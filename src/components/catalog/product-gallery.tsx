@@ -11,7 +11,13 @@ import type { MediaAsset } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /** PDP gallery: main image, thumbnails, full-size lightbox (audit §3.5 item 3). */
-export function ProductGallery({ images, name }: { images: MediaAsset[]; name: string }) {
+export function ProductGallery({
+  images,
+  name,
+}: {
+  images: MediaAsset[];
+  name: string;
+}) {
   const [active, setActive] = useState(0);
   const [zoom, setZoom] = useState(false);
   const current = images[active] ?? { alt: name };
@@ -25,7 +31,11 @@ export function ProductGallery({ images, name }: { images: MediaAsset[]; name: s
           className="block w-full cursor-zoom-in"
           aria-label={`View ${current.alt} full size`}
         >
-          <Media asset={current} priority sizes="(min-width: 768px) 50vw, 100vw" />
+          <Media
+            asset={current}
+            priority
+            sizes="(min-width: 768px) 50vw, 100vw"
+          />
         </button>
         <Button
           variant="secondary"
@@ -39,7 +49,10 @@ export function ProductGallery({ images, name }: { images: MediaAsset[]; name: s
       </div>
 
       {images.length > 1 && (
-        <ul className="flex gap-2 md:w-20 md:flex-col" aria-label="Product images">
+        <ul
+          className="flex gap-2 md:w-20 md:flex-col"
+          aria-label="Product images"
+        >
           {images.map((img, i) => (
             <li key={img.src ?? i} className="w-20">
               <button
@@ -49,7 +62,9 @@ export function ProductGallery({ images, name }: { images: MediaAsset[]; name: s
                 aria-current={i === active}
                 className={cn(
                   "block w-full border-2 border-transparent transition-opacity",
-                  i === active ? "border-primary" : "opacity-60 hover:opacity-100",
+                  i === active
+                    ? "border-primary"
+                    : "opacity-60 hover:opacity-100",
                 )}
               >
                 <Media asset={img} sizes="80px" />

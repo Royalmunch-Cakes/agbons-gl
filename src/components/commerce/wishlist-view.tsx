@@ -63,7 +63,10 @@ export function WishlistView() {
           >
             {item.name}
           </Link>
-          <Price usd={item.priceUsd} className="text-sm text-muted-foreground" />
+          <Price
+            usd={item.priceUsd}
+            className="text-sm text-muted-foreground"
+          />
         </li>
       ))}
     </ul>

@@ -2,11 +2,10 @@
 
 import { useSyncExternalStore } from "react";
 
-import type { CurrencyCode, MediaAsset } from "@/lib/types";
+import type { MediaAsset } from "@/lib/types";
 
 /**
- * Client-side commerce state: bag (cart), wishlist and display currency
- * (audit §4 cart/wishlist; §5.13 currency). Persisted to localStorage so it
+ * Client-side commerce state: bag (cart) and wishlist (audit §4). Persisted to localStorage so it
  * survives reloads; the server snapshot is always empty, which keeps
  * hydration consistent.
  *
@@ -68,7 +67,11 @@ function createPersistedStore<T>(key: string, initial: T) {
 }
 
 function useStore<T>(store: ReturnType<typeof createPersistedStore<T>>) {
-  return useSyncExternalStore(store.subscribe, store.get, () => store.serverSnapshot);
+  return useSyncExternalStore(
+    store.subscribe,
+    store.get,
+    () => store.serverSnapshot,
+  );
 }
 
 /* ── Bag ─────────────────────────────────────────────────────────────── */
@@ -98,17 +101,26 @@ export const bag = {
       if (existing) {
         return items.map((i) =>
           i.slug === item.slug
-            ? { ...i, ...item, quantity: clampQty(i.quantity + quantity, item.maxQuantity) }
+            ? {
+                ...i,
+                ...item,
+                quantity: clampQty(i.quantity + quantity, item.maxQuantity),
+              }
             : i,
         );
       }
-      return [...items, { ...item, quantity: clampQty(quantity, item.maxQuantity) }];
+      return [
+        ...items,
+        { ...item, quantity: clampQty(quantity, item.maxQuantity) },
+      ];
     });
   },
   setQuantity(slug: string, quantity: number) {
     bagStore.set((items) =>
       items.map((i) =>
-        i.slug === slug ? { ...i, quantity: clampQty(quantity, i.maxQuantity) } : i,
+        i.slug === slug
+          ? { ...i, quantity: clampQty(quantity, i.maxQuantity) }
+          : i,
       ),
     );
   },
@@ -157,18 +169,4 @@ export function useWishlist() {
     count: items.length,
     has: (slug: string) => items.some((i) => i.slug === slug),
   };
-}
-
-/* ── Currency ────────────────────────────────────────────────────────── */
-
-const currencyStore = createPersistedStore<CurrencyCode>("agbons:currency", "USD");
-
-export const currency = {
-  set(code: CurrencyCode) {
-    currencyStore.set(() => code);
-  },
-};
-
-export function useCurrency(): CurrencyCode {
-  return useStore(currencyStore);
 }

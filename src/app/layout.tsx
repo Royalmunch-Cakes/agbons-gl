@@ -91,12 +91,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
             ),
           }}
         />
-        <SettingsProvider
-          value={{
-            whatsapp: settings.contact.whatsapp,
-            usdToNgnRate: settings.usdToNgnRate,
-          }}
-        >
+        <SettingsProvider value={{ whatsapp: settings.contact.whatsapp }}>
           <Toaster>{children}</Toaster>
         </SettingsProvider>
         <Analytics />

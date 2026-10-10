@@ -38,7 +38,7 @@ export const faqGroups: { title: string; items: Faq[] }[] = [
       },
       {
         q: "Which currency are your prices in?",
-        a: "Prices are listed in US dollars. You can switch the display to Nigerian naira using the USD/NGN toggle; naira amounts are indicative and your final amount is confirmed when your order is placed.",
+        a: "Prices are listed in US dollars. Your final amount, including delivery, is confirmed when your order is placed; ask us on WhatsApp if you'd like a quote in naira.",
       },
       {
         q: "Can I pay online by card?",

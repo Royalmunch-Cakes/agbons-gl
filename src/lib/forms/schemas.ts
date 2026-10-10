@@ -14,7 +14,10 @@ const name = z
   .trim()
   .min(2, "Please enter your name.")
   .max(120)
-  .regex(NAME_PATTERN, "Names can only contain letters, spaces, hyphens and apostrophes.");
+  .regex(
+    NAME_PATTERN,
+    "Names can only contain letters, spaces, hyphens and apostrophes.",
+  );
 const email = z.email("Please enter a valid email address.").max(200);
 const phone = z
   .string()
@@ -30,7 +33,12 @@ const phone = z
     return digits >= 7 && digits <= 15;
   }, "Please enter a phone number with 7–15 digits.");
 const optionalText = (max: number) =>
-  z.string().trim().max(max).optional().or(z.literal("").transform(() => undefined));
+  z
+    .string()
+    .trim()
+    .max(max)
+    .optional()
+    .or(z.literal("").transform(() => undefined));
 /** Optional measurement in cm, digits with one optional decimal place, within a sane range. */
 const measurement = (min: number, max: number) =>
   z
@@ -38,7 +46,10 @@ const measurement = (min: number, max: number) =>
     .trim()
     .optional()
     .transform((v) => v || undefined)
-    .refine((v) => v === undefined || MEASUREMENT_PATTERN.test(v), "Numbers only, e.g. 92 or 92.5.")
+    .refine(
+      (v) => v === undefined || MEASUREMENT_PATTERN.test(v),
+      "Numbers only, e.g. 92 or 92.5.",
+    )
     .refine(
       (v) => v === undefined || (Number(v) >= min && Number(v) <= max),
       `Please enter a value between ${min} and ${max} cm.`,
@@ -75,7 +86,10 @@ export const consultationSchema = z.object({
     .trim()
     .min(2, "Please tell us where you are based.")
     .max(120)
-    .regex(PLACE_PATTERN, "Please use letters, spaces and commas only, e.g. Lagos, Nigeria."),
+    .regex(
+      PLACE_PATTERN,
+      "Please use letters, spaces and commas only, e.g. Lagos, Nigeria.",
+    ),
   eventType: z.enum(["white-wedding", "traditional", "reception", "other"], {
     error: "Please choose the occasion.",
   }),

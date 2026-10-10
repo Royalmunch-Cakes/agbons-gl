@@ -2,12 +2,7 @@
 
 import { saveDocument } from "@/app/admin/actions";
 import { EditorShell, useDocEditor } from "@/components/admin/editor";
-import {
-  EditorSection,
-  NumberInput,
-  Repeater,
-  TextInput,
-} from "@/components/admin/fields";
+import { EditorSection, Repeater, TextInput } from "@/components/admin/fields";
 import type { SiteSettings } from "@/lib/types";
 
 export function SettingsEditor({ initial }: { initial: SiteSettings }) {
@@ -17,7 +12,7 @@ export function SettingsEditor({ initial }: { initial: SiteSettings }) {
   return (
     <EditorShell
       title="Settings"
-      description="Contact details, WhatsApp, opening hours, social profiles and currency."
+      description="Announcement bar, contact details, WhatsApp, opening hours and social profiles."
       dirty={ed.dirty}
       pending={ed.pending}
       onSave={() => ed.save()}
@@ -112,17 +107,6 @@ export function SettingsEditor({ initial }: { initial: SiteSettings }) {
             />
           ))}
         </div>
-      </EditorSection>
-
-      <EditorSection title="Currency">
-        <NumberInput
-          label="USD → NGN exchange rate"
-          value={d.usdToNgnRate}
-          min={1}
-          step={1}
-          onChange={(v) => ed.update({ usdToNgnRate: v ?? 0 })}
-          description="Used when visitors switch prices to naira. Prices are stored in US dollars."
-        />
       </EditorSection>
     </EditorShell>
   );

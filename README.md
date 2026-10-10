@@ -43,7 +43,7 @@ live immediately — no rebuild or deploy needed.
 | Testimonials, FAQs | Client reviews; grouped questions and answers |
 | Journal & Press | Add/edit/delete posts with cover image and sections |
 | Policies | Shipping, returns, privacy, terms; “reviewed” removes the draft notice |
-| Settings | Announcement bar, email, phone, WhatsApp number, opening hours, social links, USD→NGN rate |
+| Settings | Announcement bar, email, phone, WhatsApp number, opening hours, social links |
 
 How it works: each area is one JSON document in the `content` blob store,
 validated with zod on save (`src/lib/admin/schemas.ts`); uploaded images go
@@ -80,7 +80,6 @@ values are inlined at build time — rebuild after changing them.
 | Site | `NEXT_PUBLIC_SITE_URL` |
 | Contact / WhatsApp | `NEXT_PUBLIC_WHATSAPP_NUMBER`, `NEXT_PUBLIC_CONTACT_EMAIL`, `NEXT_PUBLIC_CONTACT_PHONE` |
 | Social profiles | `NEXT_PUBLIC_INSTAGRAM_URL`, `…_FACEBOOK_URL`, `…_TIKTOK_URL`, `…_X_URL` (empty = hidden) |
-| Currency | `NEXT_PUBLIC_USD_TO_NGN_RATE` |
 | Newsletter | `NEWSLETTER_PROVIDER` (`mailchimp` \| `log`), `MAILCHIMP_*` |
 | Form delivery | `RESEND_API_KEY`, `FORMS_NOTIFY_EMAIL`, `FORMS_FROM_EMAIL`, `FORMS_WEBHOOK_URL` |
 | Analytics | `NEXT_PUBLIC_GA_MEASUREMENT_ID`, `NEXT_PUBLIC_META_PIXEL_ID` (empty = not loaded) |

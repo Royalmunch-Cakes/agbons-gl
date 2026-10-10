@@ -61,7 +61,7 @@ where it's implemented. Status: ✅ done · ⚙️ done, needs client input (see
 | 5.10 | Unevenly populated collections | Collection pages carry editorial stories and a commission CTA; empty-state when a collection has no products |
 | 5.11 | No size/variant selection | Bespoke intake with measurements (D3) ⚙️ |
 | 5.12 | Ambiguous dual checkout | Two explicit, labelled paths on every product; bag checks out via WhatsApp (D2) ⚙️ |
-| 5.13 | USD pricing for an NGN market | USD/NGN display toggle (D4) ⚙️ |
+| 5.13 | USD pricing for an NGN market | USD only, confirmed at order (D4) ⚙️ |
 | 5.14 | Page-builder technical debt | Custom Next.js build; static prerendering for all catalog pages |
 
 ## §6 Content migration

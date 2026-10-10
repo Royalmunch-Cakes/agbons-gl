@@ -60,7 +60,14 @@ function useFilterState(initial: Props["initial"], index: FilterIndex) {
   }, [q, selected, index]);
   const toggle = (slug: string, on: boolean) =>
     setSelected((s) => (on ? [...s, slug] : s.filter((x) => x !== slug)));
-  return { q, setQ, selected, toggle, count, clear: () => (setQ(""), setSelected([])) };
+  return {
+    q,
+    setQ,
+    selected,
+    toggle,
+    count,
+    clear: () => (setQ(""), setSelected([])),
+  };
 }
 
 function FilterFields({
@@ -106,7 +113,10 @@ function FilterFields({
           defaultValue={initialSort}
           onValueChange={() => onChange && setTimeout(onChange)}
         >
-          <SelectTrigger id={`${idPrefix}-sort`} className="h-11 w-full bg-card">
+          <SelectTrigger
+            id={`${idPrefix}-sort`}
+            className="h-11 w-full bg-card"
+          >
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -187,7 +197,11 @@ export function ShopFilters({ facets, index, sortOptions, initial }: Props) {
             Show ({desktop.count})
           </Button>
           {active > 0 && (
-            <Button variant="ghost" nativeButton={false} render={<a href="/shop" />}>
+            <Button
+              variant="ghost"
+              nativeButton={false}
+              render={<a href="/shop" />}
+            >
               Clear
             </Button>
           )}
@@ -204,7 +218,9 @@ export function ShopFilters({ facets, index, sortOptions, initial }: Props) {
         </SheetTrigger>
         <SheetContent side="bottom" className="max-h-[85dvh]">
           <SheetHeader>
-            <SheetTitle className="font-heading text-2xl">Filter & sort</SheetTitle>
+            <SheetTitle className="font-heading text-2xl">
+              Filter & sort
+            </SheetTitle>
           </SheetHeader>
           <Form
             action="/shop"
@@ -221,7 +237,12 @@ export function ShopFilters({ facets, index, sortOptions, initial }: Props) {
               />
             </div>
             <SheetFooter className="flex-row border-t">
-              <Button type="button" variant="ghost" size="xl" onClick={mobile.clear}>
+              <Button
+                type="button"
+                variant="ghost"
+                size="xl"
+                onClick={mobile.clear}
+              >
                 Clear
               </Button>
               <Button type="submit" size="xl" className="flex-1">

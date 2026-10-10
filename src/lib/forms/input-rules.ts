@@ -50,7 +50,9 @@ export const inputRules: Record<InputRule, Rule> = {
     // Digits and at most one decimal point, one decimal place.
     sanitize: (v) => {
       const [int = "", ...rest] = v.replace(/[^\d.]/g, "").split(".");
-      return rest.length ? `${int.slice(0, 3)}.${rest.join("").slice(0, 1)}` : int.slice(0, 3);
+      return rest.length
+        ? `${int.slice(0, 3)}.${rest.join("").slice(0, 1)}`
+        : int.slice(0, 3);
     },
     inputMode: "decimal",
     maxLength: 5,

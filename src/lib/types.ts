@@ -87,16 +87,13 @@ export type Testimonial = {
   location: string;
 };
 
-export type CurrencyCode = "USD" | "NGN";
-
-/** Admin-editable site settings (contact, hours, socials, currency, announcement). */
+/** Admin-editable site settings (contact, hours, socials, announcement). */
 export type SiteSettings = {
   announcement: string;
   contact: { email: string; phone: string; whatsapp: string };
   socials: { instagram: string; facebook: string; tiktok: string; x: string };
   hours: { days: string; time: string }[];
   hoursNote: string;
-  usdToNgnRate: number;
 };
 
 export type HomeFeature = {

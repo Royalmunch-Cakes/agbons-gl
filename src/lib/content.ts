@@ -8,8 +8,11 @@ import { faqGroups, type Faq } from "@/content/faqs";
 import { journalPosts, type JournalPost } from "@/content/journal";
 import { policies, type PolicyDoc } from "@/content/legal";
 import { products as seedProducts } from "@/content/products";
-import { gallery as seedGallery, pageMedia, testimonials } from "@/content/site";
-import { defaultUsdToNgnRate } from "@/lib/currency";
+import {
+  gallery as seedGallery,
+  pageMedia,
+  testimonials,
+} from "@/content/site";
 import { blobs } from "@/lib/server/blob-store";
 import type {
   Collection,
@@ -56,7 +59,6 @@ const seeds: { [K in ContentKey]: () => ContentMap[K] } = {
     },
     hours: siteConfig.hours.map((h) => ({ ...h })),
     hoursNote: siteConfig.hoursNote,
-    usdToNgnRate: defaultUsdToNgnRate,
   }),
   home: () => ({
     heroEyebrow: siteConfig.tagline,

@@ -6,7 +6,6 @@ import { AddToBagButton } from "@/components/commerce/add-to-bag-button";
 import { Price } from "@/components/commerce/price";
 import { WhatsAppButton } from "@/components/commerce/whatsapp-button";
 import { Media } from "@/components/site/media";
-import { useSiteSettings } from "@/components/site/settings-provider";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -16,7 +15,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import type { ProductSnapshot } from "@/lib/commerce";
-import { useCurrency } from "@/lib/store";
 import { productEnquiryMessage, productOrderMessage } from "@/lib/whatsapp";
 
 /** Quick view (audit §3.3 product card feature). */
@@ -31,8 +29,6 @@ export function QuickView({
   purchasable: boolean;
   className?: string;
 }) {
-  const currency = useCurrency();
-  const { usdToNgnRate } = useSiteSettings();
   return (
     <Dialog>
       <DialogTrigger
@@ -52,7 +48,7 @@ export function QuickView({
             {purchasable ? (
               <>
                 <WhatsAppButton
-                  message={productOrderMessage(product, currency, 1, usdToNgnRate)}
+                  message={productOrderMessage(product)}
                   intent="product-order"
                 >
                   Order via WhatsApp

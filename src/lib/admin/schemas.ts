@@ -113,10 +113,6 @@ export const settingsSchema = z.object({
     .array(z.object({ days: required("Days", 60), time: required("Time", 60) }))
     .max(10),
   hoursNote: text(200),
-  usdToNgnRate: z
-    .number()
-    .positive("Rate must be greater than 0.")
-    .max(1_000_000),
 });
 
 export const homeSchema = z.object({

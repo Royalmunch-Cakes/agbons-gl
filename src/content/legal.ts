@@ -138,7 +138,7 @@ export const policies: PolicyDoc[] = [
       {
         heading: "Orders",
         paragraphs: [
-          "Orders are placed by contacting us (including via WhatsApp) and are accepted once we confirm them in writing. Prices are shown in US dollars; naira amounts are indicative and the final amount is confirmed at order.",
+          "Orders are placed by contacting us (including via WhatsApp) and are accepted once we confirm them in writing. Prices are shown in US dollars and the final amount is confirmed at order.",
           "Bespoke pieces begin production once measurements are confirmed and any agreed deposit is received.",
         ],
       },

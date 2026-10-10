@@ -172,7 +172,6 @@ export function ProductEditor({
           min={0}
           step={1}
           onChange={(v) => ed.update({ priceUsd: v ?? 0 })}
-          description="Visitors can view this in naira using the exchange rate in Settings."
         />
       </EditorSection>
 

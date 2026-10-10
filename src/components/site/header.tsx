@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { CurrencySwitcher } from "@/components/commerce/currency-switcher";
 import { Container } from "@/components/site/section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -48,26 +47,32 @@ export function Header({
       <div className="hidden bg-primary text-primary-foreground md:block">
         <Container className="flex h-9 items-center justify-between text-xs tracking-wide">
           <p>{announcement}</p>
-          <Link href="/consultation" className="underline-offset-4 hover:underline">
+          <Link
+            href="/consultation"
+            className="underline-offset-4 hover:underline"
+          >
             Book a consultation
           </Link>
         </Container>
       </div>
-      <Container className="flex h-16 items-center gap-4 md:h-20">
-        <MobileNav collections={collections} />
-        <Link href="/" className="shrink-0" aria-label="AGBONS-GL home">
-          <Image
-            src={brandMedia.logo.src}
-            alt={brandMedia.logo.alt}
-            width={350}
-            height={100}
-            priority
-            className="h-10 w-auto md:h-12"
-          />
-        </Link>
+      {/* Desktop: three columns so the menu sits at the true centre of the
+          page regardless of logo/icon widths. Mobile: a simple row. */}
+      <Container className="flex h-16 items-center gap-4 md:h-20 lg:grid lg:grid-cols-[1fr_auto_1fr]">
+        <div className="flex items-center gap-2">
+          <MobileNav collections={collections} />
+          <Link href="/" className="shrink-0" aria-label="AGBONS-GL home">
+            <Image
+              src={brandMedia.logo.src}
+              alt={brandMedia.logo.alt}
+              width={350}
+              height={100}
+              priority
+              className="h-10 w-auto md:h-12"
+            />
+          </Link>
+        </div>
         <DesktopNav collections={collections} />
-        <div className="ml-auto flex items-center gap-1">
-          <CurrencySwitcher className="mr-2 hidden lg:flex" />
+        <div className="ml-auto flex items-center gap-1 lg:ml-0 lg:justify-self-end">
           <Button
             variant="ghost"
             size="icon-lg"
@@ -146,7 +151,12 @@ function MobileNav({ collections }: { collections: CollectionLink[] }) {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger
         render={
-          <Button variant="ghost" size="icon-lg" className="lg:hidden" aria-label="Open menu" />
+          <Button
+            variant="ghost"
+            size="icon-lg"
+            className="lg:hidden"
+            aria-label="Open menu"
+          />
         }
       >
         <MenuIcon />
@@ -185,7 +195,6 @@ function MobileNav({ collections }: { collections: CollectionLink[] }) {
           <Link href="/consultation" onClick={close} className="py-1.5 text-sm">
             Book a consultation
           </Link>
-          <CurrencySwitcher className="mt-4" />
         </nav>
       </SheetContent>
     </Sheet>
