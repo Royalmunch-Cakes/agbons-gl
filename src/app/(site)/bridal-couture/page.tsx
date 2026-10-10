@@ -80,7 +80,7 @@ export default async function BridalCouturePage() {
                   <Media
                     asset={c.hero}
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    aspect="aspect-[4/3]"
+                    aspect="aspect-[4/5]"
                     className="transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 flex flex-col justify-end gap-1 bg-linear-to-t from-black/75 via-black/15 to-transparent p-5 text-white">
