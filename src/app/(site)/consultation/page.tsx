@@ -10,6 +10,7 @@ import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { siteConfig } from "@/config/site";
 import { getCollections } from "@/lib/catalog";
+import { getSettings } from "@/lib/content";
 import { consultationMessage } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
@@ -30,7 +31,10 @@ const steps = [
  * Structured bespoke consultation flow (audit §7 suggested IA: "Bridal /
  * Bespoke Consultation flow (structured intake, not just a WhatsApp link)").
  */
-export default function ConsultationPage(props: PageProps<"/consultation">) {
+export default async function ConsultationPage(
+  props: PageProps<"/consultation">,
+) {
+  const settings = await getSettings();
   return (
     <>
       <PageHero
@@ -81,8 +85,8 @@ export default function ConsultationPage(props: PageProps<"/consultation">) {
                   <p className="flex gap-3">
                     <ClockIcon className="mt-0.5 size-4 shrink-0" aria-hidden />
                     <span>
-                      {siteConfig.hours[0].days}, {siteConfig.hours[0].time}.{" "}
-                      {siteConfig.hoursNote}
+                      {settings.hours[0]?.days}, {settings.hours[0]?.time}.{" "}
+                      {settings.hoursNote}
                     </span>
                   </p>
                   <p className="flex gap-3">

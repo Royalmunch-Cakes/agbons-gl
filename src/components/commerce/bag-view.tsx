@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Price } from "@/components/commerce/price";
 import { WhatsAppButton } from "@/components/commerce/whatsapp-button";
 import { Media } from "@/components/site/media";
+import { useSiteSettings } from "@/components/site/settings-provider";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
@@ -41,6 +42,7 @@ import { cartOrderMessage } from "@/lib/whatsapp";
 export function BagView() {
   const { items, count, subtotalUsd } = useBag();
   const currency = useCurrency();
+  const { usdToNgnRate } = useSiteSettings();
   const [name, setName] = useState("");
   const [note, setNote] = useState("");
 
@@ -161,7 +163,7 @@ export function BagView() {
           <WhatsAppButton
             intent="cart-order"
             className="w-full"
-            message={cartOrderMessage(items, currency, { name, note })}
+            message={cartOrderMessage(items, currency, { name, note }, usdToNgnRate)}
           >
             Place order via WhatsApp
           </WhatsAppButton>

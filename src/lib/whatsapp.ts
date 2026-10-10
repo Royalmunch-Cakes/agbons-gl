@@ -14,8 +14,12 @@ export type WhatsAppIntent =
   | "cart-order"
   | "enquiry";
 
-export function whatsappUrl(message: string): string {
-  return `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(message)}`;
+/** `number` is the admin-managed WhatsApp number (see SiteSettings). */
+export function whatsappUrl(
+  message: string,
+  number: string = siteConfig.contact.whatsapp,
+): string {
+  return `https://wa.me/${number.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
 }
 
 export function productUrl(slug: string): string {
@@ -26,12 +30,13 @@ export function productOrderMessage(
   product: Pick<Product, "name" | "sku" | "priceUsd" | "slug">,
   currency: CurrencyCode = "USD",
   quantity = 1,
+  rate?: number,
 ): string {
   return [
     `Hello ${siteConfig.name}, I would like to order:`,
     "",
     `• ${product.name} (${product.sku})`,
-    `  Qty: ${quantity} · Price: ${formatMoney(product.priceUsd, currency)}`,
+    `  Qty: ${quantity} · Price: ${formatMoney(product.priceUsd, currency, rate)}`,
     `  ${productUrl(product.slug)}`,
     "",
     "Please let me know the next steps.",
@@ -63,17 +68,18 @@ export function cartOrderMessage(
   lines: OrderLine[],
   currency: CurrencyCode,
   customer?: { name?: string; note?: string },
+  rate?: number,
 ): string {
   const total = lines.reduce((sum, l) => sum + l.priceUsd * l.quantity, 0);
   return [
     `Hello ${siteConfig.name}, I would like to place an order:`,
     "",
     ...lines.flatMap((l) => [
-      `• ${l.name} (${l.sku}) × ${l.quantity} — ${formatMoney(l.priceUsd * l.quantity, currency)}`,
+      `• ${l.name} (${l.sku}) × ${l.quantity} — ${formatMoney(l.priceUsd * l.quantity, currency, rate)}`,
       `  ${productUrl(l.slug)}`,
     ]),
     "",
-    `Order total: ${formatMoney(total, currency)}`,
+    `Order total: ${formatMoney(total, currency, rate)}`,
     ...(customer?.name ? ["", `Name: ${customer.name}`] : []),
     ...(customer?.note ? [`Note: ${customer.note}`] : []),
   ].join("\n");

@@ -2,6 +2,7 @@
 
 import { MessageCircleIcon } from "lucide-react";
 
+import { useSiteSettings } from "@/components/site/settings-provider";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import { whatsappUrl, type WhatsAppIntent } from "@/lib/whatsapp";
@@ -25,6 +26,7 @@ export function WhatsAppButton({
   size?: React.ComponentProps<typeof Button>["size"];
   className?: string;
 }) {
+  const { whatsapp } = useSiteSettings();
   return (
     <Button
       variant={variant}
@@ -33,7 +35,7 @@ export function WhatsAppButton({
       nativeButton={false}
       render={
         <a
-          href={whatsappUrl(message)}
+          href={whatsappUrl(message, whatsapp)}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackEvent("whatsapp_click", { intent })}

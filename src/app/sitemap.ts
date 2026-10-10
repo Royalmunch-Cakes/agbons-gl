@@ -1,14 +1,15 @@
 import type { MetadataRoute } from "next";
 
 import { siteConfig } from "@/config/site";
-import { journalPosts } from "@/content/journal";
 import { getCollections, getProducts } from "@/lib/catalog";
+import { getContent } from "@/lib/content";
 
 /** XML sitemap (TRD §8 SEO parity). Bag and wishlist are excluded (noindex). */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [products, collections] = await Promise.all([
+  const [products, collections, journalPosts] = await Promise.all([
     getProducts(),
     getCollections(),
+    getContent("journal"),
   ]);
   const url = (path: string) => `${siteConfig.url}${path}`;
 

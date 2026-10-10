@@ -14,18 +14,18 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
-import { journalPosts } from "@/content/journal";
 import { getCollection } from "@/lib/catalog";
+import { getContent } from "@/lib/content";
 
-export function generateStaticParams() {
-  return journalPosts.map((p) => ({ slug: p.slug }));
+export async function generateStaticParams() {
+  return (await getContent("journal")).map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata(
   props: PageProps<"/journal/[slug]">,
 ): Promise<Metadata> {
   const { slug } = await props.params;
-  const post = journalPosts.find((p) => p.slug === slug);
+  const post = (await getContent("journal")).find((p) => p.slug === slug);
   if (!post) return {};
   return {
     title: post.title,
@@ -42,7 +42,7 @@ export default async function JournalPostPage(
   props: PageProps<"/journal/[slug]">,
 ) {
   const { slug } = await props.params;
-  const post = journalPosts.find((p) => p.slug === slug);
+  const post = (await getContent("journal")).find((p) => p.slug === slug);
   if (!post) notFound();
   const collection = post.relatedCollection
     ? await getCollection(post.relatedCollection)

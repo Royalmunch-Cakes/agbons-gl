@@ -7,6 +7,7 @@ import { useState } from "react";
 import { AddToBagButton } from "@/components/commerce/add-to-bag-button";
 import { WhatsAppButton } from "@/components/commerce/whatsapp-button";
 import { WishlistButton } from "@/components/commerce/wishlist-button";
+import { useSiteSettings } from "@/components/site/settings-provider";
 import { Button } from "@/components/ui/button";
 import {
   InputGroup,
@@ -31,6 +32,7 @@ export function ProductPurchase({
   collectionName?: string;
 }) {
   const currency = useCurrency();
+  const { usdToNgnRate } = useSiteSettings();
   const max = product.maxQuantity ?? 10;
   const [qty, setQty] = useState(1);
   const purchasable = product.inStock && !product.madeToOrder;
@@ -98,7 +100,7 @@ export function ProductPurchase({
       </div>
       <WhatsAppButton
         intent="product-order"
-        message={productOrderMessage(product, currency, qty)}
+        message={productOrderMessage(product, currency, qty, usdToNgnRate)}
       >
         Complete order via WhatsApp
       </WhatsAppButton>

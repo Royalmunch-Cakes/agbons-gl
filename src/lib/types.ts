@@ -88,3 +88,38 @@ export type Testimonial = {
 };
 
 export type CurrencyCode = "USD" | "NGN";
+
+/** Admin-editable site settings (contact, hours, socials, currency, announcement). */
+export type SiteSettings = {
+  announcement: string;
+  contact: { email: string; phone: string; whatsapp: string };
+  socials: { instagram: string; facebook: string; tiktok: string; x: string };
+  hours: { days: string; time: string }[];
+  hoursNote: string;
+  usdToNgnRate: number;
+};
+
+export type HomeFeature = {
+  title: string;
+  cta: string;
+  href: string;
+  image: MediaAsset;
+};
+
+/** Admin-editable homepage copy and imagery (audit §3.1). */
+export type HomeContent = {
+  heroEyebrow: string;
+  heroTitle: string;
+  heroAccent: string;
+  heroSubtitle: string;
+  heroImage: MediaAsset;
+  storyEyebrow: string;
+  storyHeading: string;
+  storyParagraphs: string[];
+  storyImage: MediaAsset;
+  features: HomeFeature[];
+  dreamHeading: string;
+  dreamBody: string;
+  dreamSteps: string[];
+  dreamImage: MediaAsset;
+};

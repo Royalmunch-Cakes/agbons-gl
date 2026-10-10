@@ -4,8 +4,9 @@ import Link from "next/link";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { CoutureGallery } from "@/components/marketing/couture-gallery";
 import { Container, PageHero, Section } from "@/components/site/section";
-import { contactGallery, gallery } from "@/content/site";
+import { contactGallery } from "@/content/site";
 import { getCollections } from "@/lib/catalog";
+import { getContent } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Lookbook",
@@ -16,9 +17,11 @@ export const metadata: Metadata = {
 
 /** Lookbook / Gallery, distinct from the homepage teaser (audit §2.5, §7). */
 export default async function LookbookPage() {
-  const collections = (await getCollections()).filter(
-    (c) => c.kind === "signature",
-  );
+  const [allCollections, gallery] = await Promise.all([
+    getCollections(),
+    getContent("gallery"),
+  ]);
+  const collections = allCollections.filter((c) => c.kind === "signature");
   const editorial = [
     ...collections.map((c) => ({ ...c.hero, alt: `${c.name}: ${c.hero.alt}` })),
     ...gallery,

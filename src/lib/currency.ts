@@ -11,18 +11,27 @@ export const currencies: { code: CurrencyCode; label: string }[] = [
   { code: "NGN", label: "NGN ₦" },
 ];
 
-export const usdToNgnRate =
+/** Fallback rate from the environment; the live rate is an admin setting. */
+export const defaultUsdToNgnRate =
   Number(process.env.NEXT_PUBLIC_USD_TO_NGN_RATE) || 1550;
 
-export function convertFromUsd(amountUsd: number, currency: CurrencyCode) {
-  return currency === "NGN" ? amountUsd * usdToNgnRate : amountUsd;
+export function convertFromUsd(
+  amountUsd: number,
+  currency: CurrencyCode,
+  rate = defaultUsdToNgnRate,
+) {
+  return currency === "NGN" ? amountUsd * rate : amountUsd;
 }
 
-export function formatMoney(amountUsd: number, currency: CurrencyCode = "USD") {
+export function formatMoney(
+  amountUsd: number,
+  currency: CurrencyCode = "USD",
+  rate = defaultUsdToNgnRate,
+) {
   return new Intl.NumberFormat(currency === "NGN" ? "en-NG" : "en-US", {
     style: "currency",
     currency,
     maximumFractionDigits: currency === "NGN" ? 0 : 2,
     minimumFractionDigits: 0,
-  }).format(convertFromUsd(amountUsd, currency));
+  }).format(convertFromUsd(amountUsd, currency, rate));
 }

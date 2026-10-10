@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 
 import { Analytics } from "@/components/site/analytics";
-import { Footer } from "@/components/site/footer";
-import { Header } from "@/components/site/header";
-import { ScrollToTop } from "@/components/site/scroll-to-top";
+import { SettingsProvider } from "@/components/site/settings-provider";
 import { Toaster } from "@/components/ui/toast";
 import { siteConfig } from "@/config/site";
-import { getCollections } from "@/lib/catalog";
+import { getSettings } from "@/lib/content";
+import type { SiteSettings } from "@/lib/types";
 
 import "./globals.css";
 
@@ -45,7 +44,7 @@ export const metadata: Metadata = {
 };
 
 /** LocalBusiness structured data (TRD §8 SEO; audit §1 business context). */
-const organizationJsonLd = {
+const organizationJsonLd = (settings: SiteSettings) => ({
   "@context": "https://schema.org",
   "@type": "ClothingStore",
   name: siteConfig.legalName,
@@ -55,8 +54,8 @@ const organizationJsonLd = {
   url: siteConfig.url,
   logo: `${siteConfig.url}/media/brand/logo.webp`,
   image: `${siteConfig.url}/media/site/home-hero.png`,
-  email: siteConfig.contact.email,
-  telephone: siteConfig.contact.phone,
+  email: settings.contact.email,
+  telephone: settings.contact.phone,
   founder: { "@type": "Person", name: siteConfig.founder },
   address: {
     "@type": "PostalAddress",
@@ -71,17 +70,11 @@ const organizationJsonLd = {
     opens: "09:00",
     closes: "17:00",
   },
-  sameAs: siteConfig.socials.map((s) => s.href),
-};
+  sameAs: Object.values(settings.socials).filter(Boolean),
+});
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
-  const collections = (await getCollections()).map(
-    ({ slug, name, tagline }) => ({
-      slug,
-      name,
-      tagline,
-    }),
-  );
+  const settings = await getSettings();
 
   return (
     <html
@@ -92,23 +85,20 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
+            __html: JSON.stringify(organizationJsonLd(settings)).replace(
+              /</g,
+              "\\u003c",
+            ),
           }}
         />
-        <Toaster>
-          <a
-            href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-background focus:px-4 focus:py-2"
-          >
-            Skip to content
-          </a>
-          <Header collections={collections} />
-          <main id="main" tabIndex={-1} className="flex-1 outline-none">
-            {children}
-          </main>
-          <Footer />
-          <ScrollToTop />
-        </Toaster>
+        <SettingsProvider
+          value={{
+            whatsapp: settings.contact.whatsapp,
+            usdToNgnRate: settings.usdToNgnRate,
+          }}
+        >
+          <Toaster>{children}</Toaster>
+        </SettingsProvider>
         <Analytics />
       </body>
     </html>

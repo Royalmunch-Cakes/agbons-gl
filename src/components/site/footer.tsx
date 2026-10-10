@@ -9,6 +9,8 @@ import { socialIcons } from "@/components/site/social-icons";
 import { Separator } from "@/components/ui/separator";
 import { footerNav, siteConfig } from "@/config/site";
 import { brandMedia } from "@/content/site";
+import { getSettings } from "@/lib/content";
+import { phoneHref, socialLinks } from "@/lib/settings";
 import { consultationMessage } from "@/lib/whatsapp";
 
 async function CopyrightYear() {
@@ -21,7 +23,9 @@ async function CopyrightYear() {
  * Global footer (audit §3.7). Every link resolves to a built page (fixes
  * §5.3) and social icons link to real profiles from env config (fixes §5.4).
  */
-export function Footer() {
+export async function Footer() {
+  const settings = await getSettings();
+  const socials = socialLinks(settings);
   return (
     <footer className="bg-primary text-primary-foreground">
       <Container className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_2fr_1.3fr]">
@@ -88,26 +92,26 @@ export function Footer() {
             </li>
             <li>
               <a
-                href={`mailto:${siteConfig.contact.email}`}
+                href={`mailto:${settings.contact.email}`}
                 className="flex gap-3 hover:text-brand"
               >
                 <MailIcon className="mt-0.5 size-4 shrink-0" aria-hidden />
-                {siteConfig.contact.email}
+                {settings.contact.email}
               </a>
             </li>
             <li>
               <a
-                href={siteConfig.contact.phoneHref}
+                href={phoneHref(settings.contact.phone)}
                 className="flex gap-3 hover:text-brand"
               >
                 <PhoneIcon className="mt-0.5 size-4 shrink-0" aria-hidden />
-                {siteConfig.contact.phone}
+                {settings.contact.phone}
               </a>
             </li>
           </ul>
-          {siteConfig.socials.length > 0 && (
+          {socials.length > 0 && (
             <ul className="mt-6 flex gap-3">
-              {siteConfig.socials.map((s) => {
+              {socials.map((s) => {
                 const Icon = socialIcons[s.name];
                 return (
                   <li key={s.name}>

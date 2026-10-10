@@ -4,10 +4,13 @@ import Link from "next/link";
 
 import { Container, PageHero, Section } from "@/components/site/section";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { policies, type PolicyDoc } from "@/content/legal";
+import type { PolicyDoc } from "@/content/legal";
+import { getContent } from "@/lib/content";
 
-export function policyMetadata(slug: PolicyDoc["slug"]): Metadata {
-  const doc = policies.find((p) => p.slug === slug)!;
+export async function policyMetadata(
+  slug: PolicyDoc["slug"],
+): Promise<Metadata> {
+  const doc = (await getContent("policies")).find((p) => p.slug === slug)!;
   return {
     title: doc.title,
     description: doc.summary,
@@ -16,7 +19,8 @@ export function policyMetadata(slug: PolicyDoc["slug"]): Metadata {
 }
 
 /** Shared layout for Shipping, Returns, Privacy and Terms (fixes audit §5.3). */
-export function PolicyPage({ slug }: { slug: PolicyDoc["slug"] }) {
+export async function PolicyPage({ slug }: { slug: PolicyDoc["slug"] }) {
+  const policies = await getContent("policies");
   const doc = policies.find((p) => p.slug === slug)!;
   return (
     <>

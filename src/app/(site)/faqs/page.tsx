@@ -10,7 +10,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { faqGroups } from "@/content/faqs";
+import { getContent } from "@/lib/content";
 import { consultationMessage } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/faqs" },
 };
 
-const jsonLd = {
+const faqJsonLd = (faqGroups: Awaited<ReturnType<typeof getContent<"faqs">>>) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: faqGroups.flatMap((g) =>
@@ -30,10 +30,12 @@ const jsonLd = {
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   ),
-};
+});
 
 /** FAQs (audit §2.5 — the WordPress page held template placeholders). */
-export default function FaqsPage() {
+export default async function FaqsPage() {
+  const faqGroups = await getContent("faqs");
+  const jsonLd = faqJsonLd(faqGroups);
   return (
     <>
       <script

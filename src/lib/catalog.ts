@@ -1,12 +1,15 @@
-import { collections, productLines } from "@/content/collections";
-import { products } from "@/content/products";
+import "server-only";
+
+import { productLines } from "@/content/collections";
+import { getContent } from "@/lib/content";
 import type { Collection, Product, ProductLine } from "@/lib/types";
 
 /**
- * Catalog data access. Pages only talk to these functions, so the static
- * content files can later be replaced with a headless CMS (TRD §8) by
- * changing the implementations here. They are async for that reason.
+ * Catalog data access. Products and collections are admin-editable content
+ * documents (see lib/content.ts); pages only talk to these functions.
  */
+const loadProducts = () => getContent("products");
+const loadCollections = () => getContent("collections");
 
 export const PAGE_SIZE = 9;
 
@@ -28,15 +31,15 @@ export type ProductQuery = {
 };
 
 export async function getProducts(): Promise<Product[]> {
-  return products;
+  return loadProducts();
 }
 
 export async function getProduct(slug: string): Promise<Product | undefined> {
-  return products.find((p) => p.slug === slug);
+  return (await loadProducts()).find((p) => p.slug === slug);
 }
 
 export async function getFeaturedProducts(limit = 6): Promise<Product[]> {
-  return products.filter((p) => p.featured).slice(0, limit);
+  return (await loadProducts()).filter((p) => p.featured).slice(0, limit);
 }
 
 export async function getProductLines(): Promise<ProductLine[]> {
@@ -50,21 +53,22 @@ export async function getProductLine(
 }
 
 export async function getCollections(): Promise<Collection[]> {
-  return collections;
+  return loadCollections();
 }
 
 export async function getCollection(
   slug: string,
 ): Promise<Collection | undefined> {
-  return collections.find((c) => c.slug === slug);
+  return (await loadCollections()).find((c) => c.slug === slug);
 }
 
 export async function getProductsInCollection(slug: string): Promise<Product[]> {
-  return products.filter((p) => p.collections.includes(slug));
+  return (await loadProducts()).filter((p) => p.collections.includes(slug));
 }
 
 /** Facet counts for the shop filter (audit §3.4 "category checkboxes with counts"). */
 export async function getFacetCounts() {
+  const [products, collections] = await Promise.all([loadProducts(), loadCollections()]);
   const count = (pred: (p: Product) => boolean) => products.filter(pred).length;
   return {
     lines: productLines.map((l) => ({
@@ -98,6 +102,7 @@ function sortProducts(list: Product[], sort: SortKey): Product[] {
 
 /** Search, filter, sort and paginate (audit §3.4 shop requirements). */
 export async function queryProducts(query: ProductQuery) {
+  const products = await loadProducts();
   const q = query.q?.trim().toLowerCase();
   const selected = query.collections ?? [];
 
@@ -130,7 +135,7 @@ export async function getRelatedProducts(
   product: Product,
   limit = 3,
 ): Promise<Product[]> {
-  const others = products.filter((p) => p.slug !== product.slug);
+  const others = (await loadProducts()).filter((p) => p.slug !== product.slug);
   const score = (p: Product) =>
     p.collections.filter((c) => product.collections.includes(c)).length * 2 +
     (p.line === product.line ? 1 : 0);

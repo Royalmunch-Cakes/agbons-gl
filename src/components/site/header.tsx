@@ -36,12 +36,18 @@ type CollectionLink = { slug: string; name: string; tagline: string };
  * Global header — rendered exactly once per page (fixes audit §5.1, where
  * the Elementor header rendered 3× with 3 stacked hidden modal triggers).
  */
-export function Header({ collections }: { collections: CollectionLink[] }) {
+export function Header({
+  collections,
+  announcement,
+}: {
+  collections: CollectionLink[];
+  announcement: string;
+}) {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/80">
       <div className="hidden bg-primary text-primary-foreground md:block">
         <Container className="flex h-9 items-center justify-between text-xs tracking-wide">
-          <p>Bespoke bridal consultations — strictly by appointment</p>
+          <p>{announcement}</p>
           <Link href="/consultation" className="underline-offset-4 hover:underline">
             Book a consultation
           </Link>

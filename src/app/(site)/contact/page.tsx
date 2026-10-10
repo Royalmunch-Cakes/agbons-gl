@@ -13,6 +13,8 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/site";
 import { contactGallery } from "@/content/site";
+import { getSettings } from "@/lib/content";
+import { phoneHref, socialLinks } from "@/lib/settings";
 import { consultationMessage } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
@@ -23,7 +25,9 @@ export const metadata: Metadata = {
 };
 
 /** Contact page (audit §3.6) — now with a real enquiry form (fixes §5.9). */
-export default function ContactPage() {
+export default async function ContactPage() {
+  const settings = await getSettings();
+  const socials = socialLinks(settings);
   return (
     <>
       {/* 2. Intro + CTAs */}
@@ -63,15 +67,15 @@ export default function ContactPage() {
             </div>
             <ul className="flex flex-col gap-4">
               <li>
-                <a href={siteConfig.contact.phoneHref} className="flex items-center gap-4 hover:underline">
+                <a href={phoneHref(settings.contact.phone)} className="flex items-center gap-4 hover:underline">
                   <PhoneIcon className="size-5 text-brand-ink" aria-hidden />
-                  {siteConfig.contact.phone}
+                  {settings.contact.phone}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${siteConfig.contact.email}`} className="flex items-center gap-4 hover:underline">
+                <a href={`mailto:${settings.contact.email}`} className="flex items-center gap-4 hover:underline">
                   <MailIcon className="size-5 text-brand-ink" aria-hidden />
-                  {siteConfig.contact.email}
+                  {settings.contact.email}
                 </a>
               </li>
               <li>
@@ -86,13 +90,13 @@ export default function ContactPage() {
                 </a>
               </li>
             </ul>
-            {siteConfig.socials.length > 0 && (
+            {socials.length > 0 && (
               <div className="flex flex-col gap-3">
                 <p className="text-sm text-muted-foreground">
                   Follow {siteConfig.handle}
                 </p>
                 <ul className="flex gap-3">
-                  {siteConfig.socials.map((s) => {
+                  {socials.map((s) => {
                     const Icon = socialIcons[s.name];
                     return (
                       <li key={s.name}>
@@ -115,7 +119,7 @@ export default function ContactPage() {
             <div className="flex flex-col gap-3">
               <h3 className="text-2xl">Office hours</h3>
               <dl className="grid grid-cols-[1fr_auto] gap-y-2 text-sm">
-                {siteConfig.hours.map((h) => (
+                {settings.hours.map((h) => (
                   <div key={h.days} className="contents">
                     <dt className="text-muted-foreground">{h.days}</dt>
                     <dd className="tabular-nums">{h.time}</dd>
@@ -125,7 +129,7 @@ export default function ContactPage() {
             </div>
             <Alert>
               <CalendarCheckIcon />
-              <AlertTitle>{siteConfig.hoursNote}</AlertTitle>
+              <AlertTitle>{settings.hoursNote}</AlertTitle>
               <AlertDescription>
                 <Link href="/consultation" className="underline underline-offset-4">
                   Request an appointment

@@ -3,6 +3,7 @@
 import { z } from "zod";
 
 import { siteConfig } from "@/config/site";
+import { getSettings } from "@/lib/content";
 import {
   consultationLabels,
   consultationSchema,
@@ -14,7 +15,8 @@ import { deliverSubmission } from "@/lib/server/deliver";
 import { subscribe } from "@/lib/server/newsletter";
 import { whatsappUrl } from "@/lib/whatsapp";
 
-const GENERIC_ERROR = `Something went wrong sending your message. Please try again, or reach us on WhatsApp at ${siteConfig.contact.phone}.`;
+const genericError = async () =>
+  `Something went wrong sending your message. Please try again, or reach us on WhatsApp at ${(await getSettings()).contact.phone}.`;
 
 function values(formData: FormData) {
   const out: Record<string, string> = {};
@@ -81,7 +83,7 @@ export async function sendContact(
       },
     });
   } catch {
-    return { status: "error", message: GENERIC_ERROR, values: values(formData) };
+    return { status: "error", message: await genericError(), values: values(formData) };
   }
   return {
     status: "success",
@@ -130,7 +132,7 @@ export async function submitConsultation(
       fields,
     });
   } catch {
-    return { status: "error", message: GENERIC_ERROR, values: values(formData) };
+    return { status: "error", message: await genericError(), values: values(formData) };
   }
 
   const summary = [
@@ -145,6 +147,6 @@ export async function submitConsultation(
   return {
     status: "success",
     message: `Thank you, ${d.name.split(" ")[0]}. Your request is with our atelier team — we'll contact you within one working day to confirm your appointment.`,
-    whatsappUrl: whatsappUrl(summary),
+    whatsappUrl: whatsappUrl(summary, (await getSettings()).contact.whatsapp),
   };
 }

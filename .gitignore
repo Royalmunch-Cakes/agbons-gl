@@ -43,3 +43,6 @@ next-env.d.ts
 # allow committed env template
 !.env.example
 
+
+# local admin content store (Netlify Blobs fallback)
+/.data/

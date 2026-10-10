@@ -5,7 +5,7 @@ import { NewsletterSection } from "@/components/forms/newsletter-form";
 import { Media } from "@/components/site/media";
 import { Container, PageHero, Section } from "@/components/site/section";
 import { Badge } from "@/components/ui/badge";
-import { journalPosts } from "@/content/journal";
+import { getContent } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Journal & Press",
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 };
 
 /** Journal & Press (audit §2.5 — previously a dead link with no content). */
-export default function JournalPage() {
-  const [lead, ...rest] = journalPosts;
+export default async function JournalPage() {
+  const [lead, ...rest] = await getContent("journal");
 
   return (
     <>

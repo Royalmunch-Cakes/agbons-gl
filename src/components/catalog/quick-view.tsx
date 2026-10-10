@@ -6,6 +6,7 @@ import { AddToBagButton } from "@/components/commerce/add-to-bag-button";
 import { Price } from "@/components/commerce/price";
 import { WhatsAppButton } from "@/components/commerce/whatsapp-button";
 import { Media } from "@/components/site/media";
+import { useSiteSettings } from "@/components/site/settings-provider";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -31,6 +32,7 @@ export function QuickView({
   className?: string;
 }) {
   const currency = useCurrency();
+  const { usdToNgnRate } = useSiteSettings();
   return (
     <Dialog>
       <DialogTrigger
@@ -50,7 +52,7 @@ export function QuickView({
             {purchasable ? (
               <>
                 <WhatsAppButton
-                  message={productOrderMessage(product, currency)}
+                  message={productOrderMessage(product, currency, 1, usdToNgnRate)}
                   intent="product-order"
                 >
                   Order via WhatsApp
