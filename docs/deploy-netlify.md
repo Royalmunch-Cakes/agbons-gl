@@ -32,7 +32,23 @@ build time; trigger a new deploy after changing them.
 | `RESEND_API_KEY`, `FORMS_NOTIFY_EMAIL`, `FORMS_FROM_EMAIL` and/or `FORMS_WEBHOOK_URL` | **required** — without them form submissions are only logged |
 | `NEWSLETTER_PROVIDER=mailchimp` + `MAILCHIMP_*` | **required** to collect sign-ups |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID`, `NEXT_PUBLIC_META_PIXEL_ID` | optional |
-| `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET` | **required** for the admin dashboard (see README) |
+| `ADMIN_PASSWORD` | **required** — long passphrase for `/admin` |
+| `ADMIN_SESSION_SECRET` | **required** — 32+ random characters (e.g. `openssl rand -hex 32`); changing it signs everyone out |
+| `NETLIFY_BLOBS_TOKEN` | **required** — see below |
+
+### NETLIFY_BLOBS_TOKEN (admin content during builds)
+
+Admin edits live in Netlify Blobs. Netlify gives the running site access
+automatically, but **not** the build command, and pages are prerendered at
+build time. So the build can read the latest content, create a token once:
+
+1. Netlify → **User settings → Applications → Personal access tokens → New
+   access token** (no expiry, or set a reminder to rotate).
+2. Add it as `NETLIFY_BLOBS_TOKEN` in the site's environment variables
+   (scope: Builds). `SITE_ID` is provided by Netlify automatically.
+
+Without it the build fails with a clear message rather than publishing pages
+that ignore admin edits.
 
 ## 3. Before switching DNS
 

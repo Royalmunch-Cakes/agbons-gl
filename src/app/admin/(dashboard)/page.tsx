@@ -1,7 +1,8 @@
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon, DownloadIcon } from "lucide-react";
 import Link from "next/link";
 
 import { adminNav } from "@/components/admin/admin-nav";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardDescription,
@@ -46,11 +47,21 @@ export default async function AdminHome() {
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="flex flex-col gap-1">
-        <h1 className="text-3xl md:text-4xl">Welcome back</h1>
-        <p className="text-sm text-muted-foreground">
-          Changes you save here go live on the website straight away.
-        </p>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-1">
+          <h1 className="text-3xl md:text-4xl">Welcome back</h1>
+          <p className="text-sm text-muted-foreground">
+            Changes you save here go live on the website straight away.
+          </p>
+        </div>
+        <Button
+          variant="outline"
+          nativeButton={false}
+          render={<a href="/api/admin/export" download />}
+        >
+          <DownloadIcon data-icon="inline-start" />
+          Download content backup
+        </Button>
       </div>
 
       <dl className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">

@@ -14,9 +14,9 @@ taken for open PRD questions are in [docs/decisions.md](docs/decisions.md).
 - **shadcn/ui** (Base UI primitives, `base-nova` style, lucide icons) themed to
   the brand (ivory / ink / logo orange-gold; Cormorant Garamond + Jost)
 - **zod** for form validation; server actions for form submission
-- No database: catalog and editorial content live in typed files under
-  `src/content/`, accessed only through `src/lib/catalog.ts` — the seam for a
-  headless CMS later.
+- **Admin dashboard** at `/admin` (custom, shadcn) editing content stored in
+  **Netlify Blobs** (a local `.data/` folder in development). The migrated
+  files in `src/content/` are the seed used until something is saved.
 
 ## Getting started
 
@@ -28,6 +28,33 @@ npm run dev                   # http://localhost:3000
 
 Production build: `npm run build && npm start`. Deployment: see
 [docs/deploy-netlify.md](docs/deploy-netlify.md) (Netlify + DNS cutover).
+
+## Admin dashboard
+
+Sign in at **`/admin`** with `ADMIN_PASSWORD`. Everything saved there goes
+live immediately — no rebuild or deploy needed.
+
+| Section | What can be edited |
+|---|---|
+| Products | Add/edit/delete pieces: name, URL, SKU, price, photos (upload, reorder, alt text), descriptions, fabric/silhouette/lead time/care, made-to-order, stock and quantity, featured, collections |
+| Collections | Add/edit/delete: name, URL, signature/season, year, commission price, tagline, description, hero image, story sections |
+| Homepage | Hero text and banner, brand story, feature tiles, bespoke process |
+| Gallery | Couture gallery images (homepage shows the first 8, Lookbook all) |
+| Testimonials, FAQs | Client reviews; grouped questions and answers |
+| Journal & Press | Add/edit/delete posts with cover image and sections |
+| Policies | Shipping, returns, privacy, terms; “reviewed” removes the draft notice |
+| Settings | Announcement bar, email, phone, WhatsApp number, opening hours, social links, USD→NGN rate |
+
+How it works: each area is one JSON document in the `content` blob store,
+validated with zod on save (`src/lib/admin/schemas.ts`); uploaded images go
+to the `media` store and are served from `/media-store/…`. Saves call
+`updateTag` + `revalidatePath`, so cached pages refresh on the next visit.
+Use **Download content backup** on the dashboard to export everything as
+JSON. Access is protected by `src/proxy.ts` plus a session check in every
+admin action; sessions last 12 hours.
+
+Locally, edits are stored in `.data/` (gitignored) — delete that folder to
+reset to the migrated content.
 
 ### Scripts
 
@@ -57,6 +84,7 @@ values are inlined at build time — rebuild after changing them.
 | Newsletter | `NEWSLETTER_PROVIDER` (`mailchimp` \| `log`), `MAILCHIMP_*` |
 | Form delivery | `RESEND_API_KEY`, `FORMS_NOTIFY_EMAIL`, `FORMS_FROM_EMAIL`, `FORMS_WEBHOOK_URL` |
 | Analytics | `NEXT_PUBLIC_GA_MEASUREMENT_ID`, `NEXT_PUBLIC_META_PIXEL_ID` (empty = not loaded) |
+| Admin | `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET` (32+ chars); on Netlify also `NETLIFY_BLOBS_TOKEN` |
 
 With no email/webhook configured, form submissions and newsletter sign-ups are
 logged to the server console, so everything works locally.
@@ -74,6 +102,8 @@ src/
     forms/             form kit, newsletter, contact, consultation
     marketing/         gallery, testimonials, brand film, value props, CTA band
     content/           policy page template
+    admin/             dashboard sidebar, editor shell and field kit
+  app/admin/           dashboard routes, login, server actions
   config/              site config (public) and server-only env
   content/             products.json, collections, site media, FAQs, journal, policies
   lib/                 catalog queries, store, WhatsApp, currency, analytics, forms
@@ -95,9 +125,6 @@ permanently redirect to their new equivalents (`next.config.ts`).
 
 ## Editing content
 
-- **Products:** re-run `npm run import:catalog` or edit
-  `src/content/products.json`.
-- **Collections, FAQs, journal posts, policies, testimonials:** edit the
-  matching file in `src/content/`.
-- **Policies** show a "Draft — pending review" notice until their `reviewed`
-  flag is set to `true` in `src/content/legal.ts`.
+Use the admin dashboard. The files in `src/content/` (and
+`npm run import:catalog`) only define the initial seed: once a section has
+been saved in the admin, the stored version takes precedence.

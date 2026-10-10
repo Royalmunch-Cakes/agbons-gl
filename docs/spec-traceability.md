@@ -85,7 +85,7 @@ where it's implemented. Status: ✅ done · ⚙️ done, needs client input (see
 | Bespoke intake | ✅ | `/consultation` |
 | Currency strategy | ⚙️ | D4 |
 | Unbuilt content pages | ✅ | §2.5 above |
-| CMS / editorial workflow | ⚙️ | Typed content files now; CMS seam in `lib/catalog.ts` (D1) |
+| CMS / editorial workflow | ✅ | Custom admin dashboard at `/admin`: products, collections, homepage, gallery, testimonials, FAQs, journal, policies, settings; live on save (D1) |
 | Legal pages | ⚙️ | Drafts |
 | Real reviews | ✅ | Real testimonials only |
 | Newsletter target | ⚙️ | Mailchimp (D5) |
@@ -95,7 +95,7 @@ where it's implemented. Status: ✅ done · ⚙️ done, needs client input (see
 
 | Requirement | Status | Implementation |
 |---|---|---|
-| Stack decision | ✅ | Next.js 16 (D1) |
+| Stack decision | ✅ | Next.js 16 on Netlify + admin on Netlify Blobs (D1) |
 | Product/collection schema | ✅ | `lib/types.ts` |
 | Media pipeline | ✅ | `next/image` responsive sizes served as WebP; migration scripts |
 | WhatsApp as a first-class component | ✅ | `WhatsAppButton` + generated messages |
@@ -106,6 +106,18 @@ where it's implemented. Status: ✅ done · ⚙️ done, needs client input (see
 | SEO parity (meta, OG, Twitter, canonical) | ✅ | Per-page metadata, sitemap, robots, ClothingStore/Product/FAQ JSON-LD, OG image |
 | Favicon | ✅ | `src/app/icon.png`, `apple-icon.png`, `favicon.ico` |
 | Content migration plan | ✅ | Scripts + legacy 301 redirects in `next.config.ts` |
+
+## Admin dashboard (post-audit request)
+
+| Capability | Implementation |
+|---|---|
+| Login | `app/admin/login`, `lib/admin-session.ts` (HMAC cookie), `proxy.ts`, `requireAdmin()` in every action |
+| Content store | `lib/server/blob-store.ts` (Netlify Blobs / local `.data`), `lib/content.ts` (tagged cached reads, seeds) |
+| Editors | `app/admin/(dashboard)/*` with the shared kit in `components/admin/` |
+| Validation | `lib/admin/schemas.ts` (zod), friendly messages |
+| Images | Upload to the media store (`uploadImage`), served by `/media-store/[...key]` |
+| Freshness | `updateTag` + `revalidatePath` on save; store re-check for new slugs |
+| Backup | `/api/admin/export` (dashboard button) |
 
 ## Verification
 

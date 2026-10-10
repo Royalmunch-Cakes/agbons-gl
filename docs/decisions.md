@@ -8,15 +8,17 @@ each needs client confirmation.
 
 | # | Question (audit ref) | Default in this build | How to change |
 |---|---|---|---|
-| D1 | Target stack (TRD §8) | Next.js 16 custom frontend, content in typed files behind `src/lib/catalog.ts` | Swap the catalog functions for headless CMS queries (e.g. Sanity); pages are unaffected |
+| D1 | Target stack and editing (TRD §8, §7 CMS) | Next.js 16 on Netlify with a **custom admin dashboard** (`/admin`) storing content in Netlify Blobs; one shared password | `src/lib/content.ts` is the single read/write seam if a database or headless CMS is preferred later |
 | D2 | Conversion model: checkout vs WhatsApp (§1, §5.12, §7) | **WhatsApp-first with a real bag.** Every product offers “Complete order via WhatsApp” and “Add to bag”; the bag checks out by sending an itemised WhatsApp message. Online card payment is shown as “coming soon”. | Add a payment provider (e.g. Paystack/Flutterwave/Stripe) behind the bag's order summary |
 | D3 | Bespoke intake (§5.11, §7) | Structured consultation form (occasion, date, budget, fitting method, optional measurements, vision) delivered by email/webhook, then hand-off to WhatsApp. No size variants on products. | Fields live in `src/lib/forms/schemas.ts` and `consultation-form.tsx` |
-| D4 | Currency (§5.13) | Prices authored in USD (as on WooCommerce); visitors can toggle NGN display at `NEXT_PUBLIC_USD_TO_NGN_RATE`; final amount confirmed at order | Set the rate, or author NGN prices in the content model |
+| D4 | Currency (§5.13) | Prices authored in USD (as on WooCommerce); visitors can toggle NGN display at the rate set in **Admin → Settings**; final amount confirmed at order | Change the rate in the admin, or author NGN prices in the content model |
 | D5 | Newsletter / CRM (§5.8) | Mailchimp (double opt-in) when configured, console log otherwise | `src/lib/server/newsletter.ts` |
 | D6 | Form delivery (§5.9) | Resend email and/or JSON webhook | `src/lib/server/deliver.ts` |
 | D7 | Customer accounts (TRD §8) | Not in scope: bag, wishlist and currency persist in the browser | `src/lib/store.ts` is the seam for server sync |
 | D8 | Analytics (TRD §8) | GA4 + Meta Pixel, loaded only when IDs are set; events for add-to-bag, wishlist, WhatsApp clicks (by intent), leads and sign-ups | `src/lib/analytics.ts` |
 | D9 | Collection taxonomy (§4) | Two-axis model: product line × collection. Live data only uses the “Bridal Couture” line; products map to collections by their WooCommerce categories | `src/content/collections.ts`, `scripts/import-woocommerce.mjs` |
+| D10 | Admin access | One shared password (`ADMIN_PASSWORD`), 12-hour signed session cookie | Add named accounts later if you need per-person audit trails |
+| D11 | Unknown URLs under `/product`, `/collections`, `/journal` | First visit to a never-seen slug returns HTTP 200 with `noindex` and the 404 page (Next.js streaming behaviour); repeat visits return 404 | Search engines don't index it; a proxy-level check could return 404 at the cost of a content read per request |
 
 ## Needs client confirmation
 
