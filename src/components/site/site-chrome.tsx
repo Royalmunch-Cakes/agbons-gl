@@ -1,3 +1,4 @@
+import { Analytics } from "@/components/site/analytics";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { ScrollToTop } from "@/components/site/scroll-to-top";
@@ -32,6 +33,8 @@ export async function SiteChrome({ children }: { children: React.ReactNode }) {
       </main>
       <Footer />
       <ScrollToTop />
+      {/* Storefront only, so admin sessions aren't counted as visits. */}
+      <Analytics />
     </>
   );
 }

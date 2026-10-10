@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 
-import { Analytics } from "@/components/site/analytics";
 import { SettingsProvider } from "@/components/site/settings-provider";
 import { Toaster } from "@/components/ui/toast";
 import { siteConfig } from "@/config/site";
@@ -94,7 +93,6 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         <SettingsProvider value={{ whatsapp: settings.contact.whatsapp }}>
           <Toaster>{children}</Toaster>
         </SettingsProvider>
-        <Analytics />
       </body>
     </html>
   );

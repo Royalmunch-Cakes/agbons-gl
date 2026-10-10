@@ -30,7 +30,8 @@ build time; trigger a new deploy after changing them.
 | `NEXT_PUBLIC_INSTAGRAM_URL`, `…_FACEBOOK_URL`, `…_TIKTOK_URL` | confirmed profile URLs |
 | `RESEND_API_KEY`, `FORMS_NOTIFY_EMAIL`, `FORMS_FROM_EMAIL` and/or `FORMS_WEBHOOK_URL` | **required** — without them form submissions are only logged |
 | `NEWSLETTER_PROVIDER=mailchimp` + `MAILCHIMP_*` | **required** to collect sign-ups |
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID`, `NEXT_PUBLIC_META_PIXEL_ID` | optional |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-YBQZ4PY08E` (Google Analytics 4) |
+| `NEXT_PUBLIC_META_PIXEL_ID` | optional |
 | `ADMIN_PASSWORD` | **required** — long passphrase for `/admin` |
 | `ADMIN_SESSION_SECRET` | **required** — 32+ random characters (e.g. `openssl rand -hex 32`); changing it signs everyone out |
 | `NETLIFY_BLOBS_TOKEN` | **required** — see below |
