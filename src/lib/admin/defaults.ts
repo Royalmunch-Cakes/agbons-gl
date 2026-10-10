@@ -1,3 +1,4 @@
+import type { JournalPost } from "@/content/journal";
 import type { Collection, Product } from "@/lib/types";
 
 /** Blank documents for the admin "New" forms. */
@@ -30,5 +31,17 @@ export function emptyCollection(): Collection {
     description: "",
     hero: { alt: "" },
     story: [],
+  };
+}
+
+export function emptyPost(): JournalPost {
+  return {
+    slug: "",
+    title: "",
+    kind: "story",
+    dateLabel: String(new Date().getFullYear()),
+    excerpt: "",
+    image: { alt: "" },
+    body: [{ heading: "", paragraphs: [""] }],
   };
 }

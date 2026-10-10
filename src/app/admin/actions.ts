@@ -1,9 +1,9 @@
 "use server";
 
 import { revalidatePath, updateTag } from "next/cache";
-import { z } from "zod";
 
 import { checkUnique, documentSchemas } from "@/lib/admin/schemas";
+import { formatIssue } from "@/lib/admin/format-issue";
 import {
   contentTag,
   saveContent,
@@ -25,12 +25,6 @@ function refreshSite() {
 
 export type ActionResult = { ok: true } | { ok: false; error: string };
 
-function firstIssue(error: z.ZodError) {
-  const issue = error.issues[0];
-  const where = issue.path.length ? ` (${issue.path.join(" › ")})` : "";
-  return `${issue.message}${where}`;
-}
-
 /** Validate and store a whole content document, then refresh the site. */
 export async function saveDocument<K extends ContentKey>(
   key: K,
@@ -41,7 +35,7 @@ export async function saveDocument<K extends ContentKey>(
   if (!schema) return { ok: false, error: "Unknown document." };
 
   const parsed = schema.safeParse(value);
-  if (!parsed.success) return { ok: false, error: firstIssue(parsed.error) };
+  if (!parsed.success) return { ok: false, error: formatIssue(parsed.error) };
 
   if (key === "products" || key === "collections" || key === "journal") {
     const dup = checkUnique(parsed.data as { slug: string }[], key);

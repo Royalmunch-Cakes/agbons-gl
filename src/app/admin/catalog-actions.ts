@@ -1,10 +1,10 @@
 "use server";
 
 import { revalidatePath, updateTag } from "next/cache";
-import { z } from "zod";
 
 import type { ActionResult } from "@/app/admin/actions";
 import { collectionSchema, productSchema } from "@/lib/admin/schemas";
+import { formatIssue } from "@/lib/admin/format-issue";
 import { contentTag, getContentForEdit, saveContent } from "@/lib/content";
 import { requireAdmin } from "@/lib/server/admin-auth";
 import type { Collection, Product } from "@/lib/types";
@@ -24,18 +24,13 @@ function refreshSite() {
   revalidatePath("/", "layout");
 }
 
-function issue(error: z.ZodError) {
-  const i = error.issues[0];
-  return `${i.message}${i.path.length ? ` (${i.path.join(" › ")})` : ""}`;
-}
-
 export async function saveProduct(
   product: Product,
   originalSlug: string | null,
 ): Promise<ActionResult & { slug?: string }> {
   await requireAdmin();
   const parsed = productSchema.safeParse(product);
-  if (!parsed.success) return { ok: false, error: issue(parsed.error) };
+  if (!parsed.success) return { ok: false, error: formatIssue(parsed.error) };
   const next = parsed.data as Product;
 
   const products = await getContentForEdit("products");
@@ -88,7 +83,7 @@ export async function saveCollection(
 ): Promise<ActionResult & { slug?: string }> {
   await requireAdmin();
   const parsed = collectionSchema.safeParse(collection);
-  if (!parsed.success) return { ok: false, error: issue(parsed.error) };
+  if (!parsed.success) return { ok: false, error: formatIssue(parsed.error) };
   const next = parsed.data as Collection;
 
   const collections = await getContentForEdit("collections");
