@@ -60,7 +60,9 @@ const IMAGE_TYPES: Record<string, string> = {
   "image/avif": "avif",
   "image/gif": "gif",
 };
-const MAX_UPLOAD_BYTES = 8 * 1024 * 1024;
+// Matches experimental.serverActions.bodySizeLimit in next.config.ts; the
+// editor resizes photos in the browser before upload (lib/admin/prepare-image).
+const MAX_UPLOAD_BYTES = 4 * 1024 * 1024;
 
 /** Upload an image to the media store; returns an asset for the editor. */
 export async function uploadImage(
@@ -75,7 +77,7 @@ export async function uploadImage(
   if (!ext)
     return { ok: false, error: "Use a JPG, PNG, WebP, AVIF or GIF image." };
   if (file.size > MAX_UPLOAD_BYTES) {
-    return { ok: false, error: "Images must be 8 MB or smaller." };
+    return { ok: false, error: "Images must be 4 MB or smaller." };
   }
 
   const key = `uploads/${new Date().getFullYear()}/${crypto.randomUUID()}.${ext}`;

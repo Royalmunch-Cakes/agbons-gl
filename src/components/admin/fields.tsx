@@ -25,6 +25,7 @@ import { Spinner } from "@/components/ui/spinner";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/toast";
+import { ImageTooLargeError, prepareImage } from "@/lib/admin/prepare-image";
 import type { MediaAsset, StorySection } from "@/lib/types";
 
 /* ── Layout ───────────────────────────────────────────────────────────── */
@@ -165,19 +166,26 @@ export function SwitchInput({
 
 function useUpload(onUploaded: (asset: MediaAsset) => void) {
   const [pending, startTransition] = useTransition();
+  const fail = (description: string) =>
+    toast.add({ title: "Upload failed", description, type: "error" });
   const upload = (file: File, alt?: string) => {
-    const data = new FormData();
-    data.set("file", file);
-    if (alt) data.set("alt", alt);
     startTransition(async () => {
-      const result = await uploadImage(data);
-      if (result.ok) onUploaded(result.asset);
-      else
-        toast.add({
-          title: "Upload failed",
-          description: result.error,
-          type: "error",
-        });
+      try {
+        // Resize in the browser so phone photos fit the 4 MB upload limit.
+        const prepared = await prepareImage(file);
+        const data = new FormData();
+        data.set("file", prepared);
+        if (alt) data.set("alt", alt);
+        const result = await uploadImage(data);
+        if (result.ok) onUploaded(result.asset);
+        else fail(result.error);
+      } catch (err) {
+        fail(
+          err instanceof ImageTooLargeError
+            ? err.message
+            : "The upload didn't complete. Check your connection and try again.",
+        );
+      }
     });
   };
   return { pending, upload };

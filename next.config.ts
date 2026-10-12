@@ -19,6 +19,14 @@ const legacyCategories: Record<string, string> = {
 const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
+  experimental: {
+    serverActions: {
+      // Admin image uploads go through a server action (default limit 1 MB).
+      // Photos are resized in the browser first; 4 MB stays under the hosts'
+      // request caps (Vercel 4.5 MB, Netlify ~6 MB).
+      bodySizeLimit: "4mb",
+    },
+  },
   turbopack: {
     rules: {
       "*.css": {
@@ -46,7 +54,11 @@ const nextConfig: NextConfig = {
         destination: `/collections/${to}`,
         permanent: true,
       })),
-      { source: "/product-category/bridal-couture", destination: "/bridal-couture", permanent: true },
+      {
+        source: "/product-category/bridal-couture",
+        destination: "/bridal-couture",
+        permanent: true,
+      },
       { source: "/wishsuite", destination: "/wishlist", permanent: true },
       { source: "/cart", destination: "/bag", permanent: true },
       { source: "/checkout", destination: "/bag", permanent: true },
