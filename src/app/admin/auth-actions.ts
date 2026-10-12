@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 
 import { adminConfigured, passwordMatches } from "@/lib/admin-session";
 import { endSession, startSession } from "@/lib/server/admin-auth";
+import { rateLimit, retryMessage } from "@/lib/server/rate-limit";
 
 export type LoginState = { error?: string };
 
@@ -17,6 +18,8 @@ export async function login(
   _prev: LoginState,
   formData: FormData,
 ): Promise<LoginState> {
+  const limited = await rateLimit("login");
+  if (!limited.ok) return { error: retryMessage(limited.retryAfter) };
   if (!adminConfigured()) {
     return {
       error:

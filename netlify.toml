@@ -10,16 +10,4 @@
   NODE_VERSION = "22"
   NEXT_TELEMETRY_DISABLED = "1"
 
-# Long-lived caching for migrated media (file names are stable; replace by renaming).
-[[headers]]
-  for = "/media/*"
-  [headers.values]
-    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    X-Frame-Options = "SAMEORIGIN"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+# Response headers live in next.config.ts (shared with Vercel).

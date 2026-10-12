@@ -92,6 +92,14 @@ Then in Netlify: **Domain management → Add domain** `agbons-gl.com`, set it
 as primary, and let Netlify provision the Let's Encrypt certificate (this
 also fixes the old site's untrusted certificate).
 
+## 4b. Rate limiting
+
+The app limits each visitor to 5 valid form submissions per 10 minutes and
+10 admin sign-in attempts per 15 minutes (`src/lib/server/rate-limit.ts`).
+For edge-level protection that blocks requests before functions run, add a
+rate-limit rule for `POST` requests in Netlify's **Security → Traffic rules**
+(plan-dependent).
+
 ## 5. After cutover
 
 - [ ] Submit `https://agbons-gl.com/sitemap.xml` in Google Search Console.

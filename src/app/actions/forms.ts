@@ -12,6 +12,7 @@ import {
   type FormState,
 } from "@/lib/forms/schemas";
 import { deliverSubmission } from "@/lib/server/deliver";
+import { rateLimit, retryMessage } from "@/lib/server/rate-limit";
 import { subscribe } from "@/lib/server/newsletter";
 import { whatsappUrl } from "@/lib/whatsapp";
 
@@ -24,6 +25,18 @@ function values(formData: FormData) {
     if (typeof v === "string" && !k.startsWith("$")) out[k] = v;
   });
   return out;
+}
+
+/**
+ * Caps valid submissions per visitor (forms send emails / call the ESP, so
+ * this protects those quotas). Invalid attempts aren't counted, so a real
+ * customer correcting typos is never locked out.
+ */
+async function limitForms(formData: FormData): Promise<FormState | null> {
+  const r = await rateLimit("form");
+  return r.ok
+    ? null
+    : { status: "error", message: retryMessage(r.retryAfter), values: values(formData) };
 }
 
 /** Honeypot: real visitors never fill the hidden `company` field. */
@@ -47,6 +60,8 @@ export async function subscribeNewsletter(
   if (isBot(formData)) return { status: "success", message: "Thank you." };
   const parsed = newsletterSchema.safeParse(values(formData));
   if (!parsed.success) return invalid(parsed.error, formData);
+  const limited = await limitForms(formData);
+  if (limited) return limited;
 
   try {
     await subscribe(parsed.data.email);
@@ -67,6 +82,8 @@ export async function sendContact(
   if (isBot(formData)) return { status: "success", message: "Thank you." };
   const parsed = contactSchema.safeParse(values(formData));
   if (!parsed.success) return invalid(parsed.error, formData);
+  const limited = await limitForms(formData);
+  if (limited) return limited;
   const d = parsed.data;
 
   try {
@@ -99,6 +116,8 @@ export async function submitConsultation(
   if (isBot(formData)) return { status: "success", message: "Thank you." };
   const parsed = consultationSchema.safeParse(values(formData));
   if (!parsed.success) return invalid(parsed.error, formData);
+  const limited = await limitForms(formData);
+  if (limited) return limited;
   const d = parsed.data;
 
   const measurements = [

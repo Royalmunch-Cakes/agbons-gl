@@ -17,14 +17,11 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { getCollection } from "@/lib/catalog";
-import { getContent, getContentForEdit } from "@/lib/content";
+import { getContent } from "@/lib/content";
 
-/** Cached lookup with a store re-check for just-published posts. */
+/** Cached lookup; saves refresh every page, so new posts resolve at once. */
 async function findPost(slug: string) {
-  return (
-    (await getContent("journal")).find((p) => p.slug === slug) ??
-    (await getContentForEdit("journal")).find((p) => p.slug === slug)
-  );
+  return (await getContent("journal")).find((p) => p.slug === slug);
 }
 
 export async function generateStaticParams() {

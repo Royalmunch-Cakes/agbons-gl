@@ -27,6 +27,12 @@ const nextConfig: NextConfig = {
       bodySizeLimit: "4mb",
     },
   },
+  images: {
+    // Image URLs here are stable (migrated media) or unique (admin uploads),
+    // so keep optimized variants for 31 days instead of the 4-hour default:
+    // far fewer re-optimizations (image-optimization usage and CPU).
+    minimumCacheTTL: 2678400,
+  },
   turbopack: {
     rules: {
       "*.css": {
@@ -40,6 +46,36 @@ const nextConfig: NextConfig = {
    * rankings carry over at cutover (audit §2, TRD §8 content migration).
    * /product/{slug} keeps its original path and needs no redirect.
    */
+  /**
+   * Response headers for every host (moved here from netlify.toml so they
+   * also apply on Vercel).
+   */
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+        ],
+      },
+      {
+        // Migrated media: names are stable; replace a file by renaming it.
+        source: "/media/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=604800, stale-while-revalidate=86400",
+          },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       ...collections
