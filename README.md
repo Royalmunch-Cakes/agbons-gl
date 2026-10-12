@@ -15,7 +15,8 @@ taken for open PRD questions are in [docs/decisions.md](docs/decisions.md).
   the brand (ivory / ink / logo orange-gold; Cormorant Garamond + Jost)
 - **zod** for form validation; server actions for form submission
 - **Admin dashboard** at `/admin` (custom, shadcn) editing content stored in
-  **Netlify Blobs** (a local `.data/` folder in development). The migrated
+  **Vercel Blob** or **Netlify Blobs** (picked by host; a local `.data/`
+  folder in development). The migrated
   files in `src/content/` are the seed used until something is saved.
 
 ## Getting started
@@ -27,7 +28,9 @@ npm run dev                   # http://localhost:3000
 ```
 
 Production build: `npm run build && npm start`. Deployment: see
-[docs/deploy-netlify.md](docs/deploy-netlify.md) (Netlify + DNS cutover).
+[docs/deploy-vercel.md](docs/deploy-vercel.md) or
+[docs/deploy-netlify.md](docs/deploy-netlify.md) (each covers env vars, rate
+limiting and the DNS cutover).
 
 ## Admin dashboard
 
@@ -45,7 +48,7 @@ live immediately — no rebuild or deploy needed.
 | Policies | Shipping, returns, privacy, terms; “reviewed” removes the draft notice |
 | Settings | Announcement bar, email, phone, WhatsApp number, opening hours, social links |
 
-How it works: each area is one JSON document in the `content` blob store,
+How it works: each area is one JSON document in the content store,
 validated with zod on save (`src/lib/admin/schemas.ts`); uploaded images go
 to the `media` store and are served from `/media-store/…`. Saves call
 `updateTag` + `revalidatePath`, so cached pages refresh on the next visit.
@@ -83,7 +86,7 @@ values are inlined at build time — rebuild after changing them.
 | Newsletter | `NEWSLETTER_PROVIDER` (`mailchimp` \| `log`), `MAILCHIMP_*` |
 | Form delivery | `RESEND_API_KEY`, `FORMS_NOTIFY_EMAIL`, `FORMS_FROM_EMAIL`, `FORMS_WEBHOOK_URL` |
 | Analytics | `NEXT_PUBLIC_GA_MEASUREMENT_ID`, `NEXT_PUBLIC_META_PIXEL_ID` (empty = not loaded) |
-| Admin | `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET` (32+ chars); on Netlify also `NETLIFY_BLOBS_TOKEN` |
+| Admin | `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET` (32+ chars); on Netlify also `NETLIFY_BLOBS_TOKEN`; optional `CONTENT_STORE` override |
 
 With no email/webhook configured, form submissions and newsletter sign-ups are
 logged to the server console, so everything works locally.

@@ -8,7 +8,7 @@ each needs client confirmation.
 
 | # | Question (audit ref) | Default in this build | How to change |
 |---|---|---|---|
-| D1 | Target stack and editing (TRD §8, §7 CMS) | Next.js 16 on Netlify with a **custom admin dashboard** (`/admin`) storing content in Netlify Blobs; one shared password | `src/lib/content.ts` is the single read/write seam if a database or headless CMS is preferred later |
+| D1 | Target stack and editing (TRD §8, §7 CMS) | Next.js 16 on Vercel or Netlify with a **custom admin dashboard** (`/admin`); content in Vercel Blob or Netlify Blobs, chosen by host; one shared password | `src/lib/content.ts` is the single read/write seam if a database or headless CMS is preferred later |
 | D2 | Conversion model: checkout vs WhatsApp (§1, §5.12, §7) | **WhatsApp-first with a real bag.** Every product offers “Complete order via WhatsApp” and “Add to bag”; the bag checks out by sending an itemised WhatsApp message. Online card payment is shown as “coming soon”. | Add a payment provider (e.g. Paystack/Flutterwave/Stripe) behind the bag's order summary |
 | D3 | Bespoke intake (§5.11, §7) | Structured consultation form (occasion, date, budget, fitting method, optional measurements, vision) delivered by email/webhook, then hand-off to WhatsApp. No size variants on products. | Fields live in `src/lib/forms/schemas.ts` and `consultation-form.tsx` |
 | D4 | Currency (§5.13) | Prices authored and shown in USD only (as on WooCommerce); the final amount is confirmed at order. An earlier USD/NGN display toggle was removed at the client's request | Author NGN prices in the content model, or reinstate a toggle (see git history) |

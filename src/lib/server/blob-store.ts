@@ -4,17 +4,24 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 import { getStore, type Store } from "@netlify/blobs";
+import { BlobNotFoundError, del, get, put } from "@vercel/blob";
 
 /**
- * Key-value storage for admin-edited content and uploaded media.
+ * Key-value storage for admin-edited content and uploaded media. The backend
+ * follows the platform the code is running on — never just which tokens are
+ * present, so a token copied into a local env file (e.g. by `vercel env pull`)
+ * can't make local development write to the live store.
  *
- * - On Netlify (functions at runtime): Netlify Blobs, credentials injected
- *   automatically.
- * - During `next build` on Netlify: Netlify Blobs using SITE_ID (provided by
- *   Netlify) and NETLIFY_BLOBS_TOKEN (a personal access token you set), so
- *   prerendered pages contain the latest admin edits. The build fails if the
- *   token is missing rather than silently publishing stale content.
- * - Locally: files under `.data/blobs/` (gitignored).
+ * - Vercel (VERCEL=1): Vercel Blob, private store. Auth via
+ *   BLOB_READ_WRITE_TOKEN, which Vercel injects into builds and functions
+ *   once a Blob store is connected to the project.
+ * - Netlify: Netlify Blobs. Functions get credentials injected; `next build`
+ *   uses SITE_ID + NETLIFY_BLOBS_TOKEN (see docs/deploy-netlify.md).
+ * - Anywhere else (local dev, `next start` on your machine): files under
+ *   `.data/blobs/` (gitignored).
+ *
+ * CONTENT_STORE=vercel|netlify|local forces a backend (e.g. to test against a
+ * real store locally — this writes to that live store).
  */
 
 export type StoreName = "content" | "media";
@@ -52,6 +59,63 @@ class NetlifyBackend implements BlobBackend {
   }
   async delete(key: string) {
     await this.store.delete(key);
+  }
+}
+
+/**
+ * Vercel Blob (private). Reads bypass the CDN cache (useCache: false) so an
+ * admin save is visible on the very next read — overwritten blobs could
+ * otherwise be served stale for up to 60s.
+ */
+class VercelBackend implements BlobBackend {
+  constructor(private prefix: StoreName) {}
+  private path(key: string) {
+    return `${this.prefix}/${key}`;
+  }
+  private async read(key: string, fresh: boolean) {
+    try {
+      const res = await get(this.path(key), {
+        access: "private",
+        useCache: !fresh,
+      });
+      return res && res.statusCode === 200 ? res : null;
+    } catch (err) {
+      if (err instanceof BlobNotFoundError) return null;
+      throw err;
+    }
+  }
+  async getJSON<T>(key: string) {
+    const res = await this.read(key, true);
+    if (!res) return null;
+    return JSON.parse(await new Response(res.stream).text()) as T;
+  }
+  async setJSON(key: string, value: unknown) {
+    await put(this.path(key), JSON.stringify(value), {
+      access: "private",
+      allowOverwrite: true,
+      addRandomSuffix: false,
+      contentType: "application/json",
+      cacheControlMaxAge: 60,
+    });
+  }
+  async getBinary(key: string) {
+    // Media keys are random UUIDs and never overwritten: cached reads are safe.
+    const res = await this.read(key, false);
+    if (!res) return null;
+    return {
+      data: await new Response(res.stream).arrayBuffer(),
+      meta: { contentType: res.blob.contentType },
+    };
+  }
+  async setBinary(key: string, data: ArrayBuffer, meta: Meta) {
+    await put(this.path(key), Buffer.from(data), {
+      access: "private",
+      addRandomSuffix: false,
+      contentType: meta.contentType,
+    });
+  }
+  async delete(key: string) {
+    await del(this.path(key));
   }
 }
 
@@ -105,15 +169,44 @@ class FileBackend implements BlobBackend {
 
 const backends = new Map<StoreName, BlobBackend>();
 
-function createBackend(name: StoreName): BlobBackend {
-  // 1. Netlify Functions / `netlify dev`: the Blobs context is injected.
+type Driver = "vercel" | "netlify" | "local";
+
+function detectDriver(): Driver {
+  const forced = process.env.CONTENT_STORE;
+  if (forced === "vercel" || forced === "netlify" || forced === "local") {
+    return forced;
+  }
+  if (process.env.VERCEL === "1") return "vercel";
+  if (process.env.NETLIFY === "true" || process.env.NETLIFY_BLOBS_CONTEXT) {
+    return "netlify";
+  }
+  // Netlify Functions may not expose NETLIFY=true; probe for the injected context.
+  try {
+    getStore("content");
+    return "netlify";
+  } catch {
+    return "local";
+  }
+}
+
+function createVercel(name: StoreName): BlobBackend {
+  if (!process.env.BLOB_READ_WRITE_TOKEN && !process.env.BLOB_STORE_ID) {
+    throw new Error(
+      "Vercel Blob isn't connected. In the Vercel project, open Storage, create a " +
+        "Blob store (private) and connect it, so BLOB_READ_WRITE_TOKEN is set for " +
+        "builds and functions. See docs/deploy-vercel.md.",
+    );
+  }
+  return new VercelBackend(name);
+}
+
+function createNetlify(name: StoreName): BlobBackend {
+  // Functions / `netlify dev`: the Blobs context is injected.
   try {
     return new NetlifyBackend(getStore({ name, consistency: "strong" }));
   } catch {
-    // No injected context — fall through.
+    // `next build`: credentials must be passed explicitly.
   }
-
-  // 2. `next build` on Netlify: credentials must be passed explicitly.
   const siteID = process.env.SITE_ID;
   const token = process.env.NETLIFY_BLOBS_TOKEN;
   if (siteID && token) {
@@ -121,16 +214,22 @@ function createBackend(name: StoreName): BlobBackend {
       getStore({ name, siteID, token, consistency: "strong" }),
     );
   }
-  if (process.env.NETLIFY === "true") {
-    throw new Error(
-      "Netlify Blobs credentials are missing during the build. Set NETLIFY_BLOBS_TOKEN " +
-        "(a Netlify personal access token) in the site's environment variables so " +
-        "prerendered pages include admin edits. See docs/deploy-netlify.md.",
-    );
-  }
+  throw new Error(
+    "Netlify Blobs credentials are missing during the build. Set NETLIFY_BLOBS_TOKEN " +
+      "(a Netlify personal access token) in the site's environment variables so " +
+      "prerendered pages include admin edits. See docs/deploy-netlify.md.",
+  );
+}
 
-  // 3. Local development.
-  return new FileBackend(path.join(LOCAL_ROOT, name));
+function createBackend(name: StoreName): BlobBackend {
+  switch (detectDriver()) {
+    case "vercel":
+      return createVercel(name);
+    case "netlify":
+      return createNetlify(name);
+    default:
+      return new FileBackend(path.join(LOCAL_ROOT, name));
+  }
 }
 
 export function blobs(name: StoreName): BlobBackend {
