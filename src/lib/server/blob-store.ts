@@ -36,6 +36,10 @@ export interface BlobBackend {
   delete(key: string): Promise<void>;
 }
 
+// Netlify Blobs (private) is strongly consistent, so reads always see the latest
+// writes. Vercel Blob (private) is eventually consistent, so reads may return
+// stale data for up to 60s after a write. To avoid this, admin writes are always
+// followed by a read with useCache: false (fresh=true) to bypass the CDN cache.
 class NetlifyBackend implements BlobBackend {
   constructor(private store: Store) {}
   async getJSON<T>(key: string) {
