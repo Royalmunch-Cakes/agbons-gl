@@ -4,6 +4,9 @@ import { ProductList } from "@/app/admin/(dashboard)/products/product-list";
 import { getContentForEdit } from "@/lib/content";
 import { requireAdmin } from "@/lib/server/admin-auth";
 
+/** Session-checked per request; see the dashboard layout. */
+export const instant = false;
+
 export const metadata: Metadata = { title: "Products" };
 
 export default async function ProductsPage() {

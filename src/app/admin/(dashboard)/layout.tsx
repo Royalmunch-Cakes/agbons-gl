@@ -10,6 +10,13 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
+/**
+ * Every admin page checks the session cookie per request (requireAdmin), so
+ * navigations here wait for the server by design. Opt the dashboard out of
+ * instant-navigation validation; the storefront keeps it.
+ */
+export const instant = false;
+
 export const metadata: Metadata = {
   title: { default: "Admin", template: "%s · Admin | AGBONS-GL" },
   robots: { index: false, follow: false },

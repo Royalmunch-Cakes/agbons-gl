@@ -12,6 +12,9 @@ import {
 import { getContentForEdit } from "@/lib/content";
 import { requireAdmin } from "@/lib/server/admin-auth";
 
+/** Session-checked per request; see the dashboard layout. */
+export const instant = false;
+
 const blurbs: Record<string, string> = {
   "/admin/products":
     "Add pieces, update prices and stock, upload photos, mark featured.",

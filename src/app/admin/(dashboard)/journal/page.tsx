@@ -8,6 +8,9 @@ import { Button } from "@/components/ui/button";
 import { getContentForEdit } from "@/lib/content";
 import { requireAdmin } from "@/lib/server/admin-auth";
 
+/** Session-checked per request; see the dashboard layout. */
+export const instant = false;
+
 export const metadata: Metadata = { title: "Journal & Press" };
 
 export default async function JournalAdminPage() {
