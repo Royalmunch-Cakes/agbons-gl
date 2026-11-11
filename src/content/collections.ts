@@ -29,7 +29,7 @@ export const collections: Collection[] = [
     description:
       "A story of transformation — inspired by the mythical mermaid, reimagined through African craftsmanship and modern couture. Each silhouette represents the strength and grace of womanhood, flowing yet fierce.",
     hero: {
-      src: "/media/collections/haute-couture.webp",
+      src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/haute-couture.webp",
       alt: "Mermaid-silhouette gown from the Haute Couture Collection",
     },
     fromPriceUsd: 5000,
@@ -78,7 +78,7 @@ export const collections: Collection[] = [
     description:
       "A timeless ode to heritage, beauty, and craftsmanship. Released in mid-2024, the collection reimagines the splendour of Edo royal tradition through the lens of haute couture.",
     hero: {
-      src: "/media/collections/queen-idia.jpg",
+      src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/queen-idia.jpg",
       alt: "Edo bridal look from the Queen Idia Collection",
     },
     fromPriceUsd: 5000,
@@ -121,7 +121,7 @@ export const collections: Collection[] = [
     description:
       "The first African collection to employ crystal droplets as a structural design language. Each piece transforms light into motion, redefining luxury as art.",
     hero: {
-      src: "/media/collections/crystal-drop.jpg",
+      src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/crystal-drop.jpg",
       alt: "Crystal-droplet gown from the Crystal Drop Collection",
     },
     fromPriceUsd: 5000,
@@ -164,7 +164,7 @@ export const collections: Collection[] = [
     description:
       "If winter ever wore a crown, it would be dressed by AGBONS-GL. Each gown is a masterpiece of shimmer, sharpness, and sculptural elegance.",
     hero: {
-      src: "/media/collections/ice-crystal.webp",
+      src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/ice-crystal.webp",
       alt: "Crystal-embellished gown from the Ice & Crystals Collection",
     },
     fromPriceUsd: 5000,
@@ -211,7 +211,7 @@ export const collections: Collection[] = [
     description:
       "A symphony of heritage, craftsmanship, and grandeur. Each gown is not merely worn — it is inherited, woven with the spirit of queens who walked before us.",
     hero: {
-      src: "/media/collections/royal-ancestors.jpg",
+      src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/royal-ancestors.jpg",
       alt: "Red ruffled-tulle gown from the Royal Ancestors Collection",
     },
     fromPriceUsd: 5000,
@@ -259,7 +259,7 @@ export const collections: Collection[] = [
     description:
       "A poetic fusion of nature’s splendour and royal finesse — each gown crafted not merely to be worn, but to crown its wearer.",
     hero: {
-      src: "/media/collections/stone-petal-sparkle.jpg",
+      src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/stone-petal-sparkle.jpg",
       alt: "Metallic floral ball gown from the Stone, Petal & Sparkle Collection",
     },
     fromPriceUsd: 5000,
@@ -302,7 +302,7 @@ export const collections: Collection[] = [
     description:
       "Every piece from our 2024 season — statement gowns, sets and tailored silhouettes.",
     hero: {
-      src: "/media/site/feature-signature.webp",
+      src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/feature-signature.webp",
       alt: "Look from the 2024 collections",
     },
   },
@@ -316,7 +316,7 @@ export const collections: Collection[] = [
     description:
       "Signature pieces from our 2023 season, available to order or commission in your measurements.",
     hero: {
-      src: "/media/site/feature-collections.jpg",
+      src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/feature-collections.jpg",
       alt: "Look from the 2023 collections",
     },
   },

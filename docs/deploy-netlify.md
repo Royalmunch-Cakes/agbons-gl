@@ -32,6 +32,7 @@ build time; trigger a new deploy after changing them.
 | `NEWSLETTER_PROVIDER=mailchimp` + `MAILCHIMP_*` | **required** to collect sign-ups |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-YBQZ4PY08E` (Google Analytics 4) |
 | `NEXT_PUBLIC_META_PIXEL_ID` | optional |
+| `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`, `CLOUDINARY_FOLDER` | **required** — site media is served from Cloudinary and admin uploads go there (key needs upload permission) |
 | `ADMIN_PASSWORD` | **required** — long passphrase for `/admin` |
 | `ADMIN_SESSION_SECRET` | **required** — 32+ random characters (e.g. `openssl rand -hex 32`); changing it signs everyone out |
 | `NETLIFY_BLOBS_TOKEN` | **required** — see below |

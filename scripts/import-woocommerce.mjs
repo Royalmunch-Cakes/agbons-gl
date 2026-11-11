@@ -4,6 +4,9 @@
  * downloads product images into public/media/products/ (audit §6, TRD §8
  * content migration plan).
  *
+ * SUPERSEDED: site media now lives on Cloudinary (scripts/migrate-to-cloudinary.mjs).
+ * Re-running this writes local /media paths; upload new files via /admin instead.
+ *
  * Usage:
  *   node scripts/import-woocommerce.mjs [--from <url|file>] [--insecure] [--skip-images]
  *

@@ -4,6 +4,7 @@ import { Cormorant_Garamond, Jost } from "next/font/google";
 import { SettingsProvider } from "@/components/site/settings-provider";
 import { Toaster } from "@/components/ui/toast";
 import { siteConfig } from "@/config/site";
+import { brandMedia, pageMedia } from "@/content/site";
 import { getSettings } from "@/lib/content";
 import type { SiteSettings } from "@/lib/types";
 
@@ -51,8 +52,8 @@ const organizationJsonLd = (settings: SiteSettings) => ({
   slogan: siteConfig.tagline,
   description: siteConfig.description,
   url: siteConfig.url,
-  logo: `${siteConfig.url}/media/brand/logo.webp`,
-  image: `${siteConfig.url}/media/site/home-hero.png`,
+  logo: brandMedia.logo.src,
+  image: pageMedia.homeHero.src,
   email: settings.contact.email,
   telephone: settings.contact.phone,
   founder: { "@type": "Person", name: siteConfig.founder },

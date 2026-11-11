@@ -12,6 +12,10 @@ import {
 } from "@/lib/content";
 import { requireAdmin } from "@/lib/server/admin-auth";
 import { blobs } from "@/lib/server/blob-store";
+import {
+  cloudinaryConfigured,
+  uploadImageToCloudinary,
+} from "@/lib/server/cloudinary";
 import type { MediaAsset } from "@/lib/types";
 
 /**
@@ -80,6 +84,22 @@ export async function uploadImage(
     return { ok: false, error: "Images must be 4 MB or smaller." };
   }
 
+  const alt =
+    String(formData.get("alt") ?? "").trim() ||
+    file.name.replace(/\.[^.]+$/, "");
+
+  // Cloudinary is the media library: the returned URL is what content
+  // documents store. The Blob store is only a fallback when Cloudinary
+  // isn't configured (e.g. local development without credentials).
+  if (cloudinaryConfigured()) {
+    try {
+      return { ok: true, asset: { src: await uploadImageToCloudinary(file), alt } };
+    } catch (err) {
+      console.error("[admin] Cloudinary upload failed", err);
+      return { ok: false, error: "Upload failed. Please try again." };
+    }
+  }
+
   const key = `uploads/${new Date().getFullYear()}/${crypto.randomUUID()}.${ext}`;
   try {
     await blobs("media").setBinary(key, await file.arrayBuffer(), {
@@ -90,8 +110,5 @@ export async function uploadImage(
     console.error("[admin] upload failed", err);
     return { ok: false, error: "Upload failed. Please try again." };
   }
-  const alt =
-    String(formData.get("alt") ?? "").trim() ||
-    file.name.replace(/\.[^.]+$/, "");
   return { ok: true, asset: { src: `/media-store/${key}`, alt } };
 }

@@ -42,7 +42,10 @@ export const mediaSchema = z.object({
     .trim()
     .max(500)
     .refine(
-      (v) => v === "" || v.startsWith("/"),
+      (v) =>
+        v === "" ||
+        v.startsWith("/") ||
+        v.startsWith("https://res.cloudinary.com/"),
       "Images must be uploaded to the site.",
     )
     .optional(),

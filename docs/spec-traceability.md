@@ -73,7 +73,7 @@ where it's implemented. Status: ✅ done · ⚙️ done, needs client input (see
 | 9 categories | ✅ | Mapped to 8 collections + Bridal Couture line |
 | Testimonials (3 real) | ✅ | `src/content/site.ts` |
 | Gallery (~14 + 4) | ✅ | `scripts/pull-site-media.mjs` |
-| 2 videos | ✅ | Pulled to `public/media/video/` (gitignored); poster fallback |
+| 2 videos | ✅ | Hosted on Cloudinary (`agbons-gl/video/`); poster fallback |
 | Legal/policy pages | ⚙️ | Drafts pending legal review |
 | Blog/press | ✅ | Journal with 4 seed posts from published press facts |
 

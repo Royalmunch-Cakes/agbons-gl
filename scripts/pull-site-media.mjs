@@ -3,6 +3,9 @@
  * Downloads site imagery and brand films listed in scripts/site-media.json
  * into public/media/ (audit §6 content migration).
  *
+ * SUPERSEDED: site media now lives on Cloudinary (scripts/migrate-to-cloudinary.mjs).
+ * Re-running this writes local /media paths; upload new files via /admin instead.
+ *
  * Usage: node scripts/pull-site-media.mjs [--insecure]
  *   --insecure  Skip TLS verification (the current host's certificate chain
  *               is untrusted).

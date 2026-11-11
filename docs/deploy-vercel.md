@@ -42,6 +42,7 @@ values are baked in at build time — redeploy after changing them.
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-YBQZ4PY08E` |
 | `RESEND_API_KEY`, `FORMS_NOTIFY_EMAIL`, `FORMS_FROM_EMAIL` and/or `FORMS_WEBHOOK_URL` | **required** for form delivery |
 | `NEWSLETTER_PROVIDER=mailchimp` + `MAILCHIMP_*` | **required** to collect sign-ups |
+| `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`, `CLOUDINARY_FOLDER` | **required** — site media is served from Cloudinary and admin uploads go there (key needs upload permission) |
 | `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET` | **required** for `/admin` |
 
 `NETLIFY_BLOBS_TOKEN` is not used on Vercel.
@@ -79,11 +80,10 @@ until it's switched off.
   functions run only after an admin save (one re-render per page) or for
   the first visit to a new URL.
 - Storefront pages never read storage on a request — only cached data.
-- Uploaded images are served by `/media-store` with immutable CDN headers,
-  so each image runs a function about once per region; repeat views come
-  from the CDN.
-- Optimized images are cached 31 days (`images.minimumCacheTTL`).
-- Admin uploads are resized in the browser, not on the server.
+- All images and videos are delivered by Cloudinary (resizing, AVIF/WebP)
+  through a custom `next/image` loader, so Vercel never optimizes images.
+  Old `/media/...` URLs redirect to Cloudinary.
+- Admin uploads are resized in the browser, then sent to Cloudinary.
 - Rate limits stop form spam before it reaches functions, Resend or
   Mailchimp (whose APIs are themselves rate-limited).
 

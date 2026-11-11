@@ -1,5 +1,9 @@
 import type { NextConfig } from "next";
 
+import {
+  CLOUDINARY_MEDIA_FOLDER,
+  cloudinaryBase,
+} from "./src/lib/cloudinary";
 import { collections } from "./src/content/collections";
 
 // WooCommerce category slug → new collection slug (audit §2.2).
@@ -28,10 +32,10 @@ const nextConfig: NextConfig = {
     },
   },
   images: {
-    // Image URLs here are stable (migrated media) or unique (admin uploads),
-    // so keep optimized variants for 31 days instead of the 4-hour default:
-    // far fewer re-optimizations (image-optimization usage and CPU).
-    minimumCacheTTL: 2678400,
+    // All media is on Cloudinary, which resizes and converts images
+    // (f_auto/q_auto) on its CDN — the host never optimizes images.
+    loader: "custom",
+    loaderFile: "./src/lib/cloudinary-loader.ts",
   },
   turbopack: {
     rules: {
@@ -64,20 +68,22 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      {
-        // Migrated media: names are stable; replace a file by renaming it.
-        source: "/media/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=604800, stale-while-revalidate=86400",
-          },
-        ],
-      },
     ];
   },
   async redirects() {
     return [
+      // Media moved to Cloudinary (agbons-gl folder, same sub-paths). Keeps
+      // old links and any "/media/…" path in saved content working.
+      {
+        source: "/media/video/:path*",
+        destination: `${cloudinaryBase("video")}/${CLOUDINARY_MEDIA_FOLDER}/video/:path*`,
+        permanent: true,
+      },
+      {
+        source: "/media/:path*",
+        destination: `${cloudinaryBase("image")}/${CLOUDINARY_MEDIA_FOLDER}/:path*`,
+        permanent: true,
+      },
       ...collections
         .filter((c) => c.legacyPath)
         .map((c) => ({

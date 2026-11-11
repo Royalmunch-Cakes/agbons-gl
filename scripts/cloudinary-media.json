@@ -1,0 +1,602 @@
+{
+  "/media/brand/icon-full.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/brand/icon-full.webp",
+    "width": 512,
+    "height": 512
+  },
+  "/media/brand/icon.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/brand/icon.webp",
+    "width": 300,
+    "height": 300
+  },
+  "/media/brand/logo-white.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/brand/logo-white.webp",
+    "width": 192,
+    "height": 192
+  },
+  "/media/brand/logo.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/brand/logo.webp",
+    "width": 350,
+    "height": 100
+  },
+  "/media/brand/monogram.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/brand/monogram.webp",
+    "width": 150,
+    "height": 150
+  },
+  "/media/collections/crystal-drop.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/crystal-drop.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/collections/haute-couture.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/haute-couture.webp",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/collections/ice-crystal.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/ice-crystal.webp",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/collections/queen-idia.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/queen-idia.jpg",
+    "width": 1440,
+    "height": 1801
+  },
+  "/media/collections/royal-ancestors.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/royal-ancestors.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/collections/stone-petal-sparkle.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/stone-petal-sparkle.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/01.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/01.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/02.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/02.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/03.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/03.webp",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/04.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/04.webp",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/05.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/05.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/06.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/06.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/07.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/07.webp",
+    "width": 1440,
+    "height": 1799
+  },
+  "/media/gallery/08.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/08.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/09.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/09.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/10.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/10.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/11.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/11.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/12.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/12.webp",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/13.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/13.webp",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/14.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/14.webp",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/contact-1.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/contact-1.webp",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/contact-2.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/contact-2.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/contact-3.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/contact-3.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/gallery/contact-4.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/gallery/contact-4.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/adoreme-set-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/adoreme-set-1.jpg",
+    "width": 1440,
+    "height": 1801
+  },
+  "/media/products/amazon-bliz-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/amazon-bliz-1.jpg",
+    "width": 1440,
+    "height": 1803
+  },
+  "/media/products/aqua-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/aqua-1.jpg",
+    "width": 987,
+    "height": 1280
+  },
+  "/media/products/axo-set-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/axo-set-1.jpg",
+    "width": 792,
+    "height": 1056
+  },
+  "/media/products/axo-set-2.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/axo-set-2.jpg",
+    "width": 792,
+    "height": 1056
+  },
+  "/media/products/azure-monarch-blouse-skirt-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/azure-monarch-blouse-skirt-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/blush-equinox-maxi-dress-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/blush-equinox-maxi-dress-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/blush-equinox-maxi-dress-2.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/blush-equinox-maxi-dress-2.jpg",
+    "width": 1440,
+    "height": 1796
+  },
+  "/media/products/blush-equinox-maxi-dress-3.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/blush-equinox-maxi-dress-3.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/boss-affair-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/boss-affair-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/boss-set-1.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/boss-set-1.webp",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/champagne-blade-dress-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/champagne-blade-dress-1.jpg",
+    "width": 832,
+    "height": 1040
+  },
+  "/media/products/chic-set-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/chic-set-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/chic-set-2-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/chic-set-2-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/corporate-chic-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/corporate-chic-1.jpg",
+    "width": 1072,
+    "height": 1340
+  },
+  "/media/products/crimson-halo-shift-dress-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/crimson-halo-shift-dress-1.jpg",
+    "width": 1024,
+    "height": 1280
+  },
+  "/media/products/crimson-halo-shift-dress-2.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/crimson-halo-shift-dress-2.jpg",
+    "width": 965,
+    "height": 1206
+  },
+  "/media/products/crystal-drop-bridal-collection-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/crystal-drop-bridal-collection-1.jpg",
+    "width": 1080,
+    "height": 1350
+  },
+  "/media/products/dusk-aura-wrap-dress-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/dusk-aura-wrap-dress-1.jpg",
+    "width": 880,
+    "height": 1100
+  },
+  "/media/products/emberlace-slit-gown-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/emberlace-slit-gown-1.jpg",
+    "width": 1024,
+    "height": 1280
+  },
+  "/media/products/exclusive-diva-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/exclusive-diva-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/golden-thread-coat-dress-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/golden-thread-coat-dress-1.jpg",
+    "width": 1440,
+    "height": 1801
+  },
+  "/media/products/golden-thread-coat-dress-2.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/golden-thread-coat-dress-2.jpg",
+    "width": 1440,
+    "height": 1801
+  },
+  "/media/products/golden-thread-coat-dress-3.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/golden-thread-coat-dress-3.jpg",
+    "width": 1440,
+    "height": 1801
+  },
+  "/media/products/graphite-bloom-midi-dress-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/graphite-bloom-midi-dress-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/haute-collection-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/haute-collection-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/ivory-cascade-cape-dress-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/ivory-cascade-cape-dress-1.jpg",
+    "width": 1024,
+    "height": 1280
+  },
+  "/media/products/janetin-gigs-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/janetin-gigs-1.jpg",
+    "width": 899,
+    "height": 1242
+  },
+  "/media/products/millennium-dress-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/millennium-dress-1.jpg",
+    "width": 1440,
+    "height": 1802
+  },
+  "/media/products/mimi-asake-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/mimi-asake-1.jpg",
+    "width": 986,
+    "height": 1280
+  },
+  "/media/products/mimi-asake-2.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/mimi-asake-2.jpg",
+    "width": 983,
+    "height": 1229
+  },
+  "/media/products/mini-snow-dress-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/mini-snow-dress-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/monica-drape-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/monica-drape-1.jpg",
+    "width": 1440,
+    "height": 1803
+  },
+  "/media/products/noir-whisper-dress-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/noir-whisper-dress-1.jpg",
+    "width": 1080,
+    "height": 1318
+  },
+  "/media/products/onyx-frost-tailored-dress-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/onyx-frost-tailored-dress-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/opal-mirage-suit-set-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/opal-mirage-suit-set-1.jpg",
+    "width": 790,
+    "height": 988
+  },
+  "/media/products/pearlline-draped-gown-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/pearlline-draped-gown-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/pearlline-draped-gown-2.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/pearlline-draped-gown-2.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/pearlline-draped-gown-3.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/pearlline-draped-gown-3.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/platinum-haze-tunic-dress-1.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/platinum-haze-tunic-dress-1.webp",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/purple-varient-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/purple-varient-1.jpg",
+    "width": 1023,
+    "height": 1280
+  },
+  "/media/products/rose-ember-cape-set-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/rose-ember-cape-set-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/rose-ember-cape-set-2.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/rose-ember-cape-set-2.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/rose-ember-cape-set-3.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/rose-ember-cape-set-3.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/royal-ember-gown-1.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/royal-ember-gown-1.webp",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/sapphire-veil-evening-gown-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/sapphire-veil-evening-gown-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/sapphire-veil-evening-gown-2.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/sapphire-veil-evening-gown-2.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/sapphire-veil-evening-gown-3.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/sapphire-veil-evening-gown-3.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/she-look-set-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/she-look-set-1.jpg",
+    "width": 792,
+    "height": 990
+  },
+  "/media/products/silver-pulse-pantsuit-1.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/silver-pulse-pantsuit-1.webp",
+    "width": 1152,
+    "height": 1440
+  },
+  "/media/products/summer-icon-dress-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/summer-icon-dress-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/terra-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/terra-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/velvet-max-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/velvet-max-1.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/velvet-max-2.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/velvet-max-2.jpg",
+    "width": 1440,
+    "height": 1800
+  },
+  "/media/products/velvet-rune-cocktail-dress-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/velvet-rune-cocktail-dress-1.jpg",
+    "width": 1440,
+    "height": 1794
+  },
+  "/media/products/velvet-rune-cocktail-dress-2.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/velvet-rune-cocktail-dress-2.jpg",
+    "width": 1440,
+    "height": 1795
+  },
+  "/media/products/velvet-rune-cocktail-dress-3.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/velvet-rune-cocktail-dress-3.jpg",
+    "width": 1440,
+    "height": 1789
+  },
+  "/media/products/viva-drape-1.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/viva-drape-1.jpg",
+    "width": 1440,
+    "height": 1801
+  },
+  "/media/products/viva-drape-2.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/viva-drape-2.jpg",
+    "width": 1440,
+    "height": 1801
+  },
+  "/media/products/viva-drape-3.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/viva-drape-3.jpg",
+    "width": 1440,
+    "height": 1801
+  },
+  "/media/site/about-hero.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/about-hero.webp",
+    "width": 500,
+    "height": 500
+  },
+  "/media/site/bridal-hero.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/bridal-hero.jpg",
+    "width": 1440,
+    "height": 1795
+  },
+  "/media/site/dream-dress.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/dream-dress.jpg",
+    "width": 650,
+    "height": 1300
+  },
+  "/media/site/feature-collections.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/feature-collections.jpg",
+    "width": 650,
+    "height": 650
+  },
+  "/media/site/feature-consultation.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/feature-consultation.jpg",
+    "width": 650,
+    "height": 650
+  },
+  "/media/site/feature-signature.webp": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/feature-signature.webp",
+    "width": 650,
+    "height": 650
+  },
+  "/media/site/founder.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/founder.jpg",
+    "width": 819,
+    "height": 1024
+  },
+  "/media/site/home-hero.png": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/home-hero.png",
+    "width": 2240,
+    "height": 1260
+  },
+  "/media/site/home-story.jpg": {
+    "kind": "image",
+    "url": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/home-story.jpg",
+    "width": 768,
+    "height": 954
+  },
+  "/media/video/brand-film.mp4": {
+    "kind": "video",
+    "url": "https://res.cloudinary.com/mgioqhn4/video/upload/agbons-gl/video/brand-film.mp4",
+    "width": 720,
+    "height": 1280
+  },
+  "/media/video/our-story.mp4": {
+    "kind": "video",
+    "url": "https://res.cloudinary.com/mgioqhn4/video/upload/agbons-gl/video/our-story.mp4",
+    "width": 720,
+    "height": 1280
+  }
+}

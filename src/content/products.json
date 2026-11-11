@@ -10,7 +10,7 @@
     "priceUsd": 5000,
     "images": [
       {
-        "src": "/media/products/crystal-drop-bridal-collection-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/crystal-drop-bridal-collection-1.jpg",
         "alt": "Crystal Drop Bridal Collections"
       }
     ],
@@ -34,7 +34,7 @@
     "priceUsd": 5000,
     "images": [
       {
-        "src": "/media/products/haute-collection-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/haute-collection-1.jpg",
         "alt": "Haute Couture Bridal Collection"
       }
     ],
@@ -58,7 +58,7 @@
     "priceUsd": 1500,
     "images": [
       {
-        "src": "/media/products/adoreme-set-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/adoreme-set-1.jpg",
         "alt": "Adoreme Set"
       }
     ],
@@ -82,7 +82,7 @@
     "priceUsd": 1800,
     "images": [
       {
-        "src": "/media/products/boss-affair-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/boss-affair-1.jpg",
         "alt": "Boss Affair"
       }
     ],
@@ -106,7 +106,7 @@
     "priceUsd": 1200,
     "images": [
       {
-        "src": "/media/products/chic-set-2-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/chic-set-2-1.jpg",
         "alt": "Chic Set"
       }
     ],
@@ -130,11 +130,11 @@
     "priceUsd": 1000,
     "images": [
       {
-        "src": "/media/products/velvet-max-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/velvet-max-1.jpg",
         "alt": "Velvet Max — view 1"
       },
       {
-        "src": "/media/products/velvet-max-2.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/velvet-max-2.jpg",
         "alt": "Velvet Max — view 2"
       }
     ],
@@ -158,11 +158,11 @@
     "priceUsd": 1150,
     "images": [
       {
-        "src": "/media/products/axo-set-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/axo-set-1.jpg",
         "alt": "Axo Set — view 1"
       },
       {
-        "src": "/media/products/axo-set-2.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/axo-set-2.jpg",
         "alt": "Axo Set — view 2"
       }
     ],
@@ -186,7 +186,7 @@
     "priceUsd": 2300,
     "images": [
       {
-        "src": "/media/products/platinum-haze-tunic-dress-1.webp",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/platinum-haze-tunic-dress-1.webp",
         "alt": "Platinum Haze Tunic Dress"
       }
     ],
@@ -211,7 +211,7 @@
     "priceUsd": 1800,
     "images": [
       {
-        "src": "/media/products/azure-monarch-blouse-skirt-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/azure-monarch-blouse-skirt-1.jpg",
         "alt": "Azure Monarch Blouse Skirt"
       }
     ],
@@ -236,15 +236,15 @@
     "priceUsd": 2650,
     "images": [
       {
-        "src": "/media/products/rose-ember-cape-set-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/rose-ember-cape-set-1.jpg",
         "alt": "Rosé Ember Cape Set — view 1"
       },
       {
-        "src": "/media/products/rose-ember-cape-set-2.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/rose-ember-cape-set-2.jpg",
         "alt": "Rosé Ember Cape Set — view 2"
       },
       {
-        "src": "/media/products/rose-ember-cape-set-3.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/rose-ember-cape-set-3.jpg",
         "alt": "Rosé Ember Cape Set — view 3"
       }
     ],
@@ -269,7 +269,7 @@
     "priceUsd": 2400,
     "images": [
       {
-        "src": "/media/products/silver-pulse-pantsuit-1.webp",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/silver-pulse-pantsuit-1.webp",
         "alt": "Silver Pulse Pantsuit"
       }
     ],
@@ -294,7 +294,7 @@
     "priceUsd": 2100,
     "images": [
       {
-        "src": "/media/products/onyx-frost-tailored-dress-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/onyx-frost-tailored-dress-1.jpg",
         "alt": "Onyx Frost Tailored Dress"
       }
     ],
@@ -319,7 +319,7 @@
     "priceUsd": 1600,
     "images": [
       {
-        "src": "/media/products/dusk-aura-wrap-dress-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/dusk-aura-wrap-dress-1.jpg",
         "alt": "Dusk Aura Wrap Dress"
       }
     ],
@@ -344,7 +344,7 @@
     "priceUsd": 2700,
     "images": [
       {
-        "src": "/media/products/emberlace-slit-gown-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/emberlace-slit-gown-1.jpg",
         "alt": "Emberlace Slit Gown"
       }
     ],
@@ -369,15 +369,15 @@
     "priceUsd": 2500,
     "images": [
       {
-        "src": "/media/products/golden-thread-coat-dress-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/golden-thread-coat-dress-1.jpg",
         "alt": "Golden Thread Coat Dress — view 1"
       },
       {
-        "src": "/media/products/golden-thread-coat-dress-2.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/golden-thread-coat-dress-2.jpg",
         "alt": "Golden Thread Coat Dress — view 2"
       },
       {
-        "src": "/media/products/golden-thread-coat-dress-3.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/golden-thread-coat-dress-3.jpg",
         "alt": "Golden Thread Coat Dress — view 3"
       }
     ],
@@ -402,15 +402,15 @@
     "priceUsd": 2000,
     "images": [
       {
-        "src": "/media/products/velvet-rune-cocktail-dress-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/velvet-rune-cocktail-dress-1.jpg",
         "alt": "Velvet Rune Cocktail Dress — view 1"
       },
       {
-        "src": "/media/products/velvet-rune-cocktail-dress-2.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/velvet-rune-cocktail-dress-2.jpg",
         "alt": "Velvet Rune Cocktail Dress — view 2"
       },
       {
-        "src": "/media/products/velvet-rune-cocktail-dress-3.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/velvet-rune-cocktail-dress-3.jpg",
         "alt": "Velvet Rune Cocktail Dress — view 3"
       }
     ],
@@ -435,7 +435,7 @@
     "priceUsd": 1900,
     "images": [
       {
-        "src": "/media/products/graphite-bloom-midi-dress-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/graphite-bloom-midi-dress-1.jpg",
         "alt": "agbonsgl"
       }
     ],
@@ -460,15 +460,15 @@
     "priceUsd": 2600,
     "images": [
       {
-        "src": "/media/products/pearlline-draped-gown-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/pearlline-draped-gown-1.jpg",
         "alt": "Pearlline Draped Gown — view 1"
       },
       {
-        "src": "/media/products/pearlline-draped-gown-2.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/pearlline-draped-gown-2.jpg",
         "alt": "Pearlline Draped Gown — view 2"
       },
       {
-        "src": "/media/products/pearlline-draped-gown-3.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/pearlline-draped-gown-3.jpg",
         "alt": "Pearlline Draped Gown — view 3"
       }
     ],
@@ -493,7 +493,7 @@
     "priceUsd": 2350,
     "images": [
       {
-        "src": "/media/products/opal-mirage-suit-set-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/opal-mirage-suit-set-1.jpg",
         "alt": "Opal Mirage Suit Set"
       }
     ],
@@ -518,11 +518,11 @@
     "priceUsd": 1750,
     "images": [
       {
-        "src": "/media/products/crimson-halo-shift-dress-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/crimson-halo-shift-dress-1.jpg",
         "alt": "Crimson Halo Shift Dress — view 1"
       },
       {
-        "src": "/media/products/crimson-halo-shift-dress-2.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/crimson-halo-shift-dress-2.jpg",
         "alt": "Crimson Halo Shift Dress — view 2"
       }
     ],
@@ -547,15 +547,15 @@
     "priceUsd": 2800,
     "images": [
       {
-        "src": "/media/products/sapphire-veil-evening-gown-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/sapphire-veil-evening-gown-1.jpg",
         "alt": "Sapphire Veil Evening Gown — view 1"
       },
       {
-        "src": "/media/products/sapphire-veil-evening-gown-2.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/sapphire-veil-evening-gown-2.jpg",
         "alt": "Sapphire Veil Evening Gown — view 2"
       },
       {
-        "src": "/media/products/sapphire-veil-evening-gown-3.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/sapphire-veil-evening-gown-3.jpg",
         "alt": "Sapphire Veil Evening Gown — view 3"
       }
     ],
@@ -580,15 +580,15 @@
     "priceUsd": 2200,
     "images": [
       {
-        "src": "/media/products/blush-equinox-maxi-dress-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/blush-equinox-maxi-dress-1.jpg",
         "alt": "Blush Equinox Maxi Dress — view 1"
       },
       {
-        "src": "/media/products/blush-equinox-maxi-dress-2.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/blush-equinox-maxi-dress-2.jpg",
         "alt": "Blush Equinox Maxi Dress — view 2"
       },
       {
-        "src": "/media/products/blush-equinox-maxi-dress-3.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/blush-equinox-maxi-dress-3.jpg",
         "alt": "Blush Equinox Maxi Dress — view 3"
       }
     ],
@@ -613,7 +613,7 @@
     "priceUsd": 1950,
     "images": [
       {
-        "src": "/media/products/champagne-blade-dress-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/champagne-blade-dress-1.jpg",
         "alt": "Champagne Blade Dress"
       }
     ],
@@ -638,7 +638,7 @@
     "priceUsd": 1800,
     "images": [
       {
-        "src": "/media/products/noir-whisper-dress-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/noir-whisper-dress-1.jpg",
         "alt": "Noir Whisper Dress"
       }
     ],
@@ -663,7 +663,7 @@
     "priceUsd": 2450,
     "images": [
       {
-        "src": "/media/products/royal-ember-gown-1.webp",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/royal-ember-gown-1.webp",
         "alt": "Royal Ember Gown"
       }
     ],
@@ -688,7 +688,7 @@
     "priceUsd": 2150,
     "images": [
       {
-        "src": "/media/products/ivory-cascade-cape-dress-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/ivory-cascade-cape-dress-1.jpg",
         "alt": "Ivory Cascade Cape Dress"
       }
     ],
@@ -712,7 +712,7 @@
     "priceUsd": 800,
     "images": [
       {
-        "src": "/media/products/summer-icon-dress-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/summer-icon-dress-1.jpg",
         "alt": "Summer Icon Dress"
       }
     ],
@@ -736,7 +736,7 @@
     "priceUsd": 2000,
     "images": [
       {
-        "src": "/media/products/exclusive-diva-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/exclusive-diva-1.jpg",
         "alt": "Exclusive Diva"
       }
     ],
@@ -760,7 +760,7 @@
     "priceUsd": 1500,
     "images": [
       {
-        "src": "/media/products/millennium-dress-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/millennium-dress-1.jpg",
         "alt": "Millennium Dress"
       }
     ],
@@ -784,11 +784,11 @@
     "priceUsd": 1000,
     "images": [
       {
-        "src": "/media/products/mimi-asake-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/mimi-asake-1.jpg",
         "alt": "Mimi Asake — view 1"
       },
       {
-        "src": "/media/products/mimi-asake-2.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/mimi-asake-2.jpg",
         "alt": "Mimi Asake — view 2"
       }
     ],
@@ -812,7 +812,7 @@
     "priceUsd": 2000,
     "images": [
       {
-        "src": "/media/products/monica-drape-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/monica-drape-1.jpg",
         "alt": "Monica Drape"
       }
     ],
@@ -836,7 +836,7 @@
     "priceUsd": 850,
     "images": [
       {
-        "src": "/media/products/terra-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/terra-1.jpg",
         "alt": "Terra"
       }
     ],
@@ -860,7 +860,7 @@
     "priceUsd": 1500,
     "images": [
       {
-        "src": "/media/products/aqua-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/aqua-1.jpg",
         "alt": "Aqua"
       }
     ],
@@ -884,7 +884,7 @@
     "priceUsd": 950,
     "images": [
       {
-        "src": "/media/products/mini-snow-dress-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/mini-snow-dress-1.jpg",
         "alt": "Mini Snow Dress"
       }
     ],
@@ -908,7 +908,7 @@
     "priceUsd": 800,
     "images": [
       {
-        "src": "/media/products/purple-varient-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/purple-varient-1.jpg",
         "alt": "Purple Varient"
       }
     ],
@@ -932,7 +932,7 @@
     "priceUsd": 500,
     "images": [
       {
-        "src": "/media/products/janetin-gigs-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/janetin-gigs-1.jpg",
         "alt": "Janetin Gigs"
       }
     ],
@@ -956,7 +956,7 @@
     "priceUsd": 1000,
     "images": [
       {
-        "src": "/media/products/amazon-bliz-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/amazon-bliz-1.jpg",
         "alt": "Amazon Bliz"
       }
     ],
@@ -980,15 +980,15 @@
     "priceUsd": 800,
     "images": [
       {
-        "src": "/media/products/viva-drape-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/viva-drape-1.jpg",
         "alt": "Viva Drape — view 1"
       },
       {
-        "src": "/media/products/viva-drape-2.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/viva-drape-2.jpg",
         "alt": "Viva Drape — view 2"
       },
       {
-        "src": "/media/products/viva-drape-3.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/viva-drape-3.jpg",
         "alt": "Viva Drape — view 3"
       }
     ],
@@ -1012,7 +1012,7 @@
     "priceUsd": 1500,
     "images": [
       {
-        "src": "/media/products/she-look-set-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/she-look-set-1.jpg",
         "alt": "She Look Set"
       }
     ],
@@ -1036,7 +1036,7 @@
     "priceUsd": 1800,
     "images": [
       {
-        "src": "/media/products/corporate-chic-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/corporate-chic-1.jpg",
         "alt": "Corporate Chic"
       }
     ],
@@ -1060,7 +1060,7 @@
     "priceUsd": 1200,
     "images": [
       {
-        "src": "/media/products/boss-set-1.webp",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/boss-set-1.webp",
         "alt": "agbonsgl"
       }
     ],
@@ -1084,7 +1084,7 @@
     "priceUsd": 1150,
     "images": [
       {
-        "src": "/media/products/chic-set-1.jpg",
+        "src": "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/products/chic-set-1.jpg",
         "alt": "Chic Set"
       }
     ],

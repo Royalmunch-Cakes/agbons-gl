@@ -26,7 +26,7 @@ export const journalPosts: JournalPost[] = [
     excerpt:
       "The first African collection to use crystal droplets as a structural design language was hailed as “transformational” on the runway.",
     image: {
-      src: "/media/collections/crystal-drop.jpg",
+      src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/crystal-drop.jpg",
       alt: "Crystal Drop Collection gown on the runway",
     },
     relatedCollection: "crystal-drop",
@@ -53,7 +53,7 @@ export const journalPosts: JournalPost[] = [
     excerpt:
       "From the Stone, Petal & Sparkle collection — nude illusion mesh, thousands of hand-placed crystals and a trailing tulle cape.",
     image: {
-      src: "/media/collections/stone-petal-sparkle.jpg",
+      src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/stone-petal-sparkle.jpg",
       alt: "Stone, Petal & Sparkle Collection gown",
     },
     relatedCollection: "stone-petal-sparkle",
@@ -75,7 +75,7 @@ export const journalPosts: JournalPost[] = [
     excerpt:
       "30,000 crystal beads, 6,000 droplets and over 200 yards of hand-cut tulle — the story behind the Queen Idia Collection's standout look.",
     image: {
-      src: "/media/collections/queen-idia.jpg",
+      src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/queen-idia.jpg",
       alt: "Queen Idia Collection bridal look",
     },
     relatedCollection: "queen-idia",
@@ -103,7 +103,7 @@ export const journalPosts: JournalPost[] = [
     excerpt:
       "An ode to the modern mermaid, celebrated by Senator Ita Giwa, Lady Betsy Obaseki and Toke Makinwa.",
     image: {
-      src: "/media/collections/haute-couture.webp",
+      src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/collections/haute-couture.webp",
       alt: "Haute Couture Collection mermaid gown",
     },
     relatedCollection: "haute-couture",

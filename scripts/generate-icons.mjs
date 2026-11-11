@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Generates the site favicon set from the brand icon (pulled from the
- * WordPress media library by `npm run media:pull`):
+ * Generates the site favicon set from the brand icon (hosted on Cloudinary,
+ * see scripts/cloudinary-media.json):
  *   src/app/icon.png        512×512  (<link rel="icon">)
  *   src/app/apple-icon.png  180×180  (iOS home screen, ivory background)
  *   src/app/favicon.ico     16/32/48 (legacy /favicon.ico requests)
@@ -15,7 +15,12 @@ import path from "node:path";
 import sharp from "sharp";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
-const SRC = path.join(ROOT, "public/media/brand/icon-full.webp");
+const MEDIA = JSON.parse(
+  fs.readFileSync(path.join(ROOT, "scripts/cloudinary-media.json"), "utf8"),
+);
+const download = async (key) =>
+  Buffer.from(await (await fetch(MEDIA[key].url)).arrayBuffer());
+const SRC = await download("/media/brand/icon-full.webp");
 const APP = path.join(ROOT, "src/app");
 const IVORY = { r: 250, g: 247, b: 242, alpha: 1 };
 
@@ -78,7 +83,7 @@ const ico = await Promise.all(
   })),
 );
 fs.writeFileSync(path.join(APP, "favicon.ico"), toIco(ico));
-await sharp(path.join(ROOT, "public/media/site/home-hero.png"))
+await sharp(await download("/media/site/home-hero.png"))
   .resize(1200, 630, { fit: "cover", position: "centre" })
   .jpeg({ quality: 82, mozjpeg: true })
   .toFile(path.join(APP, "opengraph-image.jpg"));

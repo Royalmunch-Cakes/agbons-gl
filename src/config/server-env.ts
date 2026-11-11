@@ -25,6 +25,16 @@ export const serverEnv = {
     serverPrefix: mailchimpDatacenter,
     audienceId: (process.env.MAILCHIMP_AUDIENCE_ID || "").trim(),
   },
+  cloudinary: {
+    cloudName: (
+      process.env.CLOUDINARY_CLOUD_NAME ||
+      process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ||
+      ""
+    ).trim(),
+    apiKey: (process.env.CLOUDINARY_API_KEY || "").trim(),
+    apiSecret: (process.env.CLOUDINARY_API_SECRET || "").trim(),
+    folder: (process.env.CLOUDINARY_FOLDER || "agbons-gl").trim(),
+  },
   resendApiKey: process.env.RESEND_API_KEY || "",
   notifyEmail: process.env.FORMS_NOTIFY_EMAIL || "",
   fromEmail: process.env.FORMS_FROM_EMAIL || "",

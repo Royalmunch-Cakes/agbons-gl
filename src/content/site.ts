@@ -1,32 +1,36 @@
+import { CLOUDINARY_MEDIA_FOLDER, cloudinaryBase } from "@/lib/cloudinary";
 import type { MediaAsset, Testimonial } from "@/lib/types";
+
+/** Cloudinary folder holding the migrated gallery images. */
+const GALLERY = `${cloudinaryBase("image")}/${CLOUDINARY_MEDIA_FOLDER}/gallery`;
 
 /**
  * Shared editorial content and media, migrated from the WordPress pages
- * (audit §3, §6). Regenerate media with `npm run media:pull -- --insecure`.
+ * (audit §3, §6). Media is hosted on Cloudinary (scripts/migrate-to-cloudinary.mjs).
  */
 
 export const brandMedia = {
-  logo: { src: "/media/brand/logo.webp", alt: "AGBONS-GL Nigeria Limited" },
-  logoWhite: { src: "/media/brand/logo-white.webp", alt: "AGBONS-GL" },
-  monogram: { src: "/media/brand/monogram.webp", alt: "AGBONS-GL monogram" },
+  logo: { src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/brand/logo.webp", alt: "AGBONS-GL Nigeria Limited" },
+  logoWhite: { src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/brand/logo-white.webp", alt: "AGBONS-GL" },
+  monogram: { src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/brand/monogram.webp", alt: "AGBONS-GL monogram" },
 } satisfies Record<string, MediaAsset>;
 
 export const pageMedia = {
-  homeHero: { src: "/media/site/home-hero.png", alt: "Five AGBONS-GL couture gowns — new collection" },
-  homeStory: { src: "/media/site/home-story.jpg", alt: "AGBONS-GL bride in a bespoke gown" },
-  featureSignature: { src: "/media/site/feature-signature.webp", alt: "Signature Bridal 2025 look" },
-  featureConsultation: { src: "/media/site/feature-consultation.jpg", alt: "Bridal consultation look" },
-  featureCollections: { src: "/media/site/feature-collections.jpg", alt: "Bridal collections look" },
-  dreamDress: { src: "/media/site/dream-dress.jpg", alt: "Bride in a sculpted couture gown" },
-  aboutHero: { src: "/media/site/about-hero.webp", alt: "AGBONS-GL couture gown" },
-  founder: { src: "/media/site/founder.jpg", alt: "Creative Director of AGBONS-GL" },
-  bridalHero: { src: "/media/site/bridal-hero.jpg", alt: "Bride in an AGBONS-GL couture gown" },
+  homeHero: { src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/home-hero.png", alt: "Five AGBONS-GL couture gowns — new collection" },
+  homeStory: { src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/home-story.jpg", alt: "AGBONS-GL bride in a bespoke gown" },
+  featureSignature: { src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/feature-signature.webp", alt: "Signature Bridal 2025 look" },
+  featureConsultation: { src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/feature-consultation.jpg", alt: "Bridal consultation look" },
+  featureCollections: { src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/feature-collections.jpg", alt: "Bridal collections look" },
+  dreamDress: { src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/dream-dress.jpg", alt: "Bride in a sculpted couture gown" },
+  aboutHero: { src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/about-hero.webp", alt: "AGBONS-GL couture gown" },
+  founder: { src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/founder.jpg", alt: "Creative Director of AGBONS-GL" },
+  bridalHero: { src: "https://res.cloudinary.com/mgioqhn4/image/upload/agbons-gl/site/bridal-hero.jpg", alt: "Bride in an AGBONS-GL couture gown" },
 } satisfies Record<string, MediaAsset>;
 
-/** Self-hosted brand films (audit §6: 2 MP4s). */
+/** Brand films (audit §6: 2 MP4s), hosted on Cloudinary. Both are portrait (720×1280). */
 export const videos = {
-  brandFilm: { src: "/media/video/brand-film.mp4", poster: pageMedia.homeHero.src },
-  ourStory: { src: "/media/video/our-story.mp4", poster: pageMedia.aboutHero.src },
+  brandFilm: { src: "https://res.cloudinary.com/mgioqhn4/video/upload/agbons-gl/video/brand-film.mp4", poster: pageMedia.homeHero.src },
+  ourStory: { src: "https://res.cloudinary.com/mgioqhn4/video/upload/agbons-gl/video/our-story.mp4", poster: pageMedia.aboutHero.src, width: 720, height: 1280 },
 };
 
 /** Couture gallery (audit §3.1 item 7 — ~14 images). */
@@ -34,7 +38,7 @@ export const gallery: MediaAsset[] = [
   "01.jpg", "02.jpg", "03.webp", "04.webp", "05.jpg", "06.jpg", "07.webp",
   "08.jpg", "09.jpg", "10.jpg", "11.jpg", "12.webp", "13.webp", "14.webp",
 ].map((file, i) => ({
-  src: `/media/gallery/${file}`,
+  src: `${GALLERY}/${file}`,
   alt: `AGBONS-GL couture — gallery image ${i + 1}`,
 }));
 
@@ -42,7 +46,7 @@ export const gallery: MediaAsset[] = [
 export const contactGallery: MediaAsset[] = [
   "contact-1.webp", "contact-2.jpg", "contact-3.jpg", "contact-4.jpg",
 ].map((file, i) => ({
-  src: `/media/gallery/${file}`,
+  src: `${GALLERY}/${file}`,
   alt: `AGBONS-GL client look ${i + 1}`,
 }));
 

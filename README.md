@@ -65,8 +65,8 @@ reset to the migrated content.
 |---|---|
 | `npm run dev` / `build` / `start` | Next.js |
 | `npm run lint` | ESLint |
-| `npm run import:catalog -- --insecure` | Re-import all products + images from the live WooCommerce Store API into `src/content/products.json` and `public/media/products/` |
-| `npm run media:pull -- --insecure` | Re-download site imagery and brand films listed in `scripts/site-media.json` (already committed) |
+| `node scripts/migrate-to-cloudinary.mjs` | One-off: uploaded `public/media/` (images + videos) to Cloudinary folder `agbons-gl/`; writes `scripts/cloudinary-media.json`. Already done — the local copies were removed |
+| `npm run import:catalog` / `npm run media:pull` | Historical WordPress importers (wrote to `public/media/`); superseded by Cloudinary |
 | `npm run icons` | Regenerate favicon, app icons and the default Open Graph image |
 
 `--insecure` is needed only because the current WordPress host serves an
@@ -110,7 +110,7 @@ src/
   content/             products.json, collections, site media, FAQs, journal, policies
   lib/                 catalog queries, store, WhatsApp, currency, analytics, forms
 scripts/               WooCommerce import, media pull, icon generation
-public/media/          migrated imagery and brand films
+src/lib/cloudinary*.ts Cloudinary URLs, next/image loader (all media is on Cloudinary)
 ```
 
 ## Routes

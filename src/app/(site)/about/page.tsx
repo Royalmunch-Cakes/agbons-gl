@@ -92,6 +92,8 @@ export default function AboutPage() {
           <BrandFilm
             src={videos.ourStory.src}
             poster={videos.ourStory.poster}
+            width={videos.ourStory.width}
+            height={videos.ourStory.height}
             title="The AGBONS-GL story"
           />
         </Container>
