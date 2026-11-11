@@ -85,6 +85,15 @@ class VercelBackend implements BlobBackend {
       return res && res.statusCode === 200 ? res : null;
     } catch (err) {
       if (err instanceof BlobNotFoundError) return null;
+      if (err instanceof Error && /\b403\b/.test(err.message)) {
+        throw new Error(
+          `Vercel Blob refused access (403) reading "${this.path(key)}". This ` +
+            "project's credentials don't match the store: connect the Blob store " +
+            "under the project's Storage tab, and remove BLOB_STORE_ID / " +
+            "BLOB_READ_WRITE_TOKEN values copied from another project or account.",
+          { cause: err },
+        );
+      }
       throw err;
     }
   }
